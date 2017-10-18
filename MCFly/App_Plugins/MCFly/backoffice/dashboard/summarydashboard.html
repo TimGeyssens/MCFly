@@ -1,0 +1,30 @@
+﻿<div ng-controller="MCFly.DashboardController" class="mcfly__summary-dashboard">
+    <div ng-repeat="type in types" class="mcfly__type-summary">
+        <div class="mcfly__type-summary-inr">
+
+            <i class="mcfly__type-summary__icon icon-plane"></i>
+            <h1 class="mcfly__type-summary__record-count">{{type.name}}</h1>
+            <p  class="mcfly__type-summary__type-name">Contains {{type.fieldCount}} fields</p>
+            
+
+            <div class="mcfly__type-summary__toolbar">
+                <a href="" title="Edit Form" ng-href="#/MCFly/mcfly/edit/{{type.id}}"><i class="icon icon-edit"></i></a>
+                <a ng-hide="!type.storesData" href="" title="View Records" ng-href="#/uiomatic/uiomatic/list/{{type.alias}}"><i class="icon icon-eye"></i></a>
+            </div>
+        </div>
+    </div>
+    <a ng-href="#/MCFly/mcfly/edit/-1?create">
+        <div class="mcfly__type-summary">
+            <div class="mcfly__type-summary-inr">
+                <i class="mcfly__type-summary__icon icon-add"></i>
+                <h1 class="mcfly__type-summary__record-count">Add New Form</h1>
+                <p class="mcfly__type-summary__type-name">create a new form</p>
+
+                <div class="mcfly__type-summary__toolbar">
+                    <a href="" title="Create Form" ng-href="#/MCFly/mcfly/edit/-1?create"><i class="icon icon-add"></i></a>
+
+                </div>
+            </div>
+        </div>
+    </a>
+</div>

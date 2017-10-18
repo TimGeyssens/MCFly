@@ -1,0 +1,19 @@
+<div class="umb-panel form-editor-edit-field" ng-controller="FormEditor.Editor.FieldController">
+  <div class="umb-panel-body no-header with-footer umb-scrollable">
+    <div class="umb-control-group">
+      <div class="tab-content form umb-el-wrap">
+        <form-editor-field-header></form-editor-field-header>
+
+        <div class="umb-pane">
+          <label class="control-label" for="text">
+            <form-editor-localize key="edit.text">Text</form-editor-localize>
+            <small form-editor-localize key="edit.textParagraph.text.helpText">The text to display in the text paragraph</small>
+          </label>
+          <textarea id="text" ng-model="dialogData.field.text" style="width:320px;height:350px;"></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <form-editor-field-footer></form-editor-field-footer>
+</div>

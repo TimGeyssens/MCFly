@@ -1,0 +1,24 @@
+﻿@model System.String
+@using MCFly
+@using MCFly.Core;
+@{
+
+    var propName = ViewData["propertyName"] as string;
+    var form = ViewData["form"] as Form;
+    var options = form.Fields.FirstOrDefault(x => x.Alias == propName).FieldOptions;
+
+ }
+
+<div  id="@Html.IdForModel()"  @foreach (var attri in (Dictionary<string, object>)ViewData["htmlAttributes"])
+    {
+       <text >@(attri.Key)="@(attri.Value)"</text>
+    }> 
+    @foreach (var option in options)
+{
+    <div><label>
+        <input type="radio" name="@Html.NameForModel()" value="@option.Value" />
+        @option.Value
+        </label>
+    </div>
+}
+</div>

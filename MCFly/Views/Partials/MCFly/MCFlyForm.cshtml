@@ -1,0 +1,82 @@
+﻿@model Type
+@using System.Reflection;
+@using System.ComponentModel;
+@using System.ComponentModel.DataAnnotations;
+@using MCFly.Core;
+@{
+
+    var form = new MCFly.Controllers.MCFlyApiController().GetByAlias(Model.FullName);
+}
+
+@if (TempData["success"] != null)
+{
+    <p>@form.MessageOnSubmit</p>
+
+}
+else
+{
+    using (Html.BeginUmbracoForm<MCFly.EntriesController>("HandleForm", null, new Dictionary<string, object> { { "id", "mcfly-form" } }))
+    {
+        @Html.AntiForgeryToken()
+
+        <h3>@form.Name</h3>
+        @Html.HiddenFor(x => Model.FullName)
+
+        foreach (var prop in Model.GetProperties().Where(x => x.Name != "Id" && x.Name != "Created" && x.Name != "UmbracoPage"))
+        {
+            var dAttri = prop.GetCustomAttributes().FirstOrDefault(x => x.GetType() == typeof(DisplayAttribute));
+            var caption = ((DisplayAttribute)dAttri).Name;
+            <div>
+
+                @Html.Label(caption)@if (prop.GetCustomAttributes().Any(x => x.GetType() == typeof(RequiredAttribute)))
+                { <span>*</span>}
+                <div>
+
+                    @{
+                        var metadataForProperty = ModelMetadataProviders.Current.GetMetadataForProperty(null, Model, prop.Name);
+                        var attri = (UIOMatic.Attributes.UIOMaticFieldAttribute)prop.GetCustomAttribute(typeof(UIOMatic.Attributes.UIOMaticFieldAttribute));
+                        var templateName = MCFly.Core.Helper.GetFieldTypes().FirstOrDefault(x => x.Name == form.Fields.FirstOrDefault(f => f.Caption == caption).FieldTypeName).FrontEndRenderView;
+                        var validationAttributes = Html.GetUnobtrusiveValidationAttributes(prop.Name, metadataForProperty);
+                        var attributes = new Dictionary<string, object>{{
+                                "placeholder", ((DisplayAttribute)dAttri).Prompt
+                            }};
+                        attributes.AddRange(new Dictionary<string, object>(validationAttributes));
+                    }
+
+
+
+                    @Html.Editor(prop.Name, templateName, new { htmlAttributes = attributes, propertyName = prop.Name, form = form })
+
+                    @Html.ValidationMessage(prop.Name)
+                </div>
+            </div>
+
+                        }
+
+                       
+                        <button class="g-recaptcha"
+                                data-sitekey="@System.Configuration.ConfigurationManager.AppSettings["RecaptchaSiteKey"]"
+                                data-callback="onSubmit"
+                                data-badge="inline">
+                            @form.SubmitButtonCaption
+                        </button>
+
+
+                        }
+
+                        <script>
+                            function onSubmit() {
+                                var result = $('#mcfly-form').valid();
+
+                                if (result != false) {
+                                    $(".g-recaptcha").prop("disabled", true);
+                                    document.getElementById('mcfly-form').submit();
+                                }
+                                else {
+
+                                    grecaptcha.reset();
+                                }
+                            }
+                        </script>
+
+                        }

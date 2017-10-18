@@ -1,0 +1,8 @@
+﻿<div ng-controller="MCFly.UIOMaticAddons.FileListViewFieldController">
+    <div ng-if="property.value">
+        <div ng-if="isPicture(property.value)">
+            <img ng-src="{{property.value}}?width=100" />
+        </div>
+        <a href="{{property.value}}" target="_blank"><small>{{property.value.split('/').pop()}}</small></a>
+    </div>
+</div>

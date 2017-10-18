@@ -1,0 +1,18 @@
+@inherits Umbraco.Web.Mvc.UmbracoViewPage<FormEditor.Fields.CheckboxGroupField>
+<div class="form-group @(Model.Mandatory ? "required" : null) @(Model.Invalid ? "has-error" : null)" name="@Model.FormSafeName" ng-model="@Model.FormSafeName" action-field="@Model.FormSafeName">
+  <label>@Model.Label</label>
+  @foreach(var fieldValue in Model.FieldValues)
+  {
+    <div class="checkbox">
+      <label>
+        <input type="checkbox" ng-checked="hasMultiSelectValue('@Model.FormSafeName', '@HttpUtility.JavaScriptStringEncode(fieldValue.Value)')" ng-click="toggleMultiSelectValue('@Model.FormSafeName', @ViewBag.FormEditorPageNumber, '@fieldValue.Value', @Model.Mandatory.ToString().ToLowerInvariant())" />
+        @fieldValue.Value
+      </label>
+    </div>
+  }
+
+  @Html.Partial("FormEditor/FieldsAsync/core.utils.helptext")
+  @Html.Partial("FormEditor/FieldsAsync/core.utils.validationerror")
+
+</div>
+

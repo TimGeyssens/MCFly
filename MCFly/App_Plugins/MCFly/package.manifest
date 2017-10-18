@@ -1,0 +1,24 @@
+﻿﻿{
+    propertyEditors: [
+		{
+			alias: "MCFly.FormPicker",
+			name: "MCFLy FormPicker",
+			editor: {
+			view: "~/App_Plugins/UIOMatic/backoffice/views/propertyeditors/pickers.type.html"
+			}
+
+		}
+       
+    ]
+    ,
+	javascript: [
+		'~/App_Plugins/MCFly/resource.js',
+	    '~/App_Plugins/MCFly/backoffice/mcfly/edit.controller.js',
+		'~/App_Plugins/MCFly/backoffice/mcfly/delete.controller.js',
+        '~/App_Plugins/MCFly/backoffice/dashboard/summarydashboard.controller.js',
+		'~/App_Plugins/MCFly/UIOMaticAddons/ListViewFields/file.controller.js'
+	],
+    css: [
+		'~/App_Plugins/MCFly/backoffice/assets/css/mcfly.css'
+	]
+}

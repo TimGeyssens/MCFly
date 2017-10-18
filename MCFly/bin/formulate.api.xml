@@ -1,0 +1,167 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>formulate.api</name>
+    </assembly>
+    <members>
+        <member name="T:formulate.api.Controllers.SubmissionsController">
+            <summary>
+            Controller for form submissions.
+            </summary>
+        </member>
+        <member name="P:formulate.api.Controllers.SubmissionsController.Config">
+            <summary>
+            Configuration manager.
+            </summary>
+        </member>
+        <member name="M:formulate.api.Controllers.SubmissionsController.Submit">
+            <summary>
+            Handles form submissions.
+            </summary>
+            <returns>
+            A JSON object indicating success or failure.
+            </returns>
+        </member>
+        <member name="T:formulate.api.FormRequestContext">
+            <summary>
+            The contextual information used during a request to submit a form.
+            </summary>
+        </member>
+        <member name="P:formulate.api.FormRequestContext.CurrentPage">
+            <summary>
+            The current Umbraco page.
+            </summary>
+        </member>
+        <member name="P:formulate.api.FormRequestContext.HttpContext">
+            <summary>
+            The current HTTP context.
+            </summary>
+        </member>
+        <member name="P:formulate.api.FormRequestContext.Services">
+            <summary>
+            The Umbraco services.
+            </summary>
+        </member>
+        <member name="P:formulate.api.FormRequestContext.UmbracoHelper">
+            <summary>
+            The Umbraco helper.
+            </summary>
+        </member>
+        <member name="P:formulate.api.FormRequestContext.UmbracoContext">
+            <summary>
+            The Umbraco context.
+            </summary>
+        </member>
+        <member name="T:formulate.api.Rendering">
+            <summary>
+            Handles operations related to rendering Formulate forms.
+            </summary>
+        </member>
+        <member name="P:formulate.api.Rendering.Config">
+            <summary>
+            Configuration manager.
+            </summary>
+        </member>
+        <member name="P:formulate.api.Rendering.Forms">
+            <summary>
+            Form persistence.
+            </summary>
+        </member>
+        <member name="P:formulate.api.Rendering.Layouts">
+            <summary>
+            Layout persistence.
+            </summary>
+        </member>
+        <member name="P:formulate.api.Rendering.Validations">
+            <summary>
+            Validation persistence.
+            </summary>
+        </member>
+        <member name="M:formulate.api.Rendering.GetFormViewModel(System.Nullable{System.Guid},System.Nullable{System.Guid},System.Nullable{System.Guid},Umbraco.Core.Models.IPublishedContent)">
+            <summary>
+            Creates a view model for the specified form, layout, and template.
+            </summary>
+            <param name="formId">
+            The form ID.
+            </param>
+            <param name="layoutId">
+            The layout ID.
+            </param>
+            <param name="templateId">
+            The template ID.
+            </param>
+            <param name="page">
+            The current Umbraco page.
+            </param>
+            <returns>
+            The view model.
+            </returns>
+            <remarks>
+            This model is used to render a form.
+            </remarks>
+        </member>
+        <member name="T:formulate.api.Submissions">
+            <summary>
+            Used for form submissions.
+            </summary>
+        </member>
+        <member name="T:formulate.api.Submissions.FormSubmitEvent">
+            <summary>
+            Delegate used when forms are submitting.
+            </summary>
+            <param name="context">
+            The form submission context.
+            </param>
+        </member>
+        <member name="E:formulate.api.Submissions.Submitting">
+            <summary>
+            Event raised when forms are submitting.
+            </summary>
+            <remarks>
+            Subscribing to this gives you the opportunity to alter form submissions. This is
+            useful, for example, if you need to automatically alter some of the submitted data.
+            </remarks>
+        </member>
+        <member name="P:formulate.api.Submissions.Forms">
+            <summary>
+            Form persistence.
+            </summary>
+        </member>
+        <member name="P:formulate.api.Submissions.Validations">
+            <summary>
+            Validation persistence.
+            </summary>
+        </member>
+        <member name="M:formulate.api.Submissions.SubmitForm(System.Guid,System.Collections.Generic.IEnumerable{formulate.core.Types.FieldSubmission},System.Collections.Generic.IEnumerable{formulate.core.Types.FileFieldSubmission},System.Collections.Generic.IEnumerable{formulate.core.Types.PayloadSubmission},formulate.core.Types.SubmissionOptions,formulate.api.FormRequestContext)">
+            <summary>
+            Submits a form.
+            </summary>
+            <param name="formId">
+            The ID of the form to submit.
+            </param>
+            <param name="data">
+            The form data to submit.
+            </param>
+            <param name="files">
+            The file data to submit.
+            </param>
+            <param name="payload">
+            Extra data related to the submission.
+            </param>
+            <param name="options">
+            The options for this submission.
+            </param>
+            <param name="context">
+            The contextual information for the form request.
+            </param>
+            <returns>
+            The result of the submission.
+            </returns>
+        </member>
+        <member name="T:formulate.api.Submissions.Submissions_Instance">
+            <summary>
+            An instance version of the Submissions class (necessary for logging).
+            </summary>
+        </member>
+    </members>
+</doc>

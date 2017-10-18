@@ -1,0 +1,5 @@
+﻿@model System.String
+@using MCFly
+
+<textarea name="@Html.NameForModel()" id="@Html.IdForModel()"
+          @foreach (var attri in (Dictionary<string, object>)ViewData["htmlAttributes"]) { <text > @(attri.Key)="@(attri.Value)" </text>  }></textarea>

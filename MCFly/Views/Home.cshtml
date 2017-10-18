@@ -1,0 +1,13 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@using System.Reflection;
+@{
+    Layout = "Master.cshtml";
+}
+
+
+
+@if (Model.Content.HasValue("mCFly"))
+{
+    @Html.Action("RenderForm", "Entries", new { alias = Model.Content.GetPropertyValue<string>("mCFly") })	@*, view= "MCFy/MCFlyAjaxForm" *@
+}
+

@@ -1,0 +1,18 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "Master.cshtml";
+}
+
+@CurrentPage.GetGridHtml("content", "fanoe")
+
+@{
+    <ul>
+        @foreach(var entry in MCFly.EntriesController.GetEntries("CommentForm").Where(x=>x.UmbracoPage == Model.Content.Id.ToString()))
+        {
+            <li>@entry.Name : @entry.Comment</li>
+        }
+    </ul>
+}
+
+@Html.Action("RenderForm", "Entries", new { alias = "CommentForm" })	
+

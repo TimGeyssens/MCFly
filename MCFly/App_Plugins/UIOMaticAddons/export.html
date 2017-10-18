@@ -1,0 +1,36 @@
+﻿<div ng-controller="uioMaticAddons.ExportController">
+
+    <div class="umb-panel umb-modal">
+        <div class="umb-panel-body no-header with-footer">
+           
+            <div class="umb-pane " style="">
+                <h5 class="umb-pane-title">Export your data</h5>
+                <div class="control-group umb-control-group" style="">
+
+                    <div class="umb-el-wrap ">
+                        
+                        <div class="controls controls-row">
+
+                            <p ng-show="loading">Generating Export...</p>
+                            <a href="{{file}}" ng-hide="loading" target="_blank">Download export here</a>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="umb-panel-footer">
+            <div class="btn-toolbar umb-btn-toolbar">
+                <a id="cancelButton" ng-click="close();" class="btn btn-link">
+                    Cancel
+                </a>
+            </div>
+        </div>
+
+    </div>
+   
+</div>
+

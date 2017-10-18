@@ -1,0 +1,8 @@
+﻿<div ng-controller="UIOMatic.PropertyEditors.MultiPicker">
+    <ul ng-repeat="item in items">
+        <li>{{item.text}}
+            <a href="" ng-click="remove($index)"><i class="icon icon-delete"></i></a>
+        </li>
+    </ul>
+    <a ng-click="openDialog()" class="btn">Select</a>
+</div>

@@ -1,0 +1,22 @@
+﻿@model System.String
+@using MCFly
+@using MCFly.Core;
+@{
+
+    var propName = ViewData["propertyName"] as string;
+    var form = ViewData["form"] as Form;
+    var options = form.Fields.FirstOrDefault(x => x.Alias) == propName).FieldOptions;
+
+ }
+<select name="@Html.NameForModel()" id="@Html.IdForModel()"
+    @foreach (var attri in (Dictionary<string, object>)ViewData["htmlAttributes"])
+    {
+       <text >@(attri.Key)="@(attri.Value)"</text>
+    }
+>
+    <option></option>
+    @foreach (var option in options)
+    {
+        <option value="@option.Value">@option.Value</option>
+    }
+</select>

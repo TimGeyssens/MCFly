@@ -1,0 +1,9 @@
+﻿{
+
+    javascript: [
+		'~/App_Plugins/UIOMaticAddons/export.resource.js',
+		'~/App_Plugins/UIOMaticAddons/export.controller.js',
+
+    ]
+	
+}
