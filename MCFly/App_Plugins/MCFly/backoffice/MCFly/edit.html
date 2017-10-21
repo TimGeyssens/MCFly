@@ -154,7 +154,9 @@
 
                             </select>
                         </div>
-                        <span class="btn" ng-click="addEmail(form,newEmailSubject,newEmailFrom,newEmailTo,newEmailToProperty,newEmailTemplate)">Add</span>
+                        Contents:
+                        <umb-editor-with-config model="newEmailContents" config="defaultRteConfig"></umb-editor-with-config>
+                        <span class="btn" ng-click="addEmail(form,newEmailSubject,newEmailContents,newEmailFrom,newEmailTo,newEmailToProperty,newEmailTemplate)">Add</span>
 
 
                         <ul>

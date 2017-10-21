@@ -142,7 +142,7 @@ namespace MCFly
 
                 var mm = new MailMessage
                 {
-                    Body = EmailRenderer.Render(email.Template, instance,form, Umbraco.TypedContent(frm["Umbraco.AssignedContentItem.Id"])),
+                    Body = EmailRenderer.Render(email.Template, instance,form,email, Umbraco.TypedContent(frm["Umbraco.AssignedContentItem.Id"])),
                     IsBodyHtml = true,
                     Subject = email.Subject ?? "New " + form.Name + " entry",
                     From = new MailAddress(email.From)
@@ -276,7 +276,7 @@ namespace MCFly
                
                 var mm = new MailMessage
                 {
-                    Body = EmailRenderer.Render(email.Template, instance,form, CurrentPage),
+                    Body = EmailRenderer.Render(email.Template, instance,form,email, CurrentPage),
                     IsBodyHtml = true,
                     Subject = email.Subject??"New " + form.Name + " entry",
                     From = new MailAddress(email.From)

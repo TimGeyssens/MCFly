@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MCFly.Core;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -18,7 +19,7 @@ namespace MCFly
         {
         }
 
-        public static string Render(string viewName, object model, Form form, IPublishedContent currentContent)
+        public static string Render(string viewName, object model, Form form, Email email, IPublishedContent currentContent)
         {
             var viewPath = Path.Combine(EmailViewPath, viewName);
             var viewFile = new FileInfo(HostingEnvironment.MapPath(viewPath));
@@ -36,7 +37,8 @@ namespace MCFly
             {
                 // pass the current content to the email template, because Umbraco.AssignedContentItem doesn't work out of Umbraco context
                 ["currentContent"] = currentContent,
-                ["form"] = form
+                ["form"] = form,
+                ["email"] = email
             };
             razor.Render(new ViewContext(controllerContext, razor, viewData, new TempDataDictionary(), writer), writer);
             return writer.ToString();

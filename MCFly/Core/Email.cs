@@ -28,6 +28,10 @@ namespace MCFly.Core
         [DataMember(Name = "subject")]
         public string Subject { get; set; }
 
+        [Column("Content")]
+        [DataMember(Name = "content")]
+        public string Content { get; set; }
+
         [Column("From")]
         [DataMember(Name = "from")]
         public string From { get; set; }

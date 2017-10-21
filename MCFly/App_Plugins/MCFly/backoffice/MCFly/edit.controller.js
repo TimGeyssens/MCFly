@@ -12,7 +12,23 @@ app.controller("MCFly.EditController",
         $scope.newFieldName = "";
         $scope.hasmailProperties = false;
 
+
         $scope.activeTab = 'design';
+
+        $scope.newEmailContents = {};
+
+        $scope.defaultRteConfig = {
+            label: 'bodyText',
+            description: 'Load some stuff here',
+            view: 'rte',
+            config: {
+                editor: {
+                    toolbar: ["code", "undo", "redo", "cut", "styleselect", "bold", "italic", "alignleft", "aligncenter", "alignright", "bullist", "numlist", "link", "umbmediapicker", "table", "umbembeddialog"],
+                    stylesheets: [],
+                    dimensions: { height: 300, width: 500 }
+                }
+            }
+        };
 
         mcFlyResource.getFormBuilderData().then(function (resp) {
             $scope.fieldtypes = resp.data.FieldTypes;
@@ -84,11 +100,12 @@ app.controller("MCFly.EditController",
 
             $scope.hasmailProperties = _.where($scope.form.fields, { fieldTypeName: "Email" }).length > 0;
         }
-        $scope.addEmail = function (form, subject, from, to, toProperty, template) {
+        $scope.addEmail = function (form, subject, content, from, to, toProperty, template) {
 
             var newEmail = {
                 'formId': form.Id,
                 'subject': subject,
+                'content': content.value,
                 'from': from,
                 'to': to,
                 'toProperty': toProperty,

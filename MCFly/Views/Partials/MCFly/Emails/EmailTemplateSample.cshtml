@@ -8,6 +8,7 @@
     // - Umbraco.AssignedContentItem doesn't in this context
     var currentContent = ViewData["currentContent"] as IPublishedContent;
     var form = ViewData["form"] as MCFly.Form;
+    var email = ViewData["email"] as MCFly.Core.Email;
 }
 <!DOCTYPE html>
 <html>
@@ -63,6 +64,7 @@
   <p>
     This is a sample email template. You should probably roll your own.
   </p>
+    @Html.Raw(email.Content)
   <h2>Submitted data</h2>
   <p>
     The following data was submitted.

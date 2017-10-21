@@ -2961,6 +2961,7 @@
     <Content Include="App_Plugins\MCFly\backoffice\assets\css\mcfly.css" />
     <Content Include="App_Plugins\MCFly\backoffice\dashboard\summarydashboard.controller.js" />
     <Content Include="App_Plugins\MCFly\backoffice\dashboard\summarydashboard.html" />
+    <Content Include="App_Plugins\MCFly\backoffice\directives\umbraco-editor-with-config.js" />
     <Content Include="App_Plugins\MCFly\backoffice\views\previews\checkbox.html" />
     <Content Include="App_Plugins\MCFly\backoffice\views\previews\date.html" />
     <Content Include="App_Plugins\MCFly\backoffice\views\previews\datetime.html" />
