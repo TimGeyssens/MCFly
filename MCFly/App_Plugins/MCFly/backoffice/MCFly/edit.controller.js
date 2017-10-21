@@ -74,11 +74,15 @@ app.controller("MCFly.EditController",
                 'fieldTypeName': fieldtype
             }
             $scope.form.fields.push(newField);
+
+            $scope.hasmailProperties = _.where($scope.form.fields, { fieldTypeName: "Email" }).length > 0;
             
         }
         $scope.removeField = function (field)
         {
             $scope.form.fields.splice($scope.form.fields.indexOf(field), 1);
+
+            $scope.hasmailProperties = _.where($scope.form.fields, { fieldTypeName: "Email" }).length > 0;
         }
         $scope.addEmail = function (form, subject, from, to, toProperty, template) {
 
