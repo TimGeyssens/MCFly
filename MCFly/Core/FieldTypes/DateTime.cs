@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 using Umbraco.Core;
 
 namespace MCFly.Core.FieldTypes
@@ -16,6 +17,12 @@ namespace MCFly.Core.FieldTypes
             PropertyType = typeof(System.DateTime);
         }
 
+        public override object Process(Form form, Field field, object value, ControllerContext controllerContext)
+        {
+            if (value == null || value == string.Empty)
+                return null;
+            return Convert.ChangeType(value, field.FieldType.PropertyType);
+        }
         public override IEnumerable<string> RequiredJSFiles()
         {
             return "/App_Plugins/MCFly/assets/datepicker.min.js".AsEnumerableOfOne();

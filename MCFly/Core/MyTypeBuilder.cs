@@ -9,6 +9,7 @@ using System.Linq;
 using System.Collections.Generic;
 using Umbraco.Core;
 using System.ComponentModel;
+using Umbraco.Core.Persistence;
 
 namespace MCFly
 {
@@ -92,6 +93,11 @@ namespace MCFly
 
             tb.SetCustomAttribute(displayNameAttributeBuilder);
 
+
+            //ConstructorInfo ctor2 = typeof(ExplicitColumnsAttribute).GetConstructor(new Type[] { });
+            //CustomAttributeBuilder attrib2 = new CustomAttributeBuilder(ctor2, new object[] { });
+            //tb.SetCustomAttribute(attrib2);
+
             return tb;
         }
 
@@ -134,8 +140,10 @@ namespace MCFly
             propertyBuilder.SetSetMethod(setPropMthdBldr);
 
 
+            //ConstructorInfo ctorr = typeof(ColumnAttribute).GetConstructor(new Type[] { typeof(string) });
+            //CustomAttributeBuilder attribb = new CustomAttributeBuilder(ctorr, new object[] { fld != null ? fld.Alias : propName });
+            //tb.SetCustomAttribute(attribb);
 
-           
             if (order == 0 && propertyType == typeof(int))
             {
                 var attribType = typeof(PrimaryKeyColumnAttribute);
@@ -246,7 +254,23 @@ namespace MCFly
                 });
                 propertyBuilder.SetCustomAttribute(attrib4);
 
-               if (fieldType.ValidationAttributes(form, fld) != null)
+
+                if (fld != null && !fld.Required)
+                {
+                    ConstructorInfo ctor5 = typeof(NullSettingAttribute).GetConstructor(new Type[] { });
+                    var attribType5 = typeof(NullSettingAttribute);
+                    CustomAttributeBuilder attrib5 = new CustomAttributeBuilder(ctor5, new object[] { }, new[] {
+                    attribType5.GetProperty("NullSetting"),
+
+                },
+                    new object[] {
+                    NullSettings.Null,
+
+                    });
+                    propertyBuilder.SetCustomAttribute(attrib5);
+
+                }
+                if (fieldType.ValidationAttributes(form, fld) != null)
                     foreach (var attri in fieldType.ValidationAttributes(form,fld))
                         propertyBuilder.SetCustomAttribute(attri);
 

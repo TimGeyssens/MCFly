@@ -54,6 +54,7 @@ namespace MCFly
                if (!db.TableExist(completeForm.Alias) || flagExist)
                 {
                     db.CreateTable(true, type);
+                    
                     ctx.Database.Execute(new Sql("Delete From [MCFlyFlags] Where [FormId] = @0", form.Id));
                 }
 

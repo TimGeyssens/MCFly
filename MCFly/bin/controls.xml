@@ -9,6 +9,21 @@
             Constructor, set defaults.
             </summary>
         </member>
+        <member name="P:umbraco.uicontrols.TreePicker.BaseTreePicker.Value">
+            <summary>
+            Wraps the hidden vield value
+            </summary>
+        </member>
+        <member name="P:umbraco.uicontrols.TreePicker.BaseTreePicker.TreePickerUrl">
+            <summary>
+            Need to specify the tree picker url (iframe)
+            </summary>
+        </member>
+        <member name="P:umbraco.uicontrols.TreePicker.BaseTreePicker.ModalWindowTitle">
+            <summary>
+            The title to specify for the picker window
+            </summary>
+        </member>
         <member name="M:umbraco.uicontrols.TreePicker.BaseTreePicker.GetItemTitle">
             <summary>
             If item has been selected or stored, this will query the db for its title
@@ -40,21 +55,6 @@
             </summary>
             <param name="e"></param>
         </member>
-        <member name="P:umbraco.uicontrols.TreePicker.BaseTreePicker.Value">
-            <summary>
-            Wraps the hidden vield value
-            </summary>
-        </member>
-        <member name="P:umbraco.uicontrols.TreePicker.BaseTreePicker.TreePickerUrl">
-            <summary>
-            Need to specify the tree picker url (iframe)
-            </summary>
-        </member>
-        <member name="P:umbraco.uicontrols.TreePicker.BaseTreePicker.ModalWindowTitle">
-            <summary>
-            The title to specify for the picker window
-            </summary>
-        </member>
         <member name="T:umbraco.uicontrols.TreePicker.BaseTreePickerScripts">
             <summary>
               A strongly-typed resource class, for looking up localized strings, etc.
@@ -74,16 +74,17 @@
         <member name="P:umbraco.uicontrols.TreePicker.BaseTreePickerScripts.BaseTreePicker">
              <summary>
                Looks up a localized string similar to /// &lt;reference path=&quot;/umbraco_client/Application/NamespaceManager.js&quot; /&gt;
-            
-            Umbraco.Sys.registerNamespace(&quot;Umbraco.Controls&quot;);
-            
-            (function($) {
-                Umbraco.Controls.TreePicker = function(clientId, label, itemIdValueClientID, itemTitleClientID, itemPickerUrl, width, height, showHeader, umbracoPath) {
-                    var obj = {
-                        _itemPickerUrl: itemPickerUrl,
-                        _webServiceUrl: umbracoPath + &quot;/webservices/legacyAjaxCalls.asmx/GetNodeBreadcrumbs&quot;,
-                        _label: label,
-                        _wid [rest of string was truncated]&quot;;.
+            (function ($) {
+                $(document).ready(function () {
+                    // Tooltip only Text
+                    $(&apos;.umb-tree-picker a.choose&apos;).click(function () {
+                        var that = this;
+                        var s = $(that).data(&quot;section&quot;);
+                        UmbClientMgr.openAngularModalWindow({
+                            template: &apos;views/common/dialogs/treepicker.html&apos;,
+                            section: s,
+                            callback: function (data) {
+                                //this [rest of string was truncated]&quot;;.
              </summary>
         </member>
         <member name="T:umbraco.uicontrols.TreeUrlGenerator">

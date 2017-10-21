@@ -1,5 +1,5 @@
 ﻿<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\UmbracoCms.7.4.1\build\UmbracoCms.props" Condition="Exists('..\packages\UmbracoCms.7.4.1\build\UmbracoCms.props')" />
+  <Import Project="..\packages\UmbracoCms.7.7.3\build\UmbracoCms.props" Condition="Exists('..\packages\UmbracoCms.7.7.3\build\UmbracoCms.props')" />
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
@@ -44,26 +44,26 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AutoMapper, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\AutoMapper.3.0.0\lib\net40\AutoMapper.dll</HintPath>
+    <Reference Include="AutoMapper, Version=3.3.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.3.3.1\lib\net40\AutoMapper.dll</HintPath>
     </Reference>
-    <Reference Include="AutoMapper.Net4, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\AutoMapper.3.0.0\lib\net40\AutoMapper.Net4.dll</HintPath>
+    <Reference Include="AutoMapper.Net4, Version=3.3.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.3.3.1\lib\net40\AutoMapper.Net4.dll</HintPath>
     </Reference>
-    <Reference Include="businesslogic, Version=1.0.5891.23241, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\UmbracoCms.Core.7.4.1\lib\businesslogic.dll</HintPath>
+    <Reference Include="businesslogic, Version=1.0.6499.16606, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\UmbracoCms.Core.7.7.3\lib\net45\businesslogic.dll</HintPath>
     </Reference>
-    <Reference Include="ClientDependency.Core, Version=1.8.4.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ClientDependency.1.8.4\lib\net45\ClientDependency.Core.dll</HintPath>
+    <Reference Include="ClientDependency.Core, Version=1.9.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ClientDependency.1.9.2\lib\net45\ClientDependency.Core.dll</HintPath>
     </Reference>
     <Reference Include="ClientDependency.Core.Mvc, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ClientDependency-Mvc5.1.8.0.0\lib\net45\ClientDependency.Core.Mvc.dll</HintPath>
     </Reference>
-    <Reference Include="cms, Version=1.0.5891.23241, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\UmbracoCms.Core.7.4.1\lib\cms.dll</HintPath>
+    <Reference Include="cms, Version=1.0.6499.16607, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\UmbracoCms.Core.7.7.3\lib\net45\cms.dll</HintPath>
     </Reference>
-    <Reference Include="controls, Version=1.0.5891.23243, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\UmbracoCms.Core.7.4.1\lib\controls.dll</HintPath>
+    <Reference Include="controls, Version=1.0.6499.16608, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\UmbracoCms.Core.7.7.3\lib\net45\controls.dll</HintPath>
     </Reference>
     <Reference Include="CookComputing.XmlRpcV2, Version=2.5.0.0, Culture=neutral, PublicKeyToken=a7d6e17aa302004d, processorArchitecture=MSIL">
       <HintPath>..\packages\xmlrpcnet.2.5.0\lib\net20\CookComputing.XmlRpcV2.dll</HintPath>
@@ -78,14 +78,11 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\DataAnnotationsExtensions.MVC3.5.0.1.20\lib\NETFramework40\DataAnnotationsExtensions.ClientValidation.dll</HintPath>
     </Reference>
-    <Reference Include="Examine, Version=0.1.68.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Examine.0.1.68.0\lib\Examine.dll</HintPath>
+    <Reference Include="Examine, Version=0.1.85.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Examine.0.1.85\lib\net45\Examine.dll</HintPath>
     </Reference>
     <Reference Include="Forloop.HtmlHelpers, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Forloop.HtmlHelpers.1.2.0.0\lib\net45\Forloop.HtmlHelpers.dll</HintPath>
-    </Reference>
-    <Reference Include="FormEditor, Version=1.2.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\FormEditor.1.2.3.0\lib\net40\FormEditor.dll</HintPath>
     </Reference>
     <Reference Include="formulate.api, Version=1.3.5.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Formulate.Binaries.1.3.5\lib\net45\formulate.api.dll</HintPath>
@@ -99,38 +96,44 @@
     <Reference Include="formulate.meta, Version=1.3.5.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Formulate.Binaries.1.3.5\lib\net45\formulate.meta.dll</HintPath>
     </Reference>
-    <Reference Include="HtmlAgilityPack, Version=1.4.9.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
-      <HintPath>..\packages\HtmlAgilityPack.1.4.9\lib\Net45\HtmlAgilityPack.dll</HintPath>
+    <Reference Include="HtmlAgilityPack, Version=1.4.9.5, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <HintPath>..\packages\HtmlAgilityPack.1.4.9.5\lib\Net45\HtmlAgilityPack.dll</HintPath>
     </Reference>
     <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
       <HintPath>..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
-    <Reference Include="ImageProcessor, Version=2.3.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ImageProcessor.2.3.3.0\lib\net45\ImageProcessor.dll</HintPath>
+    <Reference Include="ImageProcessor, Version=2.5.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ImageProcessor.2.5.3\lib\net45\ImageProcessor.dll</HintPath>
     </Reference>
-    <Reference Include="ImageProcessor.Web, Version=4.5.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ImageProcessor.Web.4.5.3.0\lib\net45\ImageProcessor.Web.dll</HintPath>
+    <Reference Include="ImageProcessor.Web, Version=4.8.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ImageProcessor.Web.4.8.3\lib\net45\ImageProcessor.Web.dll</HintPath>
     </Reference>
-    <Reference Include="interfaces, Version=1.0.5891.23238, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\UmbracoCms.Core.7.4.1\lib\interfaces.dll</HintPath>
+    <Reference Include="interfaces, Version=1.0.6499.16597, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\UmbracoCms.Core.7.7.3\lib\net45\interfaces.dll</HintPath>
     </Reference>
-    <Reference Include="log4net, Version=1.2.11.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\UmbracoCms.Core.7.4.1\lib\log4net.dll</HintPath>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\UmbracoCms.Core.7.7.3\lib\net45\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Log4Net.Async, Version=2.0.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Log4Net.Async.2.0.4\lib\net40\Log4Net.Async.dll</HintPath>
     </Reference>
     <Reference Include="Lucene.Net, Version=2.9.4.1, Culture=neutral, PublicKeyToken=85089178b9ac3181, processorArchitecture=MSIL">
       <HintPath>..\packages\Lucene.Net.2.9.4.1\lib\net40\Lucene.Net.dll</HintPath>
     </Reference>
-    <Reference Include="MarkdownSharp, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Markdown.1.14.4\lib\net45\MarkdownSharp.dll</HintPath>
+    <Reference Include="MarkdownSharp, Version=1.14.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Markdown.1.14.7\lib\net45\MarkdownSharp.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.ApplicationBlocks.Data, Version=1.0.1559.20655, Culture=neutral">
-      <HintPath>..\packages\UmbracoCms.Core.7.4.1\lib\Microsoft.ApplicationBlocks.Data.dll</HintPath>
+      <HintPath>..\packages\UmbracoCms.Core.7.7.3\lib\net45\Microsoft.ApplicationBlocks.Data.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Core, Version=2.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.2.2.1\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CodeAnalysis, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeAnalysis.Common.1.0.0\lib\net45\Microsoft.CodeAnalysis.dll</HintPath>
@@ -142,20 +145,23 @@
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Microsoft.Owin, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    <Reference Include="Microsoft.IO.RecyclableMemoryStream, Version=1.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IO.RecyclableMemoryStream.1.2.1\lib\net45\Microsoft.IO.RecyclableMemoryStream.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    <Reference Include="Microsoft.Owin, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.3.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Owin.Security, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.1.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Owin.Security.Cookies, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    <Reference Include="Microsoft.Owin.Security, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Owin.Security.OAuth, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.1.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.1.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebHelpers.3.2.3\lib\net45\Microsoft.Web.Helpers.dll</HintPath>
@@ -172,9 +178,8 @@
     <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>..\packages\MySql.Data.6.9.9\lib\net45\MySql.Data.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
@@ -182,18 +187,18 @@
     <Reference Include="Semver, Version=1.1.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\semver.1.1.2\lib\net451\Semver.dll</HintPath>
     </Reference>
-    <Reference Include="SQLCE4Umbraco, Version=1.0.5891.23242, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\UmbracoCms.Core.7.4.1\lib\SQLCE4Umbraco.dll</HintPath>
+    <Reference Include="SQLCE4Umbraco, Version=1.0.6499.16608, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\UmbracoCms.Core.7.7.3\lib\net45\SQLCE4Umbraco.dll</HintPath>
     </Reference>
     <Reference Include="System.Collections.Immutable, Version=1.1.36.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Collections.Immutable.1.1.36\lib\portable-net45+win8+wp8+wpa81\System.Collections.Immutable.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Data.SqlServerCe, Version=4.0.0.1, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\UmbracoCms.Core.7.4.1\lib\System.Data.SqlServerCe.dll</HintPath>
+      <HintPath>..\packages\UmbracoCms.Core.7.7.3\lib\net45\System.Data.SqlServerCe.dll</HintPath>
     </Reference>
     <Reference Include="System.Data.SqlServerCe.Entity, Version=4.0.0.1, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\UmbracoCms.Core.7.4.1\lib\System.Data.SqlServerCe.Entity.dll</HintPath>
+      <HintPath>..\packages\UmbracoCms.Core.7.7.3\lib\net45\System.Data.SqlServerCe.Entity.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Net.Http.Extensions, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
@@ -210,6 +215,9 @@
       <HintPath>..\packages\System.Reflection.Metadata.1.0.21\lib\portable-net45+win8\System.Reflection.Metadata.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Threading.Tasks.Dataflow, Version=4.6.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Dataflow.4.7.0\lib\portable-net45+win8+wpa81\System.Threading.Tasks.Dataflow.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -251,7 +259,7 @@
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="TidyNet, Version=1.0.0.0, Culture=neutral">
-      <HintPath>..\packages\UmbracoCms.Core.7.4.1\lib\TidyNet.dll</HintPath>
+      <HintPath>..\packages\UmbracoCms.Core.7.7.3\lib\net45\TidyNet.dll</HintPath>
     </Reference>
     <Reference Include="UIOMatic, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -260,32 +268,32 @@
     <Reference Include="UIOMaticAddons.Export, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Nibble.Umbraco.UIOMatic.Addons.Export.1.0.1\lib\UIOMaticAddons.Export.dll</HintPath>
     </Reference>
-    <Reference Include="umbraco, Version=1.0.5891.23243, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\UmbracoCms.Core.7.4.1\lib\umbraco.dll</HintPath>
+    <Reference Include="umbraco, Version=1.0.6499.16609, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\UmbracoCms.Core.7.7.3\lib\net45\umbraco.dll</HintPath>
     </Reference>
-    <Reference Include="Umbraco.Core, Version=1.0.5891.23238, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\UmbracoCms.Core.7.4.1\lib\Umbraco.Core.dll</HintPath>
+    <Reference Include="Umbraco.Core, Version=1.0.6499.16599, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\UmbracoCms.Core.7.7.3\lib\net45\Umbraco.Core.dll</HintPath>
     </Reference>
-    <Reference Include="umbraco.DataLayer, Version=1.0.5891.23241, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\UmbracoCms.Core.7.4.1\lib\umbraco.DataLayer.dll</HintPath>
+    <Reference Include="umbraco.DataLayer, Version=1.0.6499.16606, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\UmbracoCms.Core.7.7.3\lib\net45\umbraco.DataLayer.dll</HintPath>
     </Reference>
-    <Reference Include="umbraco.editorControls, Version=1.0.5891.23246, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\UmbracoCms.Core.7.4.1\lib\umbraco.editorControls.dll</HintPath>
+    <Reference Include="umbraco.editorControls, Version=1.0.6499.16613, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\UmbracoCms.Core.7.7.3\lib\net45\umbraco.editorControls.dll</HintPath>
     </Reference>
-    <Reference Include="umbraco.MacroEngines, Version=1.0.5891.23246, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\UmbracoCms.Core.7.4.1\lib\umbraco.MacroEngines.dll</HintPath>
+    <Reference Include="umbraco.MacroEngines, Version=1.0.6499.16614, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\UmbracoCms.Core.7.7.3\lib\net45\umbraco.MacroEngines.dll</HintPath>
     </Reference>
-    <Reference Include="Umbraco.ModelsBuilder, Version=3.0.0.90, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Umbraco.ModelsBuilder.3.0.0\lib\Umbraco.ModelsBuilder.dll</HintPath>
+    <Reference Include="Umbraco.ModelsBuilder, Version=3.0.7.99, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Umbraco.ModelsBuilder.3.0.7\lib\Umbraco.ModelsBuilder.dll</HintPath>
     </Reference>
-    <Reference Include="umbraco.providers, Version=1.0.5891.23243, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\UmbracoCms.Core.7.4.1\lib\umbraco.providers.dll</HintPath>
+    <Reference Include="umbraco.providers, Version=1.0.6499.16608, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\UmbracoCms.Core.7.7.3\lib\net45\umbraco.providers.dll</HintPath>
     </Reference>
-    <Reference Include="Umbraco.Web.UI, Version=1.0.5891.23247, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\UmbracoCms.Core.7.4.1\lib\Umbraco.Web.UI.dll</HintPath>
+    <Reference Include="Umbraco.Web.UI, Version=1.0.6499.16615, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\UmbracoCms.Core.7.7.3\lib\net45\Umbraco.Web.UI.dll</HintPath>
     </Reference>
-    <Reference Include="UmbracoExamine, Version=0.7.0.23242, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\UmbracoCms.Core.7.4.1\lib\UmbracoExamine.dll</HintPath>
+    <Reference Include="UmbracoExamine, Version=0.7.0.16608, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\UmbracoCms.Core.7.7.3\lib\net45\UmbracoExamine.dll</HintPath>
     </Reference>
     <Reference Include="UrlRewritingNet.UrlRewriter, Version=2.0.7.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\UrlRewritingNet.2.0.7\lib\UrlRewritingNet.UrlRewriter.dll</HintPath>
@@ -2979,13 +2987,85 @@
     <Content Include="App_Plugins\MCFly\UIOMaticAddons\ListViewFields\file.controller.js" />
     <Content Include="App_Plugins\MCFly\UIOMaticAddons\ListViewFields\url.html" />
     <Content Include="App_Plugins\MCFly\UIOMaticAddons\ListViewFields\email.html" />
+    <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.controller.js" />
+    <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.htm" />
+    <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.resource.js" />
+    <Content Include="Config\grid.editors.config.js" />
+    <Content Include="Config\Lang\cs-CZ.user.xml" />
+    <Content Include="Config\Lang\da-DK.user.xml" />
+    <Content Include="Config\Lang\de-DE.user.xml" />
+    <Content Include="Config\Lang\en-GB.user.xml" />
+    <Content Include="Config\Lang\en-US.user.xml" />
+    <Content Include="Config\Lang\es-ES.user.xml" />
+    <Content Include="Config\Lang\fr-FR.user.xml" />
+    <Content Include="Config\Lang\he-IL.user.xml" />
+    <Content Include="Config\Lang\it-IT.user.xml" />
+    <Content Include="Config\Lang\ja-JP.user.xml" />
+    <Content Include="Config\Lang\ko-KR.user.xml" />
+    <Content Include="Config\Lang\nb-NO.user.xml" />
+    <Content Include="Config\Lang\nl-NL.user.xml" />
+    <Content Include="Config\Lang\pl-PL.user.xml" />
+    <Content Include="Config\Lang\pt-BR.user.xml" />
+    <Content Include="Config\Lang\ru-RU.user.xml" />
+    <Content Include="Config\Lang\sv-SE.user.xml" />
+    <Content Include="Config\Lang\zh-CN.user.xml" />
+    <Content Include="default.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="media\1012\fanoe-denmark.jpg" />
+    <Content Include="media\1013\9027510123_92a91b5cf4_b_dark.jpg" />
+    <Content Include="media\1014\9017002308_81dfd2c1d5_b_dark.jpg" />
+    <Content Include="media\1015\14257753719_2c02b94030_h.jpg" />
+    <Content Include="media\1016\14435759945_a2c58e9ed6_h.jpg" />
+    <Content Include="media\1017\14359779226_df7329d607_h_dark.jpg" />
+    <Content Include="media\1018\10818851674_e375a8751e_b.jpg" />
+    <Content Include="media\1022\9686845888_e2d216ce81_b_dark_small.jpg" />
+    <Content Include="media\1023\form-bg.png" />
+    <Content Include="media\1024\14448232381_8f994d2adc_h_dark.jpg" />
+    <Content Include="media\1027\14434411872_8e663d6de0_h.jpg" />
+    <Content Include="media\1028\14435732345_c9f5b48dfa_h_dark.jpg" />
+    <Content Include="media\1031\9026528992_d38fbc2e28_o_dark.jpg" />
+    <Content Include="media\1032\9039247947_e15a9d8850_b.jpg" />
+    <Content Include="media\1033\whole-earth-catalog.jpg" />
+    <Content Include="media\1036\1912289_753997844648209_7099291360101379579_o.jpg" />
+    <Content Include="media\1037\9015601712_72e44263e4_b.jpg" />
+    <Content Include="media\1038\screen-shot-2014-12-01-at-121327.png" />
+    <Content Include="media\1042\logo.jpg" />
+    <Content Include="media\1044\14441035391_7ee1d0d166_h_darken.jpg" />
+    <Content Include="media\1046\14386124825_d43f359900_h_cropped.jpg" />
+    <Content Include="media\1047\9027509991_ff12bd87e4_b_small_cropped.jpg" />
+    <Content Include="media\1048\sharingiscaring_cropped.jpg" />
+    <Content Include="media\1049\9027510123_92a91b5cf4_b_dark.jpg" />
     <Content Include="packages.config" />
+    <Content Include="Config\imageprocessor\security.config" />
+    <Content Include="Config\imageprocessor\processing.config" />
+    <Content Include="Config\imageprocessor\cache.config" />
+    <Content Include="App_Plugins\ModelsBuilder\package.manifest" />
+    <Content Include="Views\Partials\Grid\Editors\Textstring.cshtml" />
+    <Content Include="Views\Partials\Grid\Editors\Rte.cshtml" />
+    <Content Include="Views\Partials\Grid\Editors\Media.cshtml" />
+    <Content Include="Views\Partials\Grid\Editors\Macro.cshtml" />
+    <Content Include="Views\Partials\Grid\Editors\Embed.cshtml" />
+    <Content Include="Views\Partials\Grid\Editors\Base.cshtml" />
+    <Content Include="Views\Partials\Grid\Bootstrap3.cshtml" />
+    <Content Include="Views\Partials\Grid\Bootstrap3-Fluid.cshtml" />
+    <Content Include="Views\Partials\Grid\Bootstrap2.cshtml" />
+    <Content Include="Views\Partials\Grid\Bootstrap2-Fluid.cshtml" />
+    <Content Include="media\Web.config" />
+    <Content Include="Config\umbracoSettings.config" />
+    <Content Include="Config\tinyMceConfig.config" />
+    <Content Include="Config\scripting.config" />
+    <Content Include="Config\metablogConfig.config" />
+    <Content Include="Config\log4net.config" />
+    <Content Include="Config\HealthChecks.config" />
+    <Content Include="Config\FileSystemProviders.config" />
+    <Content Include="Config\feedProxy.config" />
+    <Content Include="Config\ExamineSettings.config" />
+    <Content Include="Config\ExamineIndex.config" />
+    <Content Include="Config\EmbeddedMedia.config" />
+    <Content Include="Config\BaseRestExtensions.config" />
+    <Content Include="Config\404handlers.config" />
     <None Include="Views\Shared\DisplayTemplates\Text.cshtml" />
     <Content Include="Views\Web.config" />
-    <Content Include="Views\Partials\Grid\Editors\Media.cshtml" />
-    <Content Include="Views\Partials\Grid\Editors\Embed.cshtml" />
-    <Content Include="Views\Partials\Grid\Bootstrap3.cshtml" />
-    <Content Include="Views\Partials\Grid\Bootstrap2.cshtml" />
     <Content Include="Config\trees.config" />
     <Content Include="Config\Dashboard.config" />
     <Content Include="Config\ClientDependency.config" />
@@ -2997,121 +3077,6 @@
     <Content Include="App_Plugins\Grid\Editors\Render\quote_with_description.cshtml" />
     <Content Include="App_Plugins\UIOMatic\UIOMatic.config" />
     <Content Include="App_Plugins\UIOMatic\package.manifest" />
-    <Content Include="Views\Partials\FormEditor\Sync.cshtml" />
-    <Content Include="Views\Partials\FormEditor\NoScript.cshtml" />
-    <Content Include="Views\Partials\FormEditor\FieldsSync\core.utils.validationerror.cshtml" />
-    <Content Include="Views\Partials\FormEditor\FieldsSync\core.utils.helptext.cshtml" />
-    <Content Include="Views\Partials\FormEditor\FieldsSync\core.url.cshtml" />
-    <Content Include="Views\Partials\FormEditor\FieldsSync\core.upload.cshtml" />
-    <Content Include="Views\Partials\FormEditor\FieldsSync\core.textparagraph.cshtml" />
-    <Content Include="Views\Partials\FormEditor\FieldsSync\core.textbox.cshtml" />
-    <Content Include="Views\Partials\FormEditor\FieldsSync\core.textarea.cshtml" />
-    <Content Include="Views\Partials\FormEditor\FieldsSync\core.telephone.cshtml" />
-    <Content Include="Views\Partials\FormEditor\FieldsSync\core.submitbutton.cshtml" />
-    <Content Include="Views\Partials\FormEditor\FieldsSync\core.selectbox.cshtml" />
-    <Content Include="Views\Partials\FormEditor\FieldsSync\core.recaptcha.cshtml" />
-    <Content Include="Views\Partials\FormEditor\FieldsSync\core.radiobuttongroup.cshtml" />
-    <Content Include="Views\Partials\FormEditor\FieldsSync\core.number.cshtml" />
-    <Content Include="Views\Partials\FormEditor\FieldsSync\core.memberinfo.cshtml" />
-    <Content Include="Views\Partials\FormEditor\FieldsSync\core.mailchimp.cshtml" />
-    <Content Include="Views\Partials\FormEditor\FieldsSync\core.link.cshtml" />
-    <Content Include="Views\Partials\FormEditor\FieldsSync\core.invisiblerecaptcha.cshtml" />
-    <Content Include="Views\Partials\FormEditor\FieldsSync\core.image.cshtml" />
-    <Content Include="Views\Partials\FormEditor\FieldsSync\core.heading.cshtml" />
-    <Content Include="Views\Partials\FormEditor\FieldsSync\core.email.cshtml" />
-    <Content Include="Views\Partials\FormEditor\FieldsSync\core.dropdown.cshtml" />
-    <Content Include="Views\Partials\FormEditor\FieldsSync\core.date.cshtml" />
-    <Content Include="Views\Partials\FormEditor\FieldsSync\core.checkboxgroup.cshtml" />
-    <Content Include="Views\Partials\FormEditor\FieldsSync\core.checkbox.cshtml" />
-    <Content Include="Views\Partials\FormEditor\FieldsSync\core.campaignmonitor.cshtml" />
-    <Content Include="Views\Partials\FormEditor\FieldsNoScript\core.utils.validationerror.cshtml" />
-    <Content Include="Views\Partials\FormEditor\FieldsNoScript\core.utils.helptext.cshtml" />
-    <Content Include="Views\Partials\FormEditor\FieldsNoScript\core.url.cshtml" />
-    <Content Include="Views\Partials\FormEditor\FieldsNoScript\core.upload.cshtml" />
-    <Content Include="Views\Partials\FormEditor\FieldsNoScript\core.textparagraph.cshtml" />
-    <Content Include="Views\Partials\FormEditor\FieldsNoScript\core.textbox.cshtml" />
-    <Content Include="Views\Partials\FormEditor\FieldsNoScript\core.textarea.cshtml" />
-    <Content Include="Views\Partials\FormEditor\FieldsNoScript\core.telephone.cshtml" />
-    <Content Include="Views\Partials\FormEditor\FieldsNoScript\core.submitbutton.cshtml" />
-    <Content Include="Views\Partials\FormEditor\FieldsNoScript\core.selectbox.cshtml" />
-    <Content Include="Views\Partials\FormEditor\FieldsNoScript\core.recaptcha.cshtml" />
-    <Content Include="Views\Partials\FormEditor\FieldsNoScript\core.radiobuttongroup.cshtml" />
-    <Content Include="Views\Partials\FormEditor\FieldsNoScript\core.number.cshtml" />
-    <Content Include="Views\Partials\FormEditor\FieldsNoScript\core.memberinfo.cshtml" />
-    <Content Include="Views\Partials\FormEditor\FieldsNoScript\core.mailchimp.cshtml" />
-    <Content Include="Views\Partials\FormEditor\FieldsNoScript\core.link.cshtml" />
-    <Content Include="Views\Partials\FormEditor\FieldsNoScript\core.invisiblerecaptcha.cshtml" />
-    <Content Include="Views\Partials\FormEditor\FieldsNoScript\core.image.cshtml" />
-    <Content Include="Views\Partials\FormEditor\FieldsNoScript\core.heading.cshtml" />
-    <Content Include="Views\Partials\FormEditor\FieldsNoScript\core.email.cshtml" />
-    <Content Include="Views\Partials\FormEditor\FieldsNoScript\core.dropdown.cshtml" />
-    <Content Include="Views\Partials\FormEditor\FieldsNoScript\core.date.cshtml" />
-    <Content Include="Views\Partials\FormEditor\FieldsNoScript\core.checkboxgroup.cshtml" />
-    <Content Include="Views\Partials\FormEditor\FieldsNoScript\core.checkbox.cshtml" />
-    <Content Include="Views\Partials\FormEditor\FieldsNoScript\core.campaignmonitor.cshtml" />
-    <Content Include="Views\Partials\FormEditor\FieldsAsync\core.utils.validationerror.cshtml" />
-    <Content Include="Views\Partials\FormEditor\FieldsAsync\core.utils.helptext.cshtml" />
-    <Content Include="Views\Partials\FormEditor\FieldsAsync\core.url.cshtml" />
-    <Content Include="Views\Partials\FormEditor\FieldsAsync\core.upload.cshtml" />
-    <Content Include="Views\Partials\FormEditor\FieldsAsync\core.textparagraph.cshtml" />
-    <Content Include="Views\Partials\FormEditor\FieldsAsync\core.textbox.cshtml" />
-    <Content Include="Views\Partials\FormEditor\FieldsAsync\core.textarea.cshtml" />
-    <Content Include="Views\Partials\FormEditor\FieldsAsync\core.telephone.cshtml" />
-    <Content Include="Views\Partials\FormEditor\FieldsAsync\core.submitbutton.cshtml" />
-    <Content Include="Views\Partials\FormEditor\FieldsAsync\core.selectbox.cshtml" />
-    <Content Include="Views\Partials\FormEditor\FieldsAsync\core.recaptcha.cshtml" />
-    <Content Include="Views\Partials\FormEditor\FieldsAsync\core.radiobuttongroup.cshtml" />
-    <Content Include="Views\Partials\FormEditor\FieldsAsync\core.number.cshtml" />
-    <Content Include="Views\Partials\FormEditor\FieldsAsync\core.memberinfo.cshtml" />
-    <Content Include="Views\Partials\FormEditor\FieldsAsync\core.mailchimp.cshtml" />
-    <Content Include="Views\Partials\FormEditor\FieldsAsync\core.link.cshtml" />
-    <Content Include="Views\Partials\FormEditor\FieldsAsync\core.invisiblerecaptcha.cshtml" />
-    <Content Include="Views\Partials\FormEditor\FieldsAsync\core.image.cshtml" />
-    <Content Include="Views\Partials\FormEditor\FieldsAsync\core.heading.cshtml" />
-    <Content Include="Views\Partials\FormEditor\FieldsAsync\core.email.cshtml" />
-    <Content Include="Views\Partials\FormEditor\FieldsAsync\core.dropdown.cshtml" />
-    <Content Include="Views\Partials\FormEditor\FieldsAsync\core.date.cshtml" />
-    <Content Include="Views\Partials\FormEditor\FieldsAsync\core.checkboxgroup.cshtml" />
-    <Content Include="Views\Partials\FormEditor\FieldsAsync\core.checkbox.cshtml" />
-    <Content Include="Views\Partials\FormEditor\FieldsAsync\core.campaignmonitor.cshtml" />
-    <Content Include="Views\Partials\FormEditor\Email\EmailTemplateSample.cshtml" />
-    <Content Include="Views\Partials\FormEditor\Async.cshtml" />
-    <Content Include="Views\FormEditorSync.cshtml" />
-    <Content Include="Views\FormEditorNoScript.cshtml" />
-    <Content Include="Views\FormEditorAsync.cshtml" />
-    <Content Include="Config\FormEditor.config" />
-    <Content Include="App_Plugins\FormEditor\package.manifest" />
-    <Content Include="App_Plugins\FormEditor\js\form.js.map" />
-    <Content Include="App_Plugins\ModelsBuilder\package.manifest" />
-    <Content Include="Views\Partials\Formulate\Responsive.Bootstrap.Angular.cshtml" />
-    <Content Include="Views\Partials\Formulate\RenderForm.cshtml" />
-    <Content Include="Config\Formulate\templates.config" />
-    <Content Include="Config\Formulate\submissions.config" />
-    <Content Include="Config\Formulate\persistence.config" />
-    <Content Include="Config\Formulate\fieldCategories.config" />
-    <Content Include="Config\Formulate\emailWhitelist.config" />
-    <Content Include="Config\Formulate\buttons.config" />
-    <Content Include="App_Plugins\formulate\package.manifest" />
-    <Content Include="App_Plugins\formulate\fonts\icomoon\icomoon.woff" />
-    <Content Include="App_Plugins\formulate\fonts\icomoon\icomoon.ttf" />
-    <Content Include="App_Plugins\formulate\fonts\icomoon\icomoon.eot" />
-    <Content Include="Views\Partials\Grid\Editors\Textstring.cshtml" />
-    <Content Include="Views\Partials\Grid\Editors\Rte.cshtml" />
-    <Content Include="Views\Partials\Grid\Editors\Macro.cshtml" />
-    <Content Include="Views\Partials\Grid\Editors\Base.cshtml" />
-    <Content Include="Config\UrlRewriting.config" />
-    <Content Include="Config\umbracoSettings.config" />
-    <Content Include="Config\tinyMceConfig.config" />
-    <Content Include="Config\scripting.config" />
-    <Content Include="Config\metablogConfig.config" />
-    <Content Include="Config\log4net.config" />
-    <Content Include="Config\FileSystemProviders.config" />
-    <Content Include="Config\feedProxy.config" />
-    <Content Include="Config\ExamineSettings.config" />
-    <Content Include="Config\ExamineIndex.config" />
-    <Content Include="Config\EmbeddedMedia.config" />
-    <Content Include="Config\BaseRestExtensions.config" />
-    <Content Include="Config\404handlers.config" />
     <Content Include="Views\Home.cshtml" />
     <Content Include="App_Plugins\UIOMaticAddons\package.manifest" />
     <Content Include="Views\Shared\EditorTemplates\CheckBox.cshtml" />
@@ -3357,177 +3322,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Plugins\FormEditor\config\emailTemplates.html" />
-    <Content Include="App_Plugins\FormEditor\config\fieldTypeGroups.html" />
-    <Content Include="App_Plugins\FormEditor\config\rowLayouts.html" />
-    <Content Include="App_Plugins\FormEditor\config\tabOrder.html" />
-    <Content Include="App_Plugins\FormEditor\config\webService.html" />
-    <Content Include="App_Plugins\FormEditor\css\form.css" />
-    <Content Include="App_Plugins\FormEditor\editor\conditions\core.customcondition.html" />
-    <Content Include="App_Plugins\FormEditor\editor\conditions\core.fieldisempty.html" />
-    <Content Include="App_Plugins\FormEditor\editor\conditions\core.fieldisempty.png" />
-    <Content Include="App_Plugins\FormEditor\editor\conditions\core.fieldisnotempty.html" />
-    <Content Include="App_Plugins\FormEditor\editor\conditions\core.fieldvalueis.html" />
-    <Content Include="App_Plugins\FormEditor\editor\conditions\core.fieldvalueis.png" />
-    <Content Include="App_Plugins\FormEditor\editor\conditions\core.fieldvalueisnot.html" />
-    <Content Include="App_Plugins\FormEditor\editor\conditions\core.fieldvaluesdonotmatch.html" />
-    <Content Include="App_Plugins\FormEditor\editor\conditions\core.fieldvaluesdonotmatch.png" />
-    <Content Include="App_Plugins\FormEditor\editor\conditions\core.fieldvaluesmatch.html" />
-    <Content Include="App_Plugins\FormEditor\editor\data.html" />
-    <Content Include="App_Plugins\FormEditor\editor\fields\core.campaignmonitor.html" />
-    <Content Include="App_Plugins\FormEditor\editor\fields\core.campaignmonitor.png" />
-    <Content Include="App_Plugins\FormEditor\editor\fields\core.checkbox.html" />
-    <Content Include="App_Plugins\FormEditor\editor\fields\core.checkbox.png" />
-    <Content Include="App_Plugins\FormEditor\editor\fields\core.checkboxgroup.html" />
-    <Content Include="App_Plugins\FormEditor\editor\fields\core.checkboxgroup.png" />
-    <Content Include="App_Plugins\FormEditor\editor\fields\core.customfield.html" />
-    <Content Include="App_Plugins\FormEditor\editor\fields\core.customfieldfixedoptions.html" />
-    <Content Include="App_Plugins\FormEditor\editor\fields\core.date.html" />
-    <Content Include="App_Plugins\FormEditor\editor\fields\core.date.png" />
-    <Content Include="App_Plugins\FormEditor\editor\fields\core.dropdown.html" />
-    <Content Include="App_Plugins\FormEditor\editor\fields\core.dropdown.png" />
-    <Content Include="App_Plugins\FormEditor\editor\fields\core.email.html" />
-    <Content Include="App_Plugins\FormEditor\editor\fields\core.email.png" />
-    <Content Include="App_Plugins\FormEditor\editor\fields\core.heading.html" />
-    <Content Include="App_Plugins\FormEditor\editor\fields\core.heading.png" />
-    <Content Include="App_Plugins\FormEditor\editor\fields\core.image.html" />
-    <Content Include="App_Plugins\FormEditor\editor\fields\core.image.png" />
-    <Content Include="App_Plugins\FormEditor\editor\fields\core.invisiblerecaptcha.html" />
-    <Content Include="App_Plugins\FormEditor\editor\fields\core.invisiblerecaptcha.png" />
-    <Content Include="App_Plugins\FormEditor\editor\fields\core.link.html" />
-    <Content Include="App_Plugins\FormEditor\editor\fields\core.link.png" />
-    <Content Include="App_Plugins\FormEditor\editor\fields\core.mailchimp.html" />
-    <Content Include="App_Plugins\FormEditor\editor\fields\core.mailchimp.png" />
-    <Content Include="App_Plugins\FormEditor\editor\fields\core.memberinfo.html" />
-    <Content Include="App_Plugins\FormEditor\editor\fields\core.memberinfo.png" />
-    <Content Include="App_Plugins\FormEditor\editor\fields\core.number.html" />
-    <Content Include="App_Plugins\FormEditor\editor\fields\core.number.png" />
-    <Content Include="App_Plugins\FormEditor\editor\fields\core.radiobuttongroup.html" />
-    <Content Include="App_Plugins\FormEditor\editor\fields\core.radiobuttongroup.png" />
-    <Content Include="App_Plugins\FormEditor\editor\fields\core.recaptcha.html" />
-    <Content Include="App_Plugins\FormEditor\editor\fields\core.recaptcha.png" />
-    <Content Include="App_Plugins\FormEditor\editor\fields\core.selectbox.html" />
-    <Content Include="App_Plugins\FormEditor\editor\fields\core.selectbox.png" />
-    <Content Include="App_Plugins\FormEditor\editor\fields\core.submitbutton.html" />
-    <Content Include="App_Plugins\FormEditor\editor\fields\core.submitbutton.png" />
-    <Content Include="App_Plugins\FormEditor\editor\fields\core.telephone.html" />
-    <Content Include="App_Plugins\FormEditor\editor\fields\core.telephone.png" />
-    <Content Include="App_Plugins\FormEditor\editor\fields\core.textarea.html" />
-    <Content Include="App_Plugins\FormEditor\editor\fields\core.textarea.png" />
-    <Content Include="App_Plugins\FormEditor\editor\fields\core.textbox.html" />
-    <Content Include="App_Plugins\FormEditor\editor\fields\core.textbox.png" />
-    <Content Include="App_Plugins\FormEditor\editor\fields\core.textParagraph.html" />
-    <Content Include="App_Plugins\FormEditor\editor\fields\core.textParagraph.png" />
-    <Content Include="App_Plugins\FormEditor\editor\fields\core.upload.html" />
-    <Content Include="App_Plugins\FormEditor\editor\fields\core.upload.png" />
-    <Content Include="App_Plugins\FormEditor\editor\fields\core.url.html" />
-    <Content Include="App_Plugins\FormEditor\editor\fields\core.url.png" />
-    <Content Include="App_Plugins\FormEditor\editor\form.html" />
-    <Content Include="App_Plugins\FormEditor\editor\rows\core.column-1.png" />
-    <Content Include="App_Plugins\FormEditor\editor\rows\core.column-2.png" />
-    <Content Include="App_Plugins\FormEditor\editor\rows\core.column-3.png" />
-    <Content Include="App_Plugins\FormEditor\editor\rows\core.column-4.png" />
-    <Content Include="App_Plugins\FormEditor\editor\rows\core.one-column.png" />
-    <Content Include="App_Plugins\FormEditor\editor\rows\core.three-column-wide-left.png" />
-    <Content Include="App_Plugins\FormEditor\editor\rows\core.three-column-wide-right.png" />
-    <Content Include="App_Plugins\FormEditor\editor\rows\core.three-column.png" />
-    <Content Include="App_Plugins\FormEditor\editor\rows\core.two-column-wide-left.png" />
-    <Content Include="App_Plugins\FormEditor\editor\rows\core.two-column-wide-right.png" />
-    <Content Include="App_Plugins\FormEditor\editor\rows\core.two-column.png" />
-    <Content Include="App_Plugins\FormEditor\js\form.js" />
-    <Content Include="App_Plugins\FormEditor\js\langs\da-dk.js" />
-    <Content Include="App_Plugins\FormEditor\js\langs\de-de.js" />
-    <Content Include="App_Plugins\FormEditor\js\langs\en-gb.js" />
-    <Content Include="App_Plugins\FormEditor\js\langs\en-us.js" />
-    <Content Include="App_Plugins\FormEditor\js\langs\es-es.js" />
-    <Content Include="App_Plugins\FormEditor\js\langs\fr-fr.js" />
-    <Content Include="App_Plugins\FormEditor\js\langs\he-il.js" />
-    <Content Include="App_Plugins\FormEditor\js\langs\it-it.js" />
-    <Content Include="App_Plugins\FormEditor\js\langs\ja-jp.js" />
-    <Content Include="App_Plugins\FormEditor\js\langs\ko-kr.js" />
-    <Content Include="App_Plugins\FormEditor\js\langs\nb-no.js" />
-    <Content Include="App_Plugins\FormEditor\js\langs\nl-nl.js" />
-    <Content Include="App_Plugins\FormEditor\js\langs\pl-pl.js" />
-    <Content Include="App_Plugins\FormEditor\js\langs\pt-br.js" />
-    <Content Include="App_Plugins\FormEditor\js\langs\ru-ru.js" />
-    <Content Include="App_Plugins\FormEditor\js\langs\sv-se.js" />
-    <Content Include="App_Plugins\FormEditor\js\langs\zh-cn.js" />
-    <Content Include="App_Plugins\formulate\backoffice\formulate\dataSources.html" />
-    <Content Include="App_Plugins\formulate\backoffice\formulate\dataValues.html" />
-    <Content Include="App_Plugins\formulate\backoffice\formulate\editConfiguredForm.html" />
-    <Content Include="App_Plugins\formulate\backoffice\formulate\editDataValue.html" />
-    <Content Include="App_Plugins\formulate\backoffice\formulate\editFolder.html" />
-    <Content Include="App_Plugins\formulate\backoffice\formulate\editForm.html" />
-    <Content Include="App_Plugins\formulate\backoffice\formulate\editLayout.html" />
-    <Content Include="App_Plugins\formulate\backoffice\formulate\editValidation.html" />
-    <Content Include="App_Plugins\formulate\backoffice\formulate\forms.html" />
-    <Content Include="App_Plugins\formulate\backoffice\formulate\layouts.html" />
-    <Content Include="App_Plugins\formulate\backoffice\formulate\submissions.html" />
-    <Content Include="App_Plugins\formulate\backoffice\formulate\validationLibrary.html" />
-    <Content Include="App_Plugins\formulate\Controls\Install.ascx" />
-    <Content Include="App_Plugins\formulate\dashboards\install.html" />
-    <Content Include="App_Plugins\formulate\dashboards\introduction.html" />
-    <Content Include="App_Plugins\formulate\dialogs\pickConfiguredForm.html" />
-    <Content Include="App_Plugins\formulate\dialogs\pickDataValue.html" />
-    <Content Include="App_Plugins\formulate\dialogs\pickForm.html" />
-    <Content Include="App_Plugins\formulate\dialogs\pickLayout.html" />
-    <Content Include="App_Plugins\formulate\dialogs\pickValidations.html" />
-    <Content Include="App_Plugins\formulate\editors\configured-form-picker.html" />
-    <Content Include="App_Plugins\formulate\fonts\icomoon\icomoon.svg" />
-    <Content Include="App_Plugins\formulate\formulate.css" />
-    <Content Include="App_Plugins\formulate\formulate.js" />
-    <Content Include="App_Plugins\formulate\Lang\cs-CZ.xml" />
-    <Content Include="App_Plugins\formulate\Lang\da-DK.xml" />
-    <Content Include="App_Plugins\formulate\Lang\de-DE.xml" />
-    <Content Include="App_Plugins\formulate\Lang\en-GB.xml" />
-    <Content Include="App_Plugins\formulate\Lang\en-US.xml" />
-    <Content Include="App_Plugins\formulate\Lang\es-ES.xml" />
-    <Content Include="App_Plugins\formulate\Lang\fr-FR.xml" />
-    <Content Include="App_Plugins\formulate\Lang\he-IL.xml" />
-    <Content Include="App_Plugins\formulate\Lang\it-IT.xml" />
-    <Content Include="App_Plugins\formulate\Lang\ja-JP.xml" />
-    <Content Include="App_Plugins\formulate\Lang\ko-KR.xml" />
-    <Content Include="App_Plugins\formulate\Lang\nb-NO.xml" />
-    <Content Include="App_Plugins\formulate\Lang\nl-NL.xml" />
-    <Content Include="App_Plugins\formulate\Lang\pl-PL.xml" />
-    <Content Include="App_Plugins\formulate\Lang\pt-BR.xml" />
-    <Content Include="App_Plugins\formulate\Lang\ru-RU.xml" />
-    <Content Include="App_Plugins\formulate\Lang\sv-SE.xml" />
-    <Content Include="App_Plugins\formulate\Lang\zh-CN.xml" />
-    <Content Include="App_Plugins\formulate\menu-actions\createDataValue.html" />
-    <Content Include="App_Plugins\formulate\menu-actions\createFolder.html" />
-    <Content Include="App_Plugins\formulate\menu-actions\createLayout.html" />
-    <Content Include="App_Plugins\formulate\menu-actions\createValidation.html" />
-    <Content Include="App_Plugins\formulate\menu-actions\deleteConfiguredForm.html" />
-    <Content Include="App_Plugins\formulate\menu-actions\deleteDataValue.html" />
-    <Content Include="App_Plugins\formulate\menu-actions\deleteFolder.html" />
-    <Content Include="App_Plugins\formulate\menu-actions\deleteForm.html" />
-    <Content Include="App_Plugins\formulate\menu-actions\deleteLayout.html" />
-    <Content Include="App_Plugins\formulate\menu-actions\deleteValidation.html" />
-    <Content Include="App_Plugins\formulate\menu-actions\moveDataValue.html" />
-    <Content Include="App_Plugins\formulate\menu-actions\moveFolder.html" />
-    <Content Include="App_Plugins\formulate\menu-actions\moveForm.html" />
-    <Content Include="App_Plugins\formulate\menu-actions\moveLayout.html" />
-    <Content Include="App_Plugins\formulate\menu-actions\moveValidation.html" />
-    <Content Include="App_Plugins\formulate\responsive.bootstrap.angular.js" />
-    <Content Include="App_Plugins\formulate\responsive.bootstrap.angular.min.js" />
-    <Content Include="App_Plugins\formulate\templates\responsive.bootstrap.angular\builtin-types.js" />
-    <Content Include="App_Plugins\formulate\templates\responsive.bootstrap.angular\directives\form\checklist-model.js" />
-    <Content Include="App_Plugins\formulate\templates\responsive.bootstrap.angular\directives\form\field.js" />
-    <Content Include="App_Plugins\formulate\templates\responsive.bootstrap.angular\directives\form\fileChange.js" />
-    <Content Include="App_Plugins\formulate\templates\responsive.bootstrap.angular\directives\form\fileUpload.js" />
-    <Content Include="App_Plugins\formulate\templates\responsive.bootstrap.angular\directives\form\responsiveForm.js" />
-    <Content Include="App_Plugins\formulate\templates\responsive.bootstrap.angular\directives\form\rows.js" />
-    <Content Include="App_Plugins\formulate\templates\responsive.bootstrap.angular\directives\form\validation.js" />
-    <Content Include="App_Plugins\formulate\templates\responsive.bootstrap.angular\directives\json-source\json-source.js" />
-    <Content Include="App_Plugins\formulate\templates\responsive.bootstrap.angular\index.js" />
-    <Content Include="App_Plugins\formulate\templates\responsive.bootstrap.angular\services\field-type.js" />
-    <Content Include="App_Plugins\formulate\Transforms\applications.config.install.xdt.txt" />
-    <Content Include="App_Plugins\formulate\Transforms\applications.config.uninstall.xdt.txt" />
-    <Content Include="App_Plugins\formulate\Transforms\dashboard.config.install.xdt.txt" />
-    <Content Include="App_Plugins\formulate\Transforms\dashboard.config.uninstall.xdt.txt" />
-    <Content Include="App_Plugins\formulate\Transforms\web.config.install.xdt.txt" />
-    <Content Include="App_Plugins\formulate\Transforms\web.config.uninstall.xdt.txt" />
     <Content Include="App_Plugins\Grid\Config\FanoeConfig.txt" />
     <Content Include="App_Plugins\Grid\Editors\Views\media_with_description.html" />
     <Content Include="App_Plugins\Grid\Editors\Views\quote_with_description.html" />
@@ -3536,9 +3330,6 @@
     <Content Include="App_Plugins\MCFly\backoffice\MCFly\edit.controller.js" />
     <Content Include="App_Plugins\MCFly\backoffice\MCFly\edit.html" />
     <Content Include="App_Plugins\MCFly\resource.js" />
-    <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.controller.js" />
-    <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.htm" />
-    <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.resource.js" />
     <Content Include="App_Plugins\UIOMaticAddons\export.controller.js" />
     <Content Include="App_Plugins\UIOMaticAddons\export.html" />
     <Content Include="App_Plugins\UIOMaticAddons\export.resource.js" />
@@ -3616,30 +3407,7 @@
     <Content Include="App_Plugins\UIOMatic\lang\en-GB.xml" />
     <Content Include="App_Plugins\UIOMatic\lang\en-US.xml" />
     <Content Include="App_Plugins\UIOMatic\lang\en.xml" />
-    <Content Include="Config\grid.editors.config.js" />
-    <Content Include="Config\Lang\cs-CZ.user.xml" />
-    <Content Include="Config\Lang\da-DK.user.xml" />
-    <Content Include="Config\Lang\de-DE.user.xml" />
-    <Content Include="Config\Lang\en-GB.user.xml" />
-    <Content Include="Config\Lang\en-US.user.xml" />
-    <Content Include="Config\Lang\es-ES.user.xml" />
-    <Content Include="Config\Lang\fr-FR.user.xml" />
-    <Content Include="Config\Lang\he-IL.user.xml" />
-    <Content Include="Config\Lang\it-IT.user.xml" />
-    <Content Include="Config\Lang\ja-JP.user.xml" />
-    <Content Include="Config\Lang\ko-KR.user.xml" />
-    <Content Include="Config\Lang\nb-NO.user.xml" />
-    <Content Include="Config\Lang\nl-NL.user.xml" />
-    <Content Include="Config\Lang\pl-PL.user.xml" />
-    <Content Include="Config\Lang\pt-BR.user.xml" />
-    <Content Include="Config\Lang\ru-RU.user.xml" />
-    <Content Include="Config\Lang\sv-SE.user.xml" />
-    <Content Include="Config\Lang\zh-CN.user.xml" />
-    <Content Include="default.aspx" />
-    <Content Include="Global.asax" />
     <Content Include="JS\bootstrap.min.js" />
-    <Content Include="JS\FormEditor\FormEditorAsync.js" />
-    <Content Include="JS\FormEditor\FormEditorSync.js" />
     <Content Include="JS\jquery.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -3728,15 +3496,16 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props'))" />
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
-    <Error Condition="!Exists('..\packages\UmbracoCms.7.4.1\build\UmbracoCms.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\UmbracoCms.7.4.1\build\UmbracoCms.props'))" />
-    <Error Condition="!Exists('..\packages\UmbracoCms.7.4.1\build\UmbracoCms.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\UmbracoCms.7.4.1\build\UmbracoCms.targets'))" />
+    <Error Condition="!Exists('..\packages\UmbracoCms.7.7.3\build\UmbracoCms.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\UmbracoCms.7.7.3\build\UmbracoCms.props'))" />
+    <Error Condition="!Exists('..\packages\UmbracoCms.7.7.3\build\UmbracoCms.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\UmbracoCms.7.7.3\build\UmbracoCms.targets'))" />
   </Target>
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
   <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
     <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
     <Error Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
   </Target>
-  <Import Project="..\packages\UmbracoCms.7.4.1\build\UmbracoCms.targets" Condition="Exists('..\packages\UmbracoCms.7.4.1\build\UmbracoCms.targets')" />
+  <Import Project="..\packages\AutoMapper.3.3.1\tools\AutoMapper.targets" Condition="Exists('..\packages\AutoMapper.3.3.1\tools\AutoMapper.targets')" />
+  <Import Project="..\packages\UmbracoCms.7.7.3\build\UmbracoCms.targets" Condition="Exists('..\packages\UmbracoCms.7.7.3\build\UmbracoCms.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

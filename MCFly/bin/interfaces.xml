@@ -23,40 +23,9 @@
             Summary description for IDataFieldWithButtons.
             </summary>
         </member>
-        <member name="T:umbraco.interfaces.IDataEditor">
+        <member name="T:umbraco.interfaces.IDiscoverable">
             <summary>
-            The IDataEditor is part of the IDataType interface for creating new data types in the umbraco backoffice. 
-            The IDataEditor represents the editing UI for the Data Type.
-            </summary>
-        </member>
-        <member name="M:umbraco.interfaces.IDataEditor.Save">
-            <summary>
-            Saves this instance.
-            </summary>
-        </member>
-        <member name="P:umbraco.interfaces.IDataEditor.ShowLabel">
-            <summary>
-            Gets a value indicating whether a label is shown
-            </summary>
-            <value><c>true</c> if [show label]; otherwise, <c>false</c>.</value>
-        </member>
-        <member name="P:umbraco.interfaces.IDataEditor.TreatAsRichTextEditor">
-            <summary>
-            Gets a value indicating whether the editor should be treated as a rich text editor. 
-            </summary>
-            <value>
-            	<c>true</c> if [treat as rich text editor]; otherwise, <c>false</c>.
-            </value>
-        </member>
-        <member name="P:umbraco.interfaces.IDataEditor.Editor">
-            <summary>
-            Gets the editor control
-            </summary>
-            <value>The editor.</value>
-        </member>
-        <member name="T:umbraco.interfaces.ITask">
-            <summary>
-            Summary description for ITask.
+            Marks a class or an interface as discoverable by PluginManager.
             </summary>
         </member>
         <member name="T:umbraco.interfaces.IAction">
@@ -88,12 +57,24 @@
             The IData represents the actual value entered by the user.
             </summary>
         </member>
+        <member name="P:umbraco.interfaces.IData.PropertyId">
+            <summary>
+            Gets or sets the property id.
+            </summary>
+            <value>The property id.</value>
+        </member>
         <member name="M:umbraco.interfaces.IData.ToXMl(System.Xml.XmlDocument)">
             <summary>
             Converts the data to XML.
             </summary>
             <param name="data">The data.</param>
             <returns>The data as XML.</returns>
+        </member>
+        <member name="P:umbraco.interfaces.IData.Value">
+            <summary>
+            Gets or sets the value.
+            </summary>
+            <value>The value.</value>
         </member>
         <member name="M:umbraco.interfaces.IData.MakeNew(System.Int32)">
             <summary>
@@ -106,17 +87,36 @@
             Deletes this instance.
             </summary>
         </member>
-        <member name="P:umbraco.interfaces.IData.PropertyId">
+        <member name="T:umbraco.interfaces.IDataEditor">
             <summary>
-            Gets or sets the property id.
+            The IDataEditor is part of the IDataType interface for creating new data types in the umbraco backoffice. 
+            The IDataEditor represents the editing UI for the Data Type.
             </summary>
-            <value>The property id.</value>
         </member>
-        <member name="P:umbraco.interfaces.IData.Value">
+        <member name="M:umbraco.interfaces.IDataEditor.Save">
             <summary>
-            Gets or sets the value.
+            Saves this instance.
             </summary>
-            <value>The value.</value>
+        </member>
+        <member name="P:umbraco.interfaces.IDataEditor.ShowLabel">
+            <summary>
+            Gets a value indicating whether a label is shown
+            </summary>
+            <value><c>true</c> if [show label]; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:umbraco.interfaces.IDataEditor.TreatAsRichTextEditor">
+            <summary>
+            Gets a value indicating whether the editor should be treated as a rich text editor. 
+            </summary>
+            <value>
+            	<c>true</c> if [treat as rich text editor]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:umbraco.interfaces.IDataEditor.Editor">
+            <summary>
+            Gets the editor control
+            </summary>
+            <value>The editor.</value>
         </member>
         <member name="T:umbraco.interfaces.IDataPrevalue">
             <summary>
@@ -238,22 +238,15 @@
             Summary description for INotFoundHandler.
             </summary>
         </member>
+        <member name="T:umbraco.interfaces.ITask">
+            <summary>
+            Summary description for ITask.
+            </summary>
+        </member>
         <member name="T:umbraco.interfaces.ITree">
             <summary>
             Interface for created application trees in the umbraco backoffice
             </summary>
-        </member>
-        <member name="M:umbraco.interfaces.ITree.Render(System.Xml.XmlDocument@)">
-            <summary>
-            Renders the specified tree.
-            </summary>
-            <param name="Tree">The tree.</param>
-        </member>
-        <member name="M:umbraco.interfaces.ITree.RenderJS(System.Text.StringBuilder@)">
-            <summary>
-            Renders the client side script associatied with the tree.
-            </summary>
-            <param name="Javascript">The javascript.</param>
         </member>
         <member name="P:umbraco.interfaces.ITree.id">
             <summary>
@@ -266,6 +259,18 @@
             Sets the applicatin alias.
             </summary>
             <value>The app.</value>
+        </member>
+        <member name="M:umbraco.interfaces.ITree.Render(System.Xml.XmlDocument@)">
+            <summary>
+            Renders the specified tree.
+            </summary>
+            <param name="Tree">The tree.</param>
+        </member>
+        <member name="M:umbraco.interfaces.ITree.RenderJS(System.Text.StringBuilder@)">
+            <summary>
+            Renders the client side script associatied with the tree.
+            </summary>
+            <param name="Javascript">The javascript.</param>
         </member>
     </members>
 </doc>
