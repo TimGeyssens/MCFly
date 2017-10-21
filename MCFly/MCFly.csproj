@@ -81,6 +81,9 @@
     <Reference Include="Examine, Version=0.1.68.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Examine.0.1.68.0\lib\Examine.dll</HintPath>
     </Reference>
+    <Reference Include="Forloop.HtmlHelpers, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Forloop.HtmlHelpers.1.2.0.0\lib\net45\Forloop.HtmlHelpers.dll</HintPath>
+    </Reference>
     <Reference Include="FormEditor, Version=1.2.3.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\FormEditor.1.2.3.0\lib\net40\FormEditor.dll</HintPath>
     </Reference>
@@ -2952,10 +2955,15 @@
     <Content Include="App_Data\TEMP\ClientDependency\LAPTOP-JSAC0SHM-d3a6cc7517035bd9234a97cda962cbb6-map.xml" />
     <Content Include="App_Data\TEMP\DistCache\LAPTOP-JSAC0SHM\LMW3SVC2ROOT-lastsynced.txt" />
     <Content Include="App_Data\Umbraco.sdf" />
+    <Content Include="App_Plugins\MCFly\assets\datepicker.en.min.js" />
+    <Content Include="App_Plugins\MCFly\assets\datepicker.min.css" />
+    <Content Include="App_Plugins\MCFly\assets\datepicker.min.js" />
     <Content Include="App_Plugins\MCFly\backoffice\assets\css\mcfly.css" />
     <Content Include="App_Plugins\MCFly\backoffice\dashboard\summarydashboard.controller.js" />
     <Content Include="App_Plugins\MCFly\backoffice\dashboard\summarydashboard.html" />
     <Content Include="App_Plugins\MCFly\backoffice\views\previews\checkbox.html" />
+    <Content Include="App_Plugins\MCFly\backoffice\views\previews\date.html" />
+    <Content Include="App_Plugins\MCFly\backoffice\views\previews\datetime.html" />
     <Content Include="App_Plugins\MCFly\backoffice\views\previews\dropdown.html" />
     <Content Include="App_Plugins\MCFly\backoffice\views\previews\email.html" />
     <Content Include="App_Plugins\MCFly\backoffice\views\previews\radiobuttonlist.html" />
@@ -3339,6 +3347,7 @@
     <Content Include="Views\Master.cshtml" />
     <Content Include="Views\TextPage.cshtml" />
     <Content Include="Views\Partials\MCFly\MCFlyAjaxForm.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\DateTime.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -3634,6 +3643,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Views\Shared\EditorTemplates\Date.cshtml" />
     <Content Include="App_Plugins\MCFly\uploads\readme.txt" />
     <Compile Include="App_Start\RegisterClientValidationExtensions.cs" />
     <Compile Include="Core\Email.cs" />
@@ -3647,6 +3657,7 @@
     <Compile Include="Core\FieldType.cs" />
     <Compile Include="Core\FieldTypes\CheckBox.cs" />
     <Compile Include="Core\FieldTypes\DateTime.cs" />
+    <Compile Include="Core\FieldTypes\Date.cs" />
     <Compile Include="Core\FieldTypes\Dropdown.cs" />
     <Compile Include="Core\FieldTypes\Email.cs" />
     <Compile Include="Core\FieldTypes\Image.cs" />

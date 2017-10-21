@@ -28,8 +28,8 @@ namespace MCFly
 
         object Process(Form form, Field field, object value, ControllerContext controllerContext);
 
-        IEnumerable<string> RequiredJSFiles(string fieldId);
-        IEnumerable<string> RequiredCssFiles(string fieldId);
+        IEnumerable<string> RequiredJSFiles();
+        IEnumerable<string> RequiredCssFiles();
         string RequiredJSInitialization(string fieldId);
     }
 }

@@ -61,11 +61,29 @@
 
 
                         }
+    @foreach (var fieldtype in form.Fields.Select(x => x.FieldType as MCFly.FieldType).Distinct())
+    {
+    foreach (var css in fieldtype.RequiredCssFiles())
+    {
 
-    <script>
+    <link rel="stylesheet" type="text/css" href="@css">
 
-        function showSuccessMessage() { 
-           
+    }
+    foreach (var script in fieldtype.RequiredJSFiles())
+    {
+    using (var context = Html.BeginScriptContext())
+    {
+    context.AddScriptFile(script);
+    }
+
+    }
+    }
+    @using (var context = Html.BeginScriptContext())
+    {
+        context.AddScriptBlock(@"
+
+        function showSuccessMessage() {
+
             $('#mcfly-message-container').show();
         };
 
@@ -73,15 +91,16 @@
             var result = $('#mcfly-form').valid();
 
             if (result != false) {
-                $(".g-recaptcha").prop("disabled", true);
+                $('.g-recaptcha').prop('disabled', true);
                 $('#mcfly-form').trigger('submit');
-        
+
             }
             else {
 
                 grecaptcha.reset();
             }
         };
-    </script>
+");
+    }
 
 </div>

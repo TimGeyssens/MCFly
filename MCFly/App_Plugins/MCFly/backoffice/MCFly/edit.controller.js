@@ -76,7 +76,10 @@ app.controller("MCFly.EditController",
             $scope.form.fields.push(newField);
             
         }
-
+        $scope.removeField = function (field)
+        {
+            $scope.form.fields.splice($scope.form.fields.indexOf(field), 1);
+        }
         $scope.addEmail = function (form, subject, from, to, toProperty, template) {
 
             var newEmail = {

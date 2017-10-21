@@ -105,12 +105,12 @@ namespace MCFly
                 return value;
             return Convert.ChangeType(value, field.FieldType.PropertyType);
         }
-        public virtual IEnumerable<string> RequiredJSFiles(string fieldId)
+        public virtual IEnumerable<string> RequiredJSFiles()
         {
             return new string[0];
         }
 
-        public virtual IEnumerable<string> RequiredCssFiles(string fieldId)
+        public virtual IEnumerable<string> RequiredCssFiles()
         {
             return new string[0];
         }

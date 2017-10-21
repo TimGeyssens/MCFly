@@ -1,0 +1,10 @@
+﻿@model System.String
+@using MCFly
+
+<input type="text" name="@Html.NameForModel()" id="@Html.IdForModel()" class='datepicker-here' data-language='en'
+       @foreach (var attri in (Dictionary<string, object>
+    )ViewData["htmlAttributes"])
+    {
+    <text>@(attri.Key)="@(attri.Value)"</text>
+    }
+    />

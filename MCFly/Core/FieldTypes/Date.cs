@@ -6,13 +6,13 @@ using Umbraco.Core;
 
 namespace MCFly.Core.FieldTypes
 {
-    public class DateTime: FieldType
+    public class Date: FieldType
     {
-        public DateTime()
+        public Date()
         {
            
          
-            BackOfficeEditView = UIOMatic.Constants.FieldEditors.DateTime;
+            BackOfficeEditView = UIOMatic.Constants.FieldEditors.Date;
             PropertyType = typeof(System.DateTime);
         }
 

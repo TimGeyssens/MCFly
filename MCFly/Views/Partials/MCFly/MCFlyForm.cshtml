@@ -3,6 +3,8 @@
 @using System.ComponentModel;
 @using System.ComponentModel.DataAnnotations;
 @using MCFly.Core;
+@using System.Linq;
+
 @{
 
     var form = new MCFly.Controllers.MCFlyApiController().GetByAlias(Model.FullName);
@@ -62,21 +64,42 @@ else
                         </button>
 
 
-                        }
+                            }
 
-                        <script>
-                            function onSubmit() {
-                                var result = $('#mcfly-form').valid();
+                            foreach (var fieldtype in form.Fields.Select(x => x.FieldType as MCFly.FieldType).Distinct())
+                            {
+                                foreach (var css in fieldtype.RequiredCssFiles())
+                                {
 
-                                if (result != false) {
-                                    $(".g-recaptcha").prop("disabled", true);
-                                    document.getElementById('mcfly-form').submit();
+                                  <link rel="stylesheet" type="text/css" href="@css">
+
                                 }
-                                else {
+                                foreach (var script in fieldtype.RequiredJSFiles())
+                                {
+                                    using (var context = Html.BeginScriptContext())
+                                    {
+                                        context.AddScriptFile(script);
+                                    }
 
-                                    grecaptcha.reset();
                                 }
                             }
-                        </script>
+
+                            using (var context = Html.BeginScriptContext())
+                            {
+                                context.AddScriptBlock(@"
+                                    function onSubmit() {
+                                        var result = $('#mcfly-form').valid();
+
+                                        if (result != false) {
+                                            $('.g-recaptcha').prop('disabled', true);
+                                            document.getElementById('mcfly-form').submit();
+                                        }
+                                        else {
+
+                                            grecaptcha.reset();
+                                        }
+                                    }
+                            ");
+                            }
 
                         }
