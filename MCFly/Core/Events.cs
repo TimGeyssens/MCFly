@@ -10,7 +10,7 @@ using UIOMatic.Attributes;
 using Umbraco.Core;
 using Umbraco.Core.Persistence;
 
-namespace MCFly
+namespace MCFly.Core
 {
     public class Events: ApplicationEventHandler
     {

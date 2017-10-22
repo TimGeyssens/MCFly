@@ -4,7 +4,7 @@ using System.Linq;
 using System.Reflection.Emit;
 using System.Web;
 
-namespace MCFly
+namespace MCFly.Core
 {
     public class BuildCustomValidationAttributesEventArgs : EventArgs
     {

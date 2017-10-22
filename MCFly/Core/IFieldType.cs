@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 
-namespace MCFly
+namespace MCFly.Core
 {
     public interface IFieldType
     {

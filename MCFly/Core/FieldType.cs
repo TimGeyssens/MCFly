@@ -8,7 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using Umbraco.Core;
 
-namespace MCFly
+namespace MCFly.Core
 {
     public abstract class FieldType : IFieldType
     {

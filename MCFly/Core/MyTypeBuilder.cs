@@ -11,7 +11,7 @@ using Umbraco.Core;
 using System.ComponentModel;
 using Umbraco.Core.Persistence;
 
-namespace MCFly
+namespace MCFly.Core
 {
     public static class MyTypeBuilder
     {

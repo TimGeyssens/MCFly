@@ -15,6 +15,7 @@ using UIOMatic.Services;
 using Umbraco.Web.Mvc;
 using System.IO;
 using Umbraco.Core;
+using MCFly.Core;
 
 namespace MCFly
 {

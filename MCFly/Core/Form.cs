@@ -7,7 +7,7 @@ using System.Web;
 using Umbraco.Core.Persistence;
 using Umbraco.Core.Persistence.DatabaseAnnotations;
 
-namespace MCFly
+namespace MCFly.Core
 {
     [TableName("MCFlyForms")]
     [PrimaryKey("Id", autoIncrement = true)]
