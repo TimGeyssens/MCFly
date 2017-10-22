@@ -51,6 +51,7 @@ namespace MCFly.Core
 
         [Column("GoToPageOnSubmit")]
         [DataMember(Name = "goToPageOnSubmit")]
+        [NullSetting(NullSetting =NullSettings.Null)]
         public int GoToPageOnSubmit { get; set; }
 
         [Column("StoresData")]
