@@ -110,7 +110,7 @@
 		<Copy SourceFiles="@(PluginFiles)" DestinationFiles="@(PluginFiles->'$(BuildNuGetDir)\content\App_Plugins\MCFly\%(RecursiveDir)%(Filename)%(Extension)')" />
 		<Copy SourceFiles="@(PartialViewFiles)" DestinationFiles="@(PartialViewFiles->'$(BuildNuGetDir)\content\Views\Partials\MCFly\%(RecursiveDir)%(Filename)%(Extension)')" />
 		<Copy SourceFiles="@(TinyMCEFiles)" DestinationFiles="@(TinyMCEFiles->'$(BuildNuGetDir)\content\umbraco\lib\tinymce\plugins\mcflyFieldSelector\%(RecursiveDir)%(Filename)%(Extension)')" />
-		<Copy SourceFiles="@(XDTFiles)" DestinationFiles="@(XDTFiles->'$(BuildNuGetDir)\content\%(RecursiveDir)%(Filename)%(Extension)')" />
+		<Copy SourceFiles="@(XDTFiles)" DestinationFiles="@(XDTFiles->'$(BuildNuGetDir)\content\%(Filename)%(Extension)')" />
 		<Copy SourceFiles="@(SrcFiles)" DestinationFiles="@(SrcFiles->'$(BuildNuGetDir)\src\%(RecursiveDir)%(Filename)%(Extension)')" />
 		<Copy SourceFiles="@(NuSpecFile)" DestinationFolder="$(BuildNuGetDir)" />
 		<Copy SourceFiles="@(CoreNuSpecFile)" DestinationFolder="$(BuildNuGetDir)" />
