@@ -41,7 +41,7 @@
 	</PropertyGroup>
 
 	<PropertyGroup>
-		<Version>0.0.3</Version>
+		<Version>0.0.4</Version>
 		<ProjectName>MCFly</ProjectName>
 	</PropertyGroup>
 
@@ -63,6 +63,7 @@
 		<RemoveDir Directories="$(ArtifactsDir)" Condition="Exists('$(ArtifactsDir)')" />  
 		<MakeDir Directories="$(BuildDir)" />
 		<MakeDir Directories="$(ArtifactsDir)" />
+		
 		<MakeDir Directories="$(BuildDir)\content\App_Plugins\MCFly\" />
 		<MakeDir Directories="$(BuildDir)\content\Views\Partials\MCFly\" />
 	</Target>
@@ -135,7 +136,7 @@
 	<Target Name="ManifestNuGet" DependsOnTargets="PrepareFiles">
 		<ItemGroup>
 			<CoreNuGetManifestFiles Include="$(BuildNuGetDir)\**\*" Exclude="$(BuildNuGetDir)\package.nuspec;$(BuildNuGetDir)\package.core.nuspec;$(BuildNuGetDir)\content\**\*.*" />
-			<NuGetManifestFiles Include="$(BuildNuGetDir)\**\*" Exclude="$(BuildNuGetDir)\package.nuspec;$(BuildNuGetDir)\package.core.nuspec;$(BuildNuGetDir)\lib\**\*.*;$(BuildNuGetDir)\src\**\*.*" />
+			<NuGetManifestFiles Include="$(BuildNuGetDir)\**\*" Exclude="$(BuildNuGetDir)\package.nuspec;$(BuildNuGetDir)\package.core.nuspec;$(BuildNuGetDir)\src\**\*.*" />
 		</ItemGroup>
 		
 		<MSBuild.NuGet.Tasks.ManifestUpdate
