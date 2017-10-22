@@ -2971,6 +2971,8 @@
     <Content Include="App_Plugins\MCFly\backoffice\assets\css\mcfly.css" />
     <Content Include="App_Plugins\MCFly\backoffice\dashboard\summarydashboard.controller.js" />
     <Content Include="App_Plugins\MCFly\backoffice\dashboard\summarydashboard.html" />
+    <Content Include="App_Plugins\MCFly\backoffice\dialogs\tinymceselectfield.controller.js" />
+    <Content Include="App_Plugins\MCFly\backoffice\dialogs\tinymceselectfield.html" />
     <Content Include="App_Plugins\MCFly\backoffice\directives\umbraco-editor-with-config.js" />
     <Content Include="App_Plugins\MCFly\backoffice\views\previews\checkbox.html" />
     <Content Include="App_Plugins\MCFly\backoffice\views\previews\date.html" />
@@ -2986,6 +2988,9 @@
     <Content Include="App_Plugins\MCFly\lang\en-GB.xml" />
     <Content Include="App_Plugins\MCFly\lang\en-US.xml" />
     <Content Include="App_Plugins\MCFly\lang\en.xml" />
+    <Content Include="umbraco\lib\tinymce\plugins\mcflyFieldSelector\index.js" />
+    <Content Include="umbraco\lib\tinymce\plugins\mcflyFieldSelector\plugin.min.js" />
+    <Content Include="umbraco\lib\tinymce\plugins\mcflyFieldSelector\plugin.js" />
     <Content Include="App_Plugins\MCFly\UIOMaticAddons\ListViewFields\file.html" />
     <Content Include="App_Plugins\MCFly\UIOMaticAddons\ListViewFields\file.controller.js" />
     <Content Include="App_Plugins\MCFly\UIOMaticAddons\ListViewFields\url.html" />

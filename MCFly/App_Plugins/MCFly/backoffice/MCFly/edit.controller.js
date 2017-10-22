@@ -23,7 +23,7 @@ app.controller("MCFly.EditController",
             view: 'rte',
             config: {
                 editor: {
-                    toolbar: ["code", "undo", "redo", "cut", "styleselect", "bold", "italic", "alignleft", "aligncenter", "alignright", "bullist", "numlist", "link", "umbmediapicker", "table", "umbembeddialog"],
+                    toolbar: ["code", "undo", "redo", "cut", "bold", "italic", "alignleft", "aligncenter", "alignright", "bullist", "numlist", "link", "umbmediapicker", "table", "umbembeddialog", "pluginName"],
                     stylesheets: [],
                     dimensions: { height: 300, width: 500 }
                 }
