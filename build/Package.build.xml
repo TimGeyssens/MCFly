@@ -41,7 +41,7 @@
 	</PropertyGroup>
 
 	<PropertyGroup>
-		<Version>0.0.1</Version>
+		<Version>0.0.2</Version>
 		<ProjectName>MCFly</ProjectName>
 	</PropertyGroup>
 
@@ -94,14 +94,14 @@
 			
 			<NugetReadmeFile Include="$(MSBuildProjectDirectory)\readme.txt" />
 		</ItemGroup>
-		<!-- Umbraco -->
+		<!-- Umbraco 
 		<Copy SourceFiles="@(BinFiles)" DestinationFolder="$(BuildUmbDir)\bin" />
 		<Copy SourceFiles="@(PackageFile)" DestinationFolder="$(BuildUmbDir)" />
-		<Copy SourceFiles="@(PluginFiles)" DestinationFiles="@(PluginFiles->'$(BuildUmbDir)\%(RecursiveDir)%(Filename)%(Extension)')" />
+		<Copy SourceFiles="@(PluginFiles)" DestinationFiles="@(PluginFiles->'$(BuildUmbDir)\%(RecursiveDir)%(Filename)%(Extension)')" />-->
 		<!-- Nuget -->
 		<Copy SourceFiles="@(BinFiles)" DestinationFolder="$(BuildNuGetDir)\lib\net45" />
 		<Copy SourceFiles="@(PdbFiles)" DestinationFolder="$(BuildNuGetDir)\lib\net45" />
-		<Copy SourceFiles="@(PluginFiles)" DestinationFiles="@(PluginFiles->'$(BuildNuGetDir)\content\%(RecursiveDir)%(Filename)%(Extension)')" />
+		<Copy SourceFiles="@(PluginFiles)" DestinationFiles="@(PluginFiles->'$(BuildNuGetDir)\content\App_Plugins\MCFly\%(RecursiveDir)%(Filename)%(Extension)')" />
 		<Copy SourceFiles="@(SrcFiles)" DestinationFiles="@(SrcFiles->'$(BuildNuGetDir)\src\%(RecursiveDir)%(Filename)%(Extension)')" />
 		<Copy SourceFiles="@(NuSpecFile)" DestinationFolder="$(BuildNuGetDir)" />
 		<Copy SourceFiles="@(CoreNuSpecFile)" DestinationFolder="$(BuildNuGetDir)" />
