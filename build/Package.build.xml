@@ -104,7 +104,7 @@
 		<Copy SourceFiles="@(BinFiles)" DestinationFolder="$(BuildNuGetDir)\lib\net45" />
 		<Copy SourceFiles="@(PdbFiles)" DestinationFolder="$(BuildNuGetDir)\lib\net45" />
 		<Copy SourceFiles="@(PluginFiles)" DestinationFiles="@(PluginFiles->'$(BuildNuGetDir)\content\App_Plugins\MCFly\%(RecursiveDir)%(Filename)%(Extension)')" />
-		<Copy SourceFiles="@(PartialViewFiles)" DestinationFiles="@(PluginFiles->'$(BuildNuGetDir)\content\Views\Partials\MCFly\%(RecursiveDir)%(Filename)%(Extension)')" />
+		<Copy SourceFiles="@(PartialViewFiles)" DestinationFiles="@(PartialViewFiles->'$(BuildNuGetDir)\content\Views\Partials\MCFly\%(RecursiveDir)%(Filename)%(Extension)')" />
 		<Copy SourceFiles="@(SrcFiles)" DestinationFiles="@(SrcFiles->'$(BuildNuGetDir)\src\%(RecursiveDir)%(Filename)%(Extension)')" />
 		<Copy SourceFiles="@(NuSpecFile)" DestinationFolder="$(BuildNuGetDir)" />
 		<Copy SourceFiles="@(CoreNuSpecFile)" DestinationFolder="$(BuildNuGetDir)" />
