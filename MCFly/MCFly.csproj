@@ -263,7 +263,7 @@
     </Reference>
     <Reference Include="UIOMatic, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\Downloads\UIOMatic-2\src\UIOMatic\bin\Debug\UIOMatic.dll</HintPath>
+      <HintPath>..\packages\Nibble.Umbraco.UIOMatic.Core.2.0.4\lib\net45\UIOMatic.dll</HintPath>
     </Reference>
     <Reference Include="UIOMaticAddons.Export, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Nibble.Umbraco.UIOMatic.Addons.Export.1.0.1\lib\UIOMaticAddons.Export.dll</HintPath>
