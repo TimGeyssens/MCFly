@@ -12,7 +12,9 @@
     ]
     ,
 	javascript: [
+		'~/App_Plugins/MCFly/imports.js',
 		'~/App_Plugins/MCFly/resource.js',
+		'~/App_Plugins/MCFly/backoffice/assets/js/angular-ui-switch.js',
 		'~/App_Plugins/MCFly/backoffice/directives/umbraco-editor-with-config.js',
 	    '~/App_Plugins/MCFly/backoffice/mcfly/edit.controller.js',
 		'~/App_Plugins/MCFly/backoffice/mcfly/delete.controller.js',
@@ -20,6 +22,7 @@
 		'~/App_Plugins/MCFly/UIOMaticAddons/ListViewFields/file.controller.js'
 	],
     css: [
+		'~/App_Plugins/MCFly/backoffice/assets/css/angular-ui-switch.css',
 		'~/App_Plugins/MCFly/backoffice/assets/css/mcfly.css'
 	]
 }

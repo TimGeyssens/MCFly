@@ -2963,6 +2963,8 @@
     <Content Include="App_Data\TEMP\ClientDependency\LAPTOP-JSAC0SHM-d3a6cc7517035bd9234a97cda962cbb6-map.xml" />
     <Content Include="App_Data\TEMP\DistCache\LAPTOP-JSAC0SHM\LMW3SVC2ROOT-lastsynced.txt" />
     <Content Include="App_Data\Umbraco.sdf" />
+    <Content Include="App_Plugins\MCFly\backoffice\assets\css\angular-ui-switch.css" />
+    <Content Include="App_Plugins\MCFly\backoffice\assets\js\angular-ui-switch.js" />
     <Content Include="App_Plugins\MCFly\assets\datepicker.en.min.js" />
     <Content Include="App_Plugins\MCFly\assets\datepicker.min.css" />
     <Content Include="App_Plugins\MCFly\assets\datepicker.min.js" />
@@ -2980,6 +2982,7 @@
     <Content Include="App_Plugins\MCFly\backoffice\views\previews\textbox.html" />
     <Content Include="App_Plugins\MCFly\backoffice\views\previews\upload.html" />
     <Content Include="App_Plugins\MCFly\backoffice\views\previews\url.html" />
+    <Content Include="App_Plugins\MCFly\imports.js" />
     <Content Include="App_Plugins\MCFly\lang\en-GB.xml" />
     <Content Include="App_Plugins\MCFly\lang\en-US.xml" />
     <Content Include="App_Plugins\MCFly\lang\en.xml" />
@@ -3085,10 +3088,6 @@
     <Content Include="Views\Shared\EditorTemplates\URL.cshtml" />
     <Content Include="Views\Partials\MCFly\Emails\EmailTemplateSample.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Upload.cshtml" />
-    <Content Include="App_Data\FormEditor\1063\Index\segments.gen" />
-    <Content Include="App_Data\FormEditor\1063\Index\segments_1" />
-    <Content Include="App_Data\Formulate\Json\Forms\a99305a7a7a142b6b30317f51cd64cd9.form" />
-    <Content Include="App_Data\Formulate\Json\Layouts\39ba5e797142466cb46183ae6ef728f6.layout" />
     <Content Include="App_Data\Logs\UmbracoTraceLog.LAPTOP-JSAC0SHM.txt.2017-10-11" />
     <Content Include="App_Data\Logs\UmbracoTraceLog.LAPTOP-JSAC0SHM.txt.2017-10-12" />
     <Content Include="App_Data\Logs\UmbracoTraceLog.LAPTOP-JSAC0SHM.txt.2017-10-13" />
@@ -3459,7 +3458,6 @@
     <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.1.0.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.CSharp.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\MCFly\" />
     <Folder Include="App_Data\packages\created\" />
     <Folder Include="App_Data\TEMP\FileUploads\" />
     <Folder Include="App_Data\TEMP\Install\" />
