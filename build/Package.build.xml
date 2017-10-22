@@ -164,11 +164,11 @@
 		<ItemGroup>
 			<UmbracoManifestFiles Include="$(BuildUmbDir)\**\*.*" />
 		</ItemGroup>
-		<!-- Umbraco -->
+		<!-- Umbraco
 		<Package ManifestFile="$(BuildUmbDir)\package.xml"
 			WorkingDirectory="$(BuildUmbDir)"
 			OutputDirectory="$(ArtifactsDir)"
-			Files="@(UmbracoManifestFiles)" />
+			Files="@(UmbracoManifestFiles)" />  -->
 		
 		<!-- NuGet -->
 		<MSBuild.NuGet.Tasks.Pack NuGetExePath="$(RootDir)\Tools\NuGet.exe"
