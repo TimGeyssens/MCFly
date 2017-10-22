@@ -4,7 +4,7 @@ using Umbraco.Core.Logging;
 using Umbraco.Core.Persistence.Migrations;
 using Umbraco.Core.Persistence.SqlSyntax;
 
-namespace UIOMatic.Migrations._2._0._0
+namespace Migrations.Migrations._1._0._0
 {
     [Migration("1.0.0", 1, "MCFly")]
     public class AddSummaryDashboardToConfig : MigrationBase
@@ -18,7 +18,7 @@ namespace UIOMatic.Migrations._2._0._0
             _packageAction = new addDashboardSection();
 
             var xml = @"<Action runat=""install"" alias=""addDashboardSection"" dashboardAlias=""MCFlySummaryDashboard"">
-   <section alias='MCFlySection'>
+   <section>
     <areas>
       <area>MCFly</area>
     </areas>
