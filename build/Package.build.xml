@@ -63,6 +63,7 @@
 		<RemoveDir Directories="$(ArtifactsDir)" Condition="Exists('$(ArtifactsDir)')" />  
 		<MakeDir Directories="$(BuildDir)" />
 		<MakeDir Directories="$(ArtifactsDir)" />
+		<MakeDir Directories="$(BuildDir)\content\App_Plugins\MCFly\" />
 	</Target>
 
 	<!-- UPDATE ASSEMBLEY VERSION -->
