@@ -154,13 +154,8 @@
 			RequireLicenseAcceptance="$(RequireLicenseAcceptance)"
 			Tags="$(Tags)"
 			Files="@(NuGetManifestFiles)" />
-		<!-- Update the core dependency version. Have to use XMLUpdate as MSBuild.Nuget doesn't support this yet -->
-		<XmlUpdate
-			Prefix="nu"
-			Namespace="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd"
-			XmlFileName="$(BuildNuGetDir)\package.nuspec"
-			XPath="/nu:package/nu:metadata/nu:dependencies/nu:dependency[@id='$(CorePackageId)']/@version"
-			Value="$(Version)" />
+	
+		
 	</Target>
 
 	<!-- PACKAGE -->
