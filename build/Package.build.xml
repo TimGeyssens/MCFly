@@ -41,7 +41,7 @@
 	</PropertyGroup>
 
 	<PropertyGroup>
-		<Version>0.0.5</Version>
+		<Version>0.0.6</Version>
 		<ProjectName>MCFly</ProjectName>
 	</PropertyGroup>
 
@@ -66,6 +66,7 @@
 		
 		<MakeDir Directories="$(BuildDir)\content\App_Plugins\MCFly\" />
 		<MakeDir Directories="$(BuildDir)\content\Views\Partials\MCFly\" />
+		<MakeDir Directories="$(BuildDir)\content\umbraco\lib\tinymce\plugins\mcflyFieldSelector\" />
 	</Target>
 
 	<!-- UPDATE ASSEMBLEY VERSION -->
@@ -93,6 +94,7 @@
 			<SrcFiles Include="$(ProjectDir)\**\*.cs" Exclude="$(ProjectDir)\obj\**"/>
 			<PluginFiles Include="$(ProjectDir)\App_Plugins\MCFly\**\*.*" />
 			<PartialViewFiles Include="$(ProjectDir)\Views\Partials\MCFly\**\*.*" />
+			<TinyMCEFiles Include="$(ProjectDir)\umbraco\lib\tinymce\plugins\mcflyFieldSelector\*.*" />
 			<PackageFile Include="$(MSBuildProjectDirectory)\package.xml" />
 			<NuSpecFile Include="$(MSBuildProjectDirectory)\package.nuspec" />
 			<NugetReadmeFile Include="$(MSBuildProjectDirectory)\readme.txt" />
@@ -106,6 +108,7 @@
 		<Copy SourceFiles="@(PdbFiles)" DestinationFolder="$(BuildNuGetDir)\lib\net45" />
 		<Copy SourceFiles="@(PluginFiles)" DestinationFiles="@(PluginFiles->'$(BuildNuGetDir)\content\App_Plugins\MCFly\%(RecursiveDir)%(Filename)%(Extension)')" />
 		<Copy SourceFiles="@(PartialViewFiles)" DestinationFiles="@(PartialViewFiles->'$(BuildNuGetDir)\content\Views\Partials\MCFly\%(RecursiveDir)%(Filename)%(Extension)')" />
+		<Copy SourceFiles="@(TinyMCEFiles)" DestinationFiles="@(TinyMCEFiles->'$(BuildNuGetDir)\content\umbraco\lib\tinymce\plugins\mcflyFieldSelector\%(RecursiveDir)%(Filename)%(Extension)')" />
 		<Copy SourceFiles="@(SrcFiles)" DestinationFiles="@(SrcFiles->'$(BuildNuGetDir)\src\%(RecursiveDir)%(Filename)%(Extension)')" />
 		<Copy SourceFiles="@(NuSpecFile)" DestinationFolder="$(BuildNuGetDir)" />
 		<Copy SourceFiles="@(CoreNuSpecFile)" DestinationFolder="$(BuildNuGetDir)" />
