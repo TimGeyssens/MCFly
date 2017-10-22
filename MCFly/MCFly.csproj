@@ -3437,6 +3437,8 @@
     <Compile Include="InvisibleRecaptchaValidationService.cs" />
     <Compile Include="Core\MyTypeBuilder.cs" />
     <Compile Include="MCFlyTreeController.cs" />
+    <Compile Include="Migrations\1.0.0\AddAllowedSectionToAdmins.cs" />
+    <Compile Include="Migrations\1.0.0\AddSummaryDashboardToConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Core\FieldTypes\TextBox.cs" />
     <Compile Include="Section.cs" />

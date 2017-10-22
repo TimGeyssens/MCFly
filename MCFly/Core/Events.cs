@@ -1,5 +1,6 @@
 ﻿using MCFly.Controllers;
 using MCFly.Core.FieldTypes;
+using Semver;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,10 @@ using System.Web;
 using System.Web.Mvc;
 using UIOMatic.Attributes;
 using Umbraco.Core;
+using Umbraco.Core.Logging;
 using Umbraco.Core.Persistence;
+using Umbraco.Core.Persistence.Migrations;
+using Umbraco.Web;
 
 namespace MCFly.Core
 {
@@ -18,6 +22,34 @@ namespace MCFly.Core
         protected override void ApplicationStarted(UmbracoApplicationBase umbracoApplication, ApplicationContext applicationContext)
         {
             //MyTypeBuilder.BuildingCustomValidationAttributes += MyTypeBuilder_Building;
+            var targetDbVersion = new SemVersion(1, 0, 0); // Update this whenever a migration change is made
+            var currentDbVersion = new SemVersion(0, 0, 0);
+
+            var migrations = ApplicationContext.Current.Services.MigrationEntryService.GetAll("MCFly");
+            var latestMigration = migrations.OrderByDescending(x => x.Version).FirstOrDefault();
+
+            if (latestMigration != null)
+                currentDbVersion = latestMigration.Version;
+
+            if (targetDbVersion == currentDbVersion)
+                return;
+
+            var migrationsRunner = new MigrationRunner(
+              ApplicationContext.Current.Services.MigrationEntryService,
+              ApplicationContext.Current.ProfilingLogger.Logger,
+              currentDbVersion,
+              targetDbVersion,
+              "MCFly");
+
+            try
+            {
+                migrationsRunner.Execute(UmbracoContext.Current.Application.DatabaseContext.Database);
+            }
+            catch (Exception e)
+            {
+                LogHelper.Error<Events>("Error running MCFly migrations", e);
+            }
+
 
             MCFly.Core.Helper.EnsureMCFlyFieldTypes();
 
