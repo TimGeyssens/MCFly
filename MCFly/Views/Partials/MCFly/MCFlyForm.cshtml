@@ -66,7 +66,7 @@ else
 
                             }
 
-                            foreach (var fieldtype in form.Fields.Select(x => x.FieldType as MCFly.FieldType).Distinct())
+                            foreach (var fieldtype in form.Fields.Select(x => x.FieldType as MCFly.Core.FieldType).Distinct())
                             {
                                 foreach (var css in fieldtype.RequiredCssFiles())
                                 {
