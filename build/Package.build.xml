@@ -108,7 +108,7 @@
 		<Copy SourceFiles="@(NugetReadmeFile)" DestinationFolder="$(BuildNuGetDir)" />
 	</Target>
 
-	<!-- MANIFEST UMBRACO -->
+	<!-- MANIFEST UMBRACO 
 	<Target Name="ManifestUmbraco" DependsOnTargets="PrepareFiles">
 		<ItemGroup>
 			<UmbracoManifestFiles Include="$(BuildUmbDir)\**\*" Exclude="$(BuildUmbDir)\package.xml" />
@@ -127,7 +127,7 @@
 			PackageUrl="$(ProjectUrl)"
 			Files="@(UmbracoManifestFiles)" />
 	</Target>
-
+-->
 	<!-- MANIFEST FOR NUGET PACKAGE -->
 	<Target Name="ManifestNuGet" DependsOnTargets="PrepareFiles">
 		<ItemGroup>
@@ -159,7 +159,7 @@
 	</Target>
 
 	<!-- PACKAGE -->
-	<Target Name="Package" DependsOnTargets="ManifestUmbraco; ManifestNuGet">
+	<Target Name="Package" DependsOnTargets="ManifestNuGet">
 		<ItemGroup>
 			<UmbracoManifestFiles Include="$(BuildUmbDir)\**\*.*" />
 		</ItemGroup>
