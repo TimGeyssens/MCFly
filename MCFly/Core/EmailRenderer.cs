@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Hosting;
 using System.Web.Mvc;
@@ -54,6 +55,31 @@ namespace MCFly
             return directory.GetFiles("*.cshtml").Select(f => f.Name);
         }
 
-        
+        public static string ParseEmailContents(object model, string content, Form form)
+        {
+            if (string.IsNullOrEmpty(content))
+                return content;
+
+            var s = content;
+
+            var regex = new Regex(@"\{.[\w\.]+.\}");
+            var matches = regex.Matches(content);
+
+
+            foreach (Match m in matches)
+            {
+                var val = m.Value.Trim('{', '}');
+                if (form.Fields.Any(x => x.Alias == val))
+                {
+                    //var fld = form.Fields.FirstOrDefault(x => x.Alias == val);
+
+                    if (model.GetType().GetProperty(val) != null)
+                        s = s.Replace(m.Value, model.GetType().GetProperty(val).GetValue(model).ToString());
+                }
+                
+            }
+
+            return s;
+        }
     }
 }

@@ -3,6 +3,8 @@
 @using System.ComponentModel;
 @using System.ComponentModel.DataAnnotations;
 @using MCFly.Core;
+@using MCFly;
+
 @{
     // the current content item is passed to the view as ViewData["currentContent"]
     // - Umbraco.AssignedContentItem doesn't in this context
@@ -64,7 +66,7 @@
   <p>
     This is a sample email template. You should probably roll your own.
   </p>
-    @Html.Raw(email.Content)
+    @Html.Raw(EmailRenderer.ParseEmailContents(Model, email.Content,form))
   <h2>Submitted data</h2>
   <p>
     The following data was submitted.
