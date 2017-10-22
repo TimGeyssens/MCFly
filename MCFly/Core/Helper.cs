@@ -22,7 +22,7 @@ namespace MCFly.Core
            
 
             var fieldTypes =
-                from a in AppDomain.CurrentDomain.GetAssemblies()
+                from a in AppDomain.CurrentDomain.GetAssemblies().Where(x=>KnownAssemblyExclusionFilter.Any(f => x.FullName.StartsWith(f)) == false)
                 from t in a.GetTypes()
                 where t.IsSubclassOf(typeof(FieldType)) && !t.IsAbstract && t.IsClass
                 select (FieldType)Activator.CreateInstance(t); 
@@ -39,5 +39,54 @@ namespace MCFly.Core
             HttpRuntime.Cache.Insert("MCFlyFieldTypes", fieldTypes.OrderBy(x=>x.Name));
             return fieldTypes.OrderBy(x => x.Name);
         }
+
+        internal static readonly string[] KnownAssemblyExclusionFilter = new[]
+               {
+                    "Forloop.HtmlHelpers",
+                    "WebActivatorEx",
+                    "mscorlib,",
+                    "System.",
+                    "Antlr3.",
+                    "Autofac.",
+                    "Autofac,",
+                    "Castle.",
+                    "ClientDependency.",
+                    "DataAnnotationsExtensions.",
+                    "DataAnnotationsExtensions,",
+                    "Dynamic,",
+                    "HtmlDiff,",
+                    "Iesi.Collections,",
+                    "log4net,",
+                    "Microsoft.",
+                    "Newtonsoft.",
+                    "NHibernate.",
+                    "NHibernate,",
+                    "NuGet.",
+                    "RouteDebugger,",
+                    "SqlCE4Umbraco,",
+                    "umbraco.datalayer,",
+                    "umbraco.interfaces,",
+                    "umbraco.webservices",
+                    "Lucene.",
+                    "Examine,",
+                    "Examine.",
+                    "ServiceStack.",
+                    "MySql.",
+                    "HtmlAgilityPack.",
+                    "TidyNet.",
+                    "ICSharpCode.",
+                    "CookComputing.",
+                    "AutoMapper,",
+                    "AutoMapper.",
+                    "AzureDirectory,",
+                    "itextsharp,",
+                    "UrlRewritingNet.",
+                    "HtmlAgilityPack,",
+                    "MiniProfiler,",
+                    "Moq,",
+                    "nunit.framework,",
+                    "TidyNet,",
+                    "WebDriver,"
+                };
     }
 }

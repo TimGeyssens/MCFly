@@ -1,15 +1,15 @@
 <?xml version="1.0"?>
-   <configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
-       <appSettings xdt:Transform="InsertIfMissing">        
+  <configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+       <appSettings xdt:Transform="Insert">        
           <add key="RecaptchaSiteKey" value="" />
        </appSettings>
-  <appSettings xdt:Transform="InsertIfMissing">        
+  <appSettings xdt:Transform="Insert">        
           <add key="RecaptchaSecretKey" value="" />
        </appSettings>
-  <appSettings xdt:Transform="InsertIfMissing">        
+  <appSettings xdt:Transform="Insert">        
           <add key="ClientValidationEnabled" value="true" />
        </appSettings>
-  <appSettings xdt:Transform="InsertIfMissing">        
+  <appSettings xdt:Transform="Insert">        
           <add key="UnobtrusiveJavaScriptEnabled" value="true" />
        </appSettings>
     </configuration>
