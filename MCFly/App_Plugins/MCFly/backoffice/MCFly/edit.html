@@ -2,259 +2,44 @@
       ng-controller="MCFly.EditController"
       ng-show="loaded"
       ng-submit="save(form)"
-      
       val-form-manager>
-    <umb-panel>
-        <umb-header>
 
-            <div class="umb-panel-header-left-side">
-                <input type="text" placeholder="@placeholders_entername"
-                                  ng-model="form.name"
-                                  ng-change="getSafeFormAlias(form.name)" />
-                <!--<umb-content-name placeholder="@placeholders_entername"
-                                  ng-model="form.name"
-                                  ng-change="getSafeFormAlias(form.name)"/>-->
-                <input type="text" ng-model="form.alias" />
+
+    <umb-editor-view ng-if="!vm.page.loading">
+
+        <umb-editor-header name="form.name"
+                           alias="form.alias"
+                          
+                           hide-description="true"
+                           navigation="navigation"
+                           hide-icon="true">
+        </umb-editor-header>
+
+        <umb-editor-container class="editors-document-type-container">
+
+            <div class="editors-document-type-canvas">
+                <umb-editor-sub-views 
+                                      sub-views="navigation"
+                                      model="form" fieldtypes="fieldtypes">
+                </umb-editor-sub-views>
             </div>
 
-            
-                <div  navigation="navigation">
-                  <ul class="umb-sub-views-nav">
-                     
-                        <li>
-                            <a tabindex="-1" class="umb-sub-views-nav-item" href="" ng-click="setActiveTab('design')" ng-class="{'is-active':activeTab == 'design'}">
-                                <i class="icon icon-document-dashed-line"></i>
-                                <span class="umb-sub-views-nav-item-text ng-binding">Design</span>
-                            </a>
-                        </li>
-                    <li>
-                            <a tabindex="-1" class="umb-sub-views-nav-item" href="" ng-click="setActiveTab('settings')" ng-class="{'is-active':activeTab == 'settings'}">
-                                <i class="icon icon-settings"></i>
-                                <span class="umb-sub-views-nav-item-text ng-binding">Settings</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a tabindex="-1" class="umb-sub-views-nav-item" href=""  ng-click="setActiveTab('emails')" ng-class="{'is-active':activeTab == 'emails'}">
-                                <i class="icon icon-mailbox"></i>
-                                <span class="umb-sub-views-nav-item-text ng-binding">Emails</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a tabindex="-1" class="umb-sub-views-nav-item" href=""  ng-click="setActiveTab('webhooks')" ng-class="{'is-active':activeTab == 'webhooks'}">
-                                <i class="icon icon-globe-alt"></i>
-                                <span class="umb-sub-views-nav-item-text ng-binding">Webhooks</span>
-                            </a>
-                        </li>
-                        
-                    </ul>
-                </div>
-            
-        </umb-header>
+        </umb-editor-container>
 
-        <div class="umb-panel-body umb-scrollable row-fluid">
-            <div class="tab-content form-horizontal" style="padding-bottom: 90px">
-                <div class="umb-pane">
+        <umb-editor-footer>
 
-                    <div ng-show="activeTab == 'design'">
-                      <!-- <umb-control-group label="Fields" description="">
-                            Caption: <input ng-model="newFieldName" type="text" ng-change="getSafeAlias(newFieldName)" />
-                            Alias: <input ng-model="newFieldAlias" type="text" />
-                            Type: <select ng-model="newFieldTypeName">
-                                <option ng-repeat="fldType in fieldtypes" value{{fldType.Name}}>{{fldType.Name}}</option>
+            <umb-editor-footer-content-left>
+              
+            </umb-editor-footer-content-left>
 
-                            </select>
-                            <div ng-show="supportsPlaceholder(newFieldTypeName)">Placeholder: <input ng-model="newFieldPlaceHolder" type="text" /></div>
-                            Required: <input type="checkbox" ng-model="newFieldRequired" />
-                            <span class="btn" ng-click="addField(form,newFieldName,newFieldAlias,newFieldTypeName,newFieldPlaceHolder,newFieldRequired)">Add</span>
+            <umb-editor-footer-content-right>
+                <button type="submit" data-hotkey="ctrl+s" class="btn btn-success">
+                    <localize key="buttons_save">Save</localize>
+                </button>
+            </umb-editor-footer-content-right>
 
-                            <ul ui-sortable="{ 'ui-floating': true }" ng-model="form.fields">
-                                <li ng-repeat="field in form.fields">
-                                    <input type="text" ng-model="field.caption" />
-                                    <input type="text" ng-model="field.placeholder" ng-show="supportsPlaceholder(field.fieldTypeName)" />
-                                    <input type="checkbox" ng-model="field.required" />
-                                    <select ng-model="field.fieldTypeName">
-                                        <option ng-repeat="fldType in fieldtypes" value{{fldType.Name}}>{{fldType.Name}}</option>
-                                    </select>
-                                    <div ng-show="supportsOptions(field.fieldTypeName)">
-                                        <input type="text" ng-model="field.$newOptionValue" /><span class="btn" ng-click="addOption(field)">Add</span>
-                                        <ul>
-                                            <li ng-repeat="option in field.options">{{option.value}}</li>
-                                        </ul>
-                                    </div>
-                                    <span ng-click="removeField(field)">x</span>
-                                    {{field |json}}
+        </umb-editor-footer>
 
-                                </li>
-                            </ul>
+    </umb-editor-view>
 
-                        </umb-control-group> -->
-
-                        
-                            <div ui-sortable="{ 'ui-floating': true }" ng-model="form.fields" class="mcfly-field-editor">
-
-                                <div ng-repeat="field in form.fields" class="mcfly-field umb-group-builder__property">
-                                    <div class="mcfly-field-label-editor umb-group-builder__property-meta">
-                                       
-                                        <a ng-if="field.$locked" href="" ng-click="unlock(field)" class="umb-locked-field__toggle">
-                                            <i class="umb-locked-field__lock-icon icon-lock"></i>
-                                        </a>
-                                        <a ng-if="!field.$locked" href="" ng-click="lock(field)" class="umb-locked-field__toggle">
-                                            <i class="umb-locked-field__lock-icon icon-unlock"></i>
-                                        </a>
-                                       <input type="text" class="umb-locked-field__input" name="lockedField" ng-model="field.alias" ng-disabled="field.$locked" ng-class="{'-unlocked': !field.$locked}" placeholder="Alias..." val-regex="^[a-zA-Z]\w.*$" umb-auto-resize="" required="" title="content" focus-when="false" umb-select-when="false" on-blur="lock()" disabled="disabled" style="width: 46px;">
-                                       <br />
-                                        <input type="text" ng-model="field.caption" /> <!--<span ng-show="field.required">*</span>-->
-                                        <div ng-show="supportsPlaceholder(field.fieldTypeName)">
-                                            <input type="text" ng-model="field.placeholder" placeholder="Enter a placeholder" />
-                                        </div>
-                                    </div>
-                                    <div class="mcfly-field-preview umb-group-builder__property-preview">
-
-                                        <div class="umb-group-builder__property-tags">
-
-                                            <span class="umb-group-builder__property-tag -white">
-                                                <span>{{field.fieldTypeName}}</span>
-                                               
-                                            </span>
-
-                                          
-
-                                        </div>
-
-                                    <div ng-include="'/App_Plugins/MCFly/backoffice/views/previews/' + field.fieldTypeName + '.html'"></div>
-                                    </div>
-
-                                    <div class="umb-group-builder__property-actions" style="margin-top:0px">
-
-                                       <div>
-                                         
-
-                                            <div class="umb-group-builder__property-action" ng-click="editFieldSettings(field)">
-                                                <i class="icon icon-settings"></i>
-                                            </div>
-
-                                           <div class="umb-group-builder__property-action">
-                                               <input type="checkbox" ng-model="field.required" title="required" />
-                                           </div>
-
-
-                                            <div class="umb-group-builder__property-action">
-                                                <i class="icon-trash" ng-click="removeField(field)"></i>
-                                              
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-
-                                </div>
-
-                                <div>
-                                    <span class="btn">{{form.submitButtonCaption}}</span>
-                                </div>
-
-                                <a href="" class="umb-group-builder__group -placeholder ng-scope" hotkey="alt+shift+t" ng-click="addFieldWithDialog()">
-
-                                   
-
-                                    Add a new field
-
-                                </a>
-
-                               
-                            </div>
-                       
-                    </div>
-
-                     <div ng-show="activeTab == 'settings'">
-                    <umb-control-group label="Submit button caption" description="">
-                        <input type="text" class="umb-editor umb-textstring" ng-model="form.submitButtonCaption" required />
-                    </umb-control-group>
-
-                    <umb-control-group label="Required error message" description="">
-                        <input type="text" class="umb-editor umb-textstring" ng-model="form.requiredErrorMessage" required />
-                    </umb-control-group>
-
-                    <umb-control-group label="Invalid error message" description="">
-                        <input type="text" class="umb-editor umb-textstring" ng-model="form.invalidErrorMessage" required />
-                    </umb-control-group>
-
-                      
-
-                    <umb-control-group label="Message on submit" description="">
-                        <input type="text" class="umb-editor umb-textstring" ng-model="form.messageOnSubmit" required />
-                    </umb-control-group>
-
-                    <umb-control-group label="Goto page on submit" description="">
-                        <input type="text" class="umb-editor umb-textstring" ng-model="form.goToPageOnSubmit"  />
-                    </umb-control-group>
-                         <umb-control-group label="Stores data" description="">
-                             <switch  ng-model="form.storesData" class="green"></switch>
-
-                         </umb-control-group>
-                   </div>
-
-
-                    
-
-
-                     <div ng-show="activeTab == 'emails'">
-                    <umb-control-group label="Emails" description="">
-                        Subject: <input ng-model="newEmailSubject" type="text" />
-                        From: <input ng-model="newEmailFrom" type="text" />
-                        To: <input ng-model="newEmailTo" type="text" />
-
-                        <div ng-show="hasmailProperties">
-                        To Property: <select ng-model="newEmailToProperty">
-                                <option ng-repeat="field in form.fields| filter: toPropertyFilter" value="{{field.caption}}">{{field.caption}}</option>
-
-                            </select>
-                        </div>
-                        <div ng-show="emailTemplates.length > 1">
-                            Template: <select ng-model="newEmailTemplate">
-                                <option ng-repeat="template in emailTemplates" value="{{template}}">{{template}}</option>
-
-                            </select>
-                        </div>
-                        Contents:
-                        <umb-editor-with-config model="newEmailContents" config="defaultRteConfig"></umb-editor-with-config>
-                        <span class="btn" ng-click="addEmail(form,newEmailSubject,newEmailContents,newEmailFrom,newEmailTo,newEmailToProperty,newEmailTemplate)">Add</span>
-
-
-                        <ul>
-                            <li ng-repeat="email in form.emails">
-                                <input type="text" ng-model="email.subject" />
-                                <!--<input type="text" ng-model="field.placeholder" />
-                                <input type="checkbox" ng-model="field.required" />-->
-                                {{email |json}}
-
-                            </li>
-                        </ul>
-
-                    </umb-control-group>
-                    </div>
-
-                     <div ng-show="checkActiveTab('webhooks')">
-                    <umb-control-group label="Webhook url" description="">
-                        <input type="text" class="umb-editor umb-textstring" ng-model="form.webHookUrl" />
-                    </umb-control-group>
-                    </div>
-
-
-                    <div class="umb-tab-buttons" detect-fold>
-                        <div class="btn-group">
-                            <button type="submit" data-hotkey="ctrl+s" class="btn btn-success">
-                                <localize key="buttons_save">Save</localize>
-                            </button>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-    </umb-panel>
 </form>
-
-
-

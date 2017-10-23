@@ -173,10 +173,6 @@ C:\Users\Tim Geyssens\Documents\Projects\MCFly\MCFly\bin\CsvHelper.dll
 C:\Users\Tim Geyssens\Documents\Projects\MCFly\MCFly\bin\DataAnnotationsExtensions.ClientValidation.dll
 C:\Users\Tim Geyssens\Documents\Projects\MCFly\MCFly\bin\DataAnnotationsExtensions.dll
 C:\Users\Tim Geyssens\Documents\Projects\MCFly\MCFly\bin\Examine.dll
-C:\Users\Tim Geyssens\Documents\Projects\MCFly\MCFly\bin\formulate.api.dll
-C:\Users\Tim Geyssens\Documents\Projects\MCFly\MCFly\bin\formulate.app.dll
-C:\Users\Tim Geyssens\Documents\Projects\MCFly\MCFly\bin\formulate.core.dll
-C:\Users\Tim Geyssens\Documents\Projects\MCFly\MCFly\bin\formulate.meta.dll
 C:\Users\Tim Geyssens\Documents\Projects\MCFly\MCFly\bin\HtmlAgilityPack.dll
 C:\Users\Tim Geyssens\Documents\Projects\MCFly\MCFly\bin\ICSharpCode.SharpZipLib.dll
 C:\Users\Tim Geyssens\Documents\Projects\MCFly\MCFly\bin\ImageProcessor.dll
@@ -238,20 +234,10 @@ C:\Users\Tim Geyssens\Documents\Projects\MCFly\MCFly\bin\WebMatrix.WebData.dll
 C:\Users\Tim Geyssens\Documents\Projects\MCFly\MCFly\bin\businesslogic.xml
 C:\Users\Tim Geyssens\Documents\Projects\MCFly\MCFly\bin\cms.xml
 C:\Users\Tim Geyssens\Documents\Projects\MCFly\MCFly\bin\controls.xml
-C:\Users\Tim Geyssens\Documents\Projects\MCFly\MCFly\bin\formulate.api.pdb
-C:\Users\Tim Geyssens\Documents\Projects\MCFly\MCFly\bin\formulate.api.xml
-C:\Users\Tim Geyssens\Documents\Projects\MCFly\MCFly\bin\formulate.app.pdb
-C:\Users\Tim Geyssens\Documents\Projects\MCFly\MCFly\bin\formulate.app.xml
-C:\Users\Tim Geyssens\Documents\Projects\MCFly\MCFly\bin\formulate.core.pdb
-C:\Users\Tim Geyssens\Documents\Projects\MCFly\MCFly\bin\formulate.core.xml
-C:\Users\Tim Geyssens\Documents\Projects\MCFly\MCFly\bin\formulate.meta.pdb
-C:\Users\Tim Geyssens\Documents\Projects\MCFly\MCFly\bin\formulate.meta.xml
 C:\Users\Tim Geyssens\Documents\Projects\MCFly\MCFly\bin\interfaces.xml
 C:\Users\Tim Geyssens\Documents\Projects\MCFly\MCFly\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\Tim Geyssens\Documents\Projects\MCFly\MCFly\bin\SQLCE4Umbraco.xml
 C:\Users\Tim Geyssens\Documents\Projects\MCFly\MCFly\bin\System.Collections.Immutable.xml
-C:\Users\Tim Geyssens\Documents\Projects\MCFly\MCFly\bin\UIOMatic.pdb
-C:\Users\Tim Geyssens\Documents\Projects\MCFly\MCFly\bin\UIOMatic.dll.config
 C:\Users\Tim Geyssens\Documents\Projects\MCFly\MCFly\bin\umbraco.xml
 C:\Users\Tim Geyssens\Documents\Projects\MCFly\MCFly\bin\Umbraco.Core.xml
 C:\Users\Tim Geyssens\Documents\Projects\MCFly\MCFly\bin\umbraco.DataLayer.xml
@@ -261,7 +247,6 @@ C:\Users\Tim Geyssens\Documents\Projects\MCFly\MCFly\bin\umbraco.providers.xml
 C:\Users\Tim Geyssens\Documents\Projects\MCFly\MCFly\bin\Umbraco.Web.UI.xml
 C:\Users\Tim Geyssens\Documents\Projects\MCFly\MCFly\bin\UmbracoExamine.xml
 C:\Users\Tim Geyssens\Documents\Projects\MCFly\MCFly\obj\Debug\MCFly.csproj.App.config
-C:\Users\Tim Geyssens\Documents\Projects\MCFly\MCFly\obj\Debug\MCFly.csprojResolveAssemblyReference.cache
 C:\Users\Tim Geyssens\Documents\Projects\MCFly\MCFly\obj\Debug\MCFly.dll
 C:\Users\Tim Geyssens\Documents\Projects\MCFly\MCFly\obj\Debug\MCFly.pdb
 C:\Users\Tim Geyssens\Documents\Projects\MCFly\MCFly\bin\Forloop.HtmlHelpers.dll
@@ -310,3 +295,5 @@ C:\Users\Tim Geyssens\Documents\Projects\MCFly\MCFly\bin\System.Web.WebPages.Raz
 C:\Users\Tim Geyssens\Documents\Projects\MCFly\MCFly\bin\Umbraco.ModelsBuilder.pdb
 C:\Users\Tim Geyssens\Documents\Projects\MCFly\MCFly\bin\WebMatrix.Data.xml
 C:\Users\Tim Geyssens\Documents\Projects\MCFly\MCFly\bin\WebMatrix.WebData.xml
+C:\Users\Tim Geyssens\Documents\Projects\MCFly\MCFly\bin\UIOMatic.dll
+C:\Users\Tim Geyssens\Documents\Projects\MCFly\MCFly\obj\Debug\MCFly.csprojResolveAssemblyReference.cache

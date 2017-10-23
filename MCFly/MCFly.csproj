@@ -2964,6 +2964,12 @@
     <Content Include="App_Plugins\MCFly\backoffice\dialogs\tinymceselectfield.controller.js" />
     <Content Include="App_Plugins\MCFly\backoffice\dialogs\tinymceselectfield.html" />
     <Content Include="App_Plugins\MCFly\backoffice\directives\umbraco-editor-with-config.js" />
+    <Content Include="App_Plugins\MCFly\backoffice\views\formdesigner\emails.controller.js" />
+    <Content Include="App_Plugins\MCFly\backoffice\views\formdesigner\design.controller.js" />
+    <Content Include="App_Plugins\MCFly\backoffice\views\formdesigner\design.html" />
+    <Content Include="App_Plugins\MCFly\backoffice\views\formdesigner\emails.html" />
+    <Content Include="App_Plugins\MCFly\backoffice\views\formdesigner\settings.html" />
+    <Content Include="App_Plugins\MCFly\backoffice\views\formdesigner\webhook.html" />
     <Content Include="App_Plugins\MCFly\backoffice\views\previews\checkbox.html" />
     <Content Include="App_Plugins\MCFly\backoffice\views\previews\date.html" />
     <Content Include="App_Plugins\MCFly\backoffice\views\previews\datetime.html" />

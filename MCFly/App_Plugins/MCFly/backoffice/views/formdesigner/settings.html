@@ -1,0 +1,71 @@
+﻿<div  class="sub-view-columns">
+    <div class="sub-view-column-left">
+        <h5>Submit button caption</h5>
+        <small>Setup the value for the submit button</small>
+    </div>
+    <div class="sub-view-column-right">
+        <input type="text" class="umb-editor umb-textstring" ng-model="model.submitButtonCaption" required />
+    </div>
+
+   
+</div>
+
+<div  class="sub-view-columns">
+
+    <div class="sub-view-column-left">
+        <h5>Required error message</h5>
+        <small>Text to be displayed when a required field isn't populated, use {0} to replace with field caption</small>
+    </div>
+    <div class="sub-view-column-right">
+        <input type="text" class="umb-editor umb-textstring" ng-model="model.requiredErrorMessage" required />
+    </div>
+
+
+   
+</div>
+
+
+
+<div class="sub-view-columns">
+
+    <div class="sub-view-column-left">
+        <h5>Invalid error message</h5>
+        <small>Text to be displayed when a field value isn't valid, use {0} to replace with field caption</small>
+    </div>
+    <div class="sub-view-column-right">
+        <input type="text" class="umb-editor umb-textstring" ng-model="model.invalidErrorMessage" required />
+    </div>
+
+
+
+</div>
+
+
+<div class="sub-view-columns">
+
+    <div class="sub-view-column-left">
+        <h5>Success Message</h5>
+        <small>Text to dislay after a successful form submit</small>
+    </div>
+    <div class="sub-view-column-right">
+        <input type="text" class="umb-editor umb-textstring" ng-model="model.messageOnSubmit" required />
+    </div>
+
+
+
+</div>
+
+
+<div class="sub-view-columns">
+
+    <div class="sub-view-column-left">
+        <h5>Stores data</h5>
+        <small>If you don't wish to store the data to the db, disable this switch</small>
+    </div>
+    <div class="sub-view-column-right">
+        <switch ng-model="model.storesData" class="green"></switch>
+    </div>
+
+
+
+</div>

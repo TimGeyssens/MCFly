@@ -1,0 +1,37 @@
+﻿<div ng-controller="MCFly.FormDesigner.Emails.Controller">
+
+    <umb-control-group label="Emails" description="">
+        Subject: <input ng-model="newEmailSubject" type="text" />
+        From: <input ng-model="newEmailFrom" type="text" />
+        To: <input ng-model="newEmailTo" type="text" />
+
+        <div ng-show="hasmailProperties">
+            To Property: <select ng-model="newEmailToProperty">
+                <option ng-repeat="field in model.fields| filter: toPropertyFilter" value="{{field.caption}}">{{field.caption}}</option>
+
+            </select>
+        </div>
+        <div ng-show="emailTemplates.length > 1">
+            Template: <select ng-model="newEmailTemplate">
+                <option ng-repeat="template in emailTemplates" value="{{template}}">{{template}}</option>
+
+            </select>
+        </div>
+        Contents:
+        <umb-editor-with-config model="newEmailContents" config="defaultRteConfig"></umb-editor-with-config>
+        <span class="btn" ng-click="addEmail(newEmailSubject,newEmailContents,newEmailFrom,newEmailTo,newEmailToProperty,newEmailTemplate)">Add</span>
+
+
+        <ul>
+            <li ng-repeat="email in model.emails">
+                <input type="text" ng-model="email.subject" />
+                <!--<input type="text" ng-model="field.placeholder" />
+                <input type="checkbox" ng-model="field.required" />-->
+                <!--{{email |json}}-->
+
+            </li>
+        </ul>
+
+    </umb-control-group>
+
+</div>

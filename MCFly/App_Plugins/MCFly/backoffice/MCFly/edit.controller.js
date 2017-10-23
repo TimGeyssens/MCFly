@@ -13,22 +13,34 @@ app.controller("MCFly.EditController",
         $scope.hasmailProperties = false;
 
 
-        $scope.activeTab = 'design';
-
-        $scope.newEmailContents = {};
-
-        $scope.defaultRteConfig = {
-            label: 'bodyText',
-            description: 'Load some stuff here',
-            view: 'rte',
-            config: {
-                editor: {
-                    toolbar: ["code", "undo", "redo", "cut", "bold", "italic", "alignleft", "aligncenter", "alignright", "bullist", "numlist", "link", "umbmediapicker", "table", "umbembeddialog", "pluginName"],
-                    stylesheets: [],
-                    dimensions: { height: 300, width: 500 }
-                }
+        $scope.navigation = [
+            {
+                "name": 'Design',
+                "icon": "icon-document-dashed-line",
+                "view": "/App_Plugins/MCFly/backoffice/views/formdesigner/design.html",
+                "active": true
+            },
+            { 
+                "name": 'Settings',
+                "icon": "icon-settings",
+                "view": "/App_Plugins/MCFly/backoffice/views/formdesigner/settings.html"
+            },
+            {
+                "name": 'Emails',
+                "icon": "icon-mailbox",
+                "view": "/App_Plugins/MCFly/backoffice/views/formdesigner/emails.html"
+            },
+            {
+                "name": 'Webhook',
+                "icon": "icon-globe-alt",
+                "view": "/App_Plugins/MCFly/backoffice/views/formdesigner/webhook.html"
             }
-        };
+        ];
+
+
+      
+
+        
 
         mcFlyResource.getFormBuilderData().then(function (resp) {
             $scope.fieldtypes = resp.data.FieldTypes;
@@ -72,68 +84,12 @@ app.controller("MCFly.EditController",
 
         });
 
-        $scope.setActiveTab = function (name) {
-            $scope.activeTab = name;
-        }
-        $scope.checkActiveTab = function (name) {
-           
-            if (String($scope.activeTab) == String(name))
-                return true;
-            return false;
-        }
+       
 
-        $scope.addFieldWithDialog = function()
-        {
-            dialogService.open({
-                template: '../App_Plugins/MCFly/backoffice/dialogs/addfield.html',
-                scope: $scope,
-                callback: function (data) {
-                    console.log(data);
-                },
-                show: true,
-                dialogData: {
-                    text: 'some text'
-                }
-            });
-        }
-        $scope.addField = function (form,name,alias,fieldtype,placeholder,required)
-        {
-
-            var newField = {
-                'formId': form.Id,
-                'alias': alias,
-                'caption': name,
-                'placeholder': placeholder == null ? '' : placeholder,
-                'required' : required,
-                'regEx': '',
-                'fieldTypeName': fieldtype
-            }
-            newField.$locked = true;
-            $scope.form.fields.push(newField);
-
-            $scope.hasmailProperties = _.where($scope.form.fields, { fieldTypeName: "Email" }).length > 0;
-            dialogService.closeAll();
-        }
-        $scope.removeField = function (field)
-        {
-            $scope.form.fields.splice($scope.form.fields.indexOf(field), 1);
-
-            $scope.hasmailProperties = _.where($scope.form.fields, { fieldTypeName: "Email" }).length > 0;
-        }
-        $scope.addEmail = function (form, subject, content, from, to, toProperty, template) {
-
-            var newEmail = {
-                'formId': form.Id,
-                'subject': subject,
-                'content': content.value,
-                'from': from,
-                'to': to,
-                'toProperty': toProperty,
-                'template': template == null ? $scope.emailTemplates[0] : template,
-            }
-            $scope.form.emails.push(newEmail);
-
-        }
+       
+       
+        
+       
         $scope.addOption = function (field)
         {
             if (!field.options) {
@@ -149,19 +105,7 @@ app.controller("MCFly.EditController",
 
         }
 
-        $scope.lock = function (field)
-        {
-            field.$locked = true;
-        }
-        $scope.unlock = function (field) {
-            field.$locked = false;
-        }
-        $scope.supportsPlaceholder = function (fieldTypeName) {
-            if (fieldTypeName == undefined) return false;
-
-            return _.findWhere($scope.fieldtypes, { Name: fieldTypeName }).SupportsPlaceholder;
-
-        }
+       
 
         $scope.supportsOptions = function(fieldTypeName)
         {

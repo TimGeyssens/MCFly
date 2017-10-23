@@ -1,24 +1,35 @@
 ﻿<div ng-controller="MCFly.AddFieldController">
 
-    Caption: <input ng-model="newFieldName" type="text" ng-change="getSafeAlias(newFieldName)" /> <br/>
-    Alias: <input ng-model="newFieldAlias" type="text" /> <br />
-    Type: <select ng-model="newFieldTypeName"> 
-        <option ng-repeat="fldType in fieldtypes" value{{fldType.Name}}>{{fldType.Name}}</option>
 
-    </select><br />
-    <div ng-show="supportsPlaceholder(newFieldTypeName)">Placeholder: <input ng-model="newFieldPlaceHolder" type="text" /></div>
-    Required: <input type="checkbox" ng-model="newFieldRequired" /><br />
+    <div class="umb-overlay-header">
+        <h4 class="umb-overlay__title">Add Field</h4>
+        <p class="umb-overlay__subtitle"></p>
+    </div>
 
-    
-                                   <!--<div ng-show="supportsOptions(newFieldTypeNamee)">
-                                       <input type="text" ng-model="field.$newOptionValue" /><span class="btn" ng-click="addOption(field)">Add</span>
-                                       <ul>
-                                           <li ng-repeat="option in field.options">{{option.value}}</li>
-                                       </ul>
-                                   </div>-->
-                                
-    <br />
+    <div class="umb-overlay-container form-horizontal">
+       
+        Caption: <input ng-model="newFieldName" type="text" ng-change="getSafeAlias(newFieldName)" /> <br />
+        Alias: <input ng-model="newFieldAlias" type="text" /> <br />
+        Type: <select ng-model="newFieldTypeName">
+            <option ng-repeat="fldType in fieldtypes" value{{fldType.Name}}>{{fldType.Name}}</option>
 
-    <span class="btn" ng-click="addField(form,newFieldName,newFieldAlias,newFieldTypeName,newFieldPlaceHolder,newFieldRequired)">Add</span>
+        </select><br />
+        <div ng-show="supportsPlaceholder(newFieldTypeName)">Placeholder: <input ng-model="newFieldPlaceHolder" type="text" /></div>
+        Required: <input type="checkbox" ng-model="newFieldRequired" /><br />
+
+
+        <!--<div ng-show="supportsOptions(newFieldTypeName)">
+        <input type="text" ng-model="field.$newOptionValue" /><span class="btn" ng-click="addOption(field)">Add</span>
+        <ul>
+            <li ng-repeat="option in field.options">{{option.value}}</li>
+        </ul>
+    </div>-->
+
+        <br />
+    </div>
+
+   
+
+    <span class="btn" ng-click="addField(dialogData.form,newFieldName,newFieldAlias,newFieldTypeName,newFieldPlaceHolder,newFieldRequired)">Add</span>
 
 </div>
