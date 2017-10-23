@@ -12,7 +12,15 @@
 
 @if (TempData["success"] != null)
 {
-    <p>@form.MessageOnSubmit</p>
+    @if (form == null)
+    {
+        <p>Your submission has been received</p>
+    }
+    else
+    {
+
+        <p>@Html.Raw(form.MessageOnSubmit)</p>
+    }
 
 }
 else
@@ -21,7 +29,10 @@ else
     {
         @Html.AntiForgeryToken()
 
+        if (form != null)
+        {
         <h3>@form.Name</h3>
+        }
         @Html.HiddenFor(x => Model.FullName)
 
         foreach (var prop in Model.GetProperties().Where(x => x.Name != "Id" && x.Name != "Created" && x.Name != "UmbracoPage"))
@@ -37,7 +48,7 @@ else
                     @{
                         var metadataForProperty = ModelMetadataProviders.Current.GetMetadataForProperty(null, Model, prop.Name);
                         var attri = (UIOMatic.Attributes.UIOMaticFieldAttribute)prop.GetCustomAttribute(typeof(UIOMatic.Attributes.UIOMaticFieldAttribute));
-                        var templateName = MCFly.Core.Helper.GetFieldTypes().FirstOrDefault(x => x.Name == form.Fields.FirstOrDefault(f => f.Caption == caption).FieldTypeName).FrontEndRenderView;
+                        var templateName = form == null ? "TextBox" : MCFly.Core.Helper.GetFieldTypes().FirstOrDefault(x => x.Name == form.Fields.FirstOrDefault(f => f.Caption == caption).FieldTypeName).FrontEndRenderView;
                         var validationAttributes = Html.GetUnobtrusiveValidationAttributes(prop.Name, metadataForProperty);
                         var attributes = new Dictionary<string, object>{{
                                 "placeholder", ((DisplayAttribute)dAttri).Prompt
@@ -60,12 +71,20 @@ else
                                 data-sitekey="@System.Configuration.ConfigurationManager.AppSettings["RecaptchaSiteKey"]"
                                 data-callback="onSubmit"
                                 data-badge="inline">
-                            @form.SubmitButtonCaption
+                            @if (form != null)
+                            {
+                                @form.SubmitButtonCaption
+                            }
+                            else
+                            {
+                                <text>Submit</text>
+                            }
                         </button>
 
 
-                            }
-
+                        }
+                        @if (form != null)
+                        {
                             foreach (var fieldtype in form.Fields.Select(x => x.FieldType as MCFly.Core.FieldType).Distinct())
                             {
                                 foreach (var css in fieldtype.RequiredCssFiles())
@@ -73,17 +92,17 @@ else
 
                                   <link rel="stylesheet" type="text/css" href="@css">
 
-                                }
-                                foreach (var script in fieldtype.RequiredJSFiles())
-                                {
-                                    using (var context = Html.BeginScriptContext())
-                                    {
-                                        context.AddScriptFile(script);
                                     }
+                                    foreach (var script in fieldtype.RequiredJSFiles())
+                                    {
+                                        using (var context = Html.BeginScriptContext())
+                                        {
+                                            context.AddScriptFile(script);
+                                        }
 
+                                    }
                                 }
                             }
-
                             using (var context = Html.BeginScriptContext())
                             {
                                 context.AddScriptBlock(@"

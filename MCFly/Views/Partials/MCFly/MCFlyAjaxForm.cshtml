@@ -9,17 +9,29 @@
     var form = new MCFly.Controllers.MCFlyApiController().GetByAlias(Model.FullName);
 }
 <div id="mcfly-message-container" style="display:none;">
-    <p>@Html.Raw(form.MessageOnSubmit)</p>
+    @if (form == null)
+    {
+        <p>Your submission has been received</p>
+    }
+    else
+    {
+
+        <p>@Html.Raw(form.MessageOnSubmit)</p>
+    }
 </div>
 <div id="mcfly-form-container">
 
     @using (Ajax.BeginForm("HandleAjaxForm", "Entries", null, new AjaxOptions { HttpMethod = "POST", OnSuccess = "showSuccessMessage", InsertionMode = InsertionMode.Replace, UpdateTargetId = "mcfly-form-container" }, new Dictionary<string, object> { { "id", "mcfly-form" } }))
     {
         @Html.AntiForgeryToken()
-        <h3>@form.Name</h3>
+
+        if (form != null)
+        {
+            <h3>@form.Name</h3>
+        }
         @Html.HiddenFor(x => Model.FullName)
-        @Html.HiddenFor(x=>Umbraco.AssignedContentItem.Id)
-         
+        @Html.HiddenFor(x => Umbraco.AssignedContentItem.Id)
+
         foreach (var prop in Model.GetProperties().Where(x => x.Name != "Id" && x.Name != "Created" && x.Name != "UmbracoPage"))
         {
             var dAttri = prop.GetCustomAttributes().FirstOrDefault(x => x.GetType() == typeof(DisplayAttribute));
@@ -33,7 +45,7 @@
                     @{
                         var metadataForProperty = ModelMetadataProviders.Current.GetMetadataForProperty(null, Model, prop.Name);
                         var attri = (UIOMatic.Attributes.UIOMaticFieldAttribute)prop.GetCustomAttribute(typeof(UIOMatic.Attributes.UIOMaticFieldAttribute));
-                        var templateName = MCFly.Core.Helper.GetFieldTypes().FirstOrDefault(x => x.Name == form.Fields.FirstOrDefault(f => f.Caption == caption).FieldTypeName).FrontEndRenderView;
+                        var templateName = form == null ? "TextBox" : MCFly.Core.Helper.GetFieldTypes().FirstOrDefault(x => x.Name == form.Fields.FirstOrDefault(f => f.Caption == caption).FieldTypeName).FrontEndRenderView;
                         var validationAttributes = Html.GetUnobtrusiveValidationAttributes(prop.Name, metadataForProperty);
                         var attributes = new Dictionary<string, object>{{
                                 "placeholder", ((DisplayAttribute)dAttri).Prompt
@@ -51,32 +63,43 @@
 
                         }
 
-                       
+
                         <button class="g-recaptcha"
                                 data-sitekey="@System.Configuration.ConfigurationManager.AppSettings["RecaptchaSiteKey"]"
                                 data-callback="onSubmit"
                                 data-badge="inline">
-                            @form.SubmitButtonCaption
+                            @if (form != null)
+                            {
+                                @form.SubmitButtonCaption
+                            }
+                            else
+                            {
+                                <text>Submit</text>
+                            }
                         </button>
 
 
                         }
-    @foreach (var fieldtype in form.Fields.Select(x => x.FieldType as MCFly.Core.FieldType).Distinct())
-    {
-    foreach (var css in fieldtype.RequiredCssFiles())
-    {
 
-    <link rel="stylesheet" type="text/css" href="@css">
-
-    }
-    foreach (var script in fieldtype.RequiredJSFiles())
+    @if (form != null)
     {
-    using (var context = Html.BeginScriptContext())
-    {
-    context.AddScriptFile(script);
-    }
+        foreach (var fieldtype in form.Fields.Select(x => x.FieldType as MCFly.Core.FieldType).Distinct())
+        {
+            foreach (var css in fieldtype.RequiredCssFiles())
+            {
 
-    }
+                <link rel="stylesheet" type="text/css" href="@css">
+
+            }
+            foreach (var script in fieldtype.RequiredJSFiles())
+            {
+                using (var context = Html.BeginScriptContext())
+                {
+                    context.AddScriptFile(script);
+                }
+
+            }
+        }
     }
     @using (var context = Html.BeginScriptContext())
     {
