@@ -38,7 +38,7 @@ else
         foreach (var prop in Model.GetProperties().Where(x => x.Name != "Id" && x.Name != "Created" && x.Name != "UmbracoPage"))
         {
             var dAttri = prop.GetCustomAttributes().FirstOrDefault(x => x.GetType() == typeof(DisplayAttribute));
-            var caption = ((DisplayAttribute)dAttri).Name;
+            var caption = dAttri == null ? prop.Name : ((DisplayAttribute)dAttri).Name;
             <div>
 
                 @Html.Label(caption)@if (prop.GetCustomAttributes().Any(x => x.GetType() == typeof(RequiredAttribute)))
@@ -51,7 +51,7 @@ else
                         var templateName = form == null ? Helper.MapUIOMaticFieldAttributeToFrontEndView(attri) : MCFly.Core.Helper.GetFieldTypes().FirstOrDefault(x => x.Name == form.Fields.FirstOrDefault(f => f.Caption == caption).FieldTypeName).FrontEndRenderView;
                         var validationAttributes = Html.GetUnobtrusiveValidationAttributes(prop.Name, metadataForProperty);
                         var attributes = new Dictionary<string, object>{{
-                                "placeholder", ((DisplayAttribute)dAttri).Prompt
+                                "placeholder",  dAttri == null ? "" : ((DisplayAttribute)dAttri).Prompt
                             }};
                         attributes.AddRange(new Dictionary<string, object>(validationAttributes));
                     }
