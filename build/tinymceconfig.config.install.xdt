@@ -1,0 +1,11 @@
+?<?xml version="1.0"?>
+<tinymceConfig xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+  <commands>
+    <command xdt:Transform="Insert">
+      <umbracoAlias>mcflyFieldSelector</umbracoAlias>
+      <icon>images/editor/code.gif</icon>
+      <tinyMceCommand value="" userInterface="true" frontendCommand="mcflyFieldSelector">mcflyFieldSelector</tinyMceCommand>
+      <priority>75</priority>
+    </command>
+  </commands>
+</tinymceConfig>
