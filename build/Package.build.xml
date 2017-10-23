@@ -41,7 +41,7 @@
 	</PropertyGroup>
 
 	<PropertyGroup>
-		<Version>0.0.21</Version>
+		<Version>0.0.22</Version>
 		<ProjectName>MCFly</ProjectName>
 	</PropertyGroup>
 
@@ -68,6 +68,7 @@
 		<MakeDir Directories="$(BuildDir)\content\Views\Partials\MCFly\" />
 		<MakeDir Directories="$(BuildDir)\content\Views\Shared\" />
 		<MakeDir Directories="$(BuildDir)\content\umbraco\lib\tinymce\plugins\mcflyFieldSelector\" />
+		<MakeDir Directories="$(BuildDir)\content\config\" />
 	</Target>
 
 	<!-- UPDATE ASSEMBLEY VERSION -->
@@ -97,7 +98,8 @@
 			<PartialViewFiles Include="$(ProjectDir)\Views\Partials\MCFly\**\*.*" />
 			<SharedViewFiles Include="$(ProjectDir)\Views\Shared\**\*.*" />
 			<TinyMCEFiles Include="$(ProjectDir)\umbraco\lib\tinymce\plugins\mcflyFieldSelector\*.*" />
-			<XDTFiles Include="$(MSBuildProjectDirectory)\*.xdt" />
+			<XDTRootFiles Include="$(MSBuildProjectDirectory)\web.config.install.xdt" />
+			<XDTConfigFiles Include="$(MSBuildProjectDirectory)\tinymceconfig.config.install.xdt" />
 			<PackageFile Include="$(MSBuildProjectDirectory)\package.xml" />
 			<NuSpecFile Include="$(MSBuildProjectDirectory)\package.nuspec" />
 			<NugetReadmeFile Include="$(MSBuildProjectDirectory)\readme.txt" />
@@ -113,7 +115,8 @@
 		<Copy SourceFiles="@(PartialViewFiles)" DestinationFiles="@(PartialViewFiles->'$(BuildNuGetDir)\content\Views\Partials\MCFly\%(RecursiveDir)%(Filename)%(Extension)')" />
 		<Copy SourceFiles="@(SharedViewFiles)" DestinationFiles="@(SharedViewFiles->'$(BuildNuGetDir)\content\Views\Shared\%(RecursiveDir)%(Filename)%(Extension)')" />
 		<Copy SourceFiles="@(TinyMCEFiles)" DestinationFiles="@(TinyMCEFiles->'$(BuildNuGetDir)\content\umbraco\lib\tinymce\plugins\mcflyFieldSelector\%(RecursiveDir)%(Filename)%(Extension)')" />
-		<Copy SourceFiles="@(XDTFiles)" DestinationFiles="@(XDTFiles->'$(BuildNuGetDir)\content\%(Filename)%(Extension)')" />
+		<Copy SourceFiles="@(XDTRootFiles)" DestinationFiles="@(XDTRootFiles->'$(BuildNuGetDir)\content\%(Filename)%(Extension)')" />
+		<Copy SourceFiles="@(XDTConfigFiles)" DestinationFiles="@(XDTConfigFiles->'$(BuildNuGetDir)\content\config\%(Filename)%(Extension)')" />
 		<Copy SourceFiles="@(SrcFiles)" DestinationFiles="@(SrcFiles->'$(BuildNuGetDir)\src\%(RecursiveDir)%(Filename)%(Extension)')" />
 		<Copy SourceFiles="@(NuSpecFile)" DestinationFolder="$(BuildNuGetDir)" />
 		<Copy SourceFiles="@(CoreNuSpecFile)" DestinationFolder="$(BuildNuGetDir)" />
