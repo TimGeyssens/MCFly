@@ -40,6 +40,21 @@ namespace MCFly.Core
             return fieldTypes.OrderBy(x => x.Name);
         }
 
+        public static string MapUIOMaticFieldAttributeToFrontEndView(UIOMatic.Attributes.UIOMaticFieldAttribute attri)
+        {
+            switch (attri.View)
+            {
+                case UIOMatic.Constants.FieldEditors.Textarea:
+                    return "TextArea";
+                    break;
+                case UIOMatic.Constants.FieldEditors.Rte:
+                    return "TextArea";
+                    break;
+                default:
+                    return "TextBox";
+            }
+        }
+
         internal static readonly string[] KnownAssemblyExclusionFilter = new[]
                {
                     "Forloop.HtmlHelpers",

@@ -48,7 +48,7 @@ else
                     @{
                         var metadataForProperty = ModelMetadataProviders.Current.GetMetadataForProperty(null, Model, prop.Name);
                         var attri = (UIOMatic.Attributes.UIOMaticFieldAttribute)prop.GetCustomAttribute(typeof(UIOMatic.Attributes.UIOMaticFieldAttribute));
-                        var templateName = form == null ? "TextBox" : MCFly.Core.Helper.GetFieldTypes().FirstOrDefault(x => x.Name == form.Fields.FirstOrDefault(f => f.Caption == caption).FieldTypeName).FrontEndRenderView;
+                        var templateName = form == null ? Helper.MapUIOMaticFieldAttributeToFrontEndView(attri) : MCFly.Core.Helper.GetFieldTypes().FirstOrDefault(x => x.Name == form.Fields.FirstOrDefault(f => f.Caption == caption).FieldTypeName).FrontEndRenderView;
                         var validationAttributes = Html.GetUnobtrusiveValidationAttributes(prop.Name, metadataForProperty);
                         var attributes = new Dictionary<string, object>{{
                                 "placeholder", ((DisplayAttribute)dAttri).Prompt
