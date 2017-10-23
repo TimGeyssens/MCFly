@@ -1,6 +1,11 @@
 <?xml version="1.0"?>
   <configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
   <appSettings>   
+  	  <add key="RecaptchaSiteKey" xdt:Transform="Remove" xdt:Locator="Match(key)"/>
+  	  <add key="RecaptchaSecretKey" xdt:Transform="Remove" xdt:Locator="Match(key)"/>
+  	  <add key="ClientValidationEnabled" xdt:Transform="Remove" xdt:Locator="Match(key)"/>
+  	  <add key="UnobtrusiveJavaScriptEnabled" xdt:Transform="Remove" xdt:Locator="Match(key)"/>
+  	  
           <add key="RecaptchaSiteKey" value="6LctJTQUAAAAAOmIPJe52TC_N72qAPzyw2qnylkz"  xdt:Transform="Insert"/>
         
           <add key="RecaptchaSecretKey" value="6LctJTQUAAAAABDOO3Tu3bCBLwSKXZt23u-RM87g"  xdt:Transform="Insert"/>
