@@ -1,5 +1,5 @@
 # version format
-version: 0.0.17.{build}
+version: 0.0.18.{build}
 
 # Do not build on tags
 skip_tags: true
