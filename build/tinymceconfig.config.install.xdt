@@ -8,4 +8,7 @@
       <priority>75</priority>
     </command>
   </commands>
+  <plugins>
+  	 <plugin loadOnFrontend="true" xdt:Transform="Insert">mcflyFieldSelector</plugin>
+  </plugins>
 </tinymceConfig>
