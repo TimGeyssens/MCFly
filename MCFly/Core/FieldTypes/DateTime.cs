@@ -15,6 +15,7 @@ namespace MCFly.Core.FieldTypes
          
             BackOfficeEditView = UIOMatic.Constants.FieldEditors.DateTime;
             PropertyType = typeof(System.DateTime);
+            SupportsPlaceholder = false;
         }
 
         public override object Process(Form form, Field field, object value, ControllerContext controllerContext)

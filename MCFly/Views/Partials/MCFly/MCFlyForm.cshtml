@@ -12,7 +12,7 @@
 
 @if (TempData["success"] != null)
 {
-    @if (form == null)
+    if (form == null)
     {
         <p>Your submission has been received</p>
     }
@@ -83,7 +83,7 @@ else
 
 
                         }
-                        @if (form != null)
+                        if (form != null)
                         {
                             foreach (var fieldtype in form.Fields.Select(x => x.FieldType as MCFly.Core.FieldType).Distinct())
                             {

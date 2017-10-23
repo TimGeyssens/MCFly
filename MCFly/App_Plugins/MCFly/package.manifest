@@ -18,6 +18,7 @@
 		'~/App_Plugins/MCFly/backoffice/directives/umbraco-editor-with-config.js',
 	    '~/App_Plugins/MCFly/backoffice/mcfly/edit.controller.js',
 		'~/App_Plugins/MCFly/backoffice/mcfly/delete.controller.js',
+		 '~/App_Plugins/MCFly/backoffice/dialogs/addfield.controller.js',
         '~/App_Plugins/MCFly/backoffice/dashboard/summarydashboard.controller.js',
 		'~/App_Plugins/MCFly/UIOMaticAddons/ListViewFields/file.controller.js',
 		'~/App_Plugins/MCFly/backoffice/dialogs/tinymceselectfield.controller.js'

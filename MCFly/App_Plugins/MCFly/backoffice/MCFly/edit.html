@@ -56,7 +56,7 @@
                 <div class="umb-pane">
 
                     <div ng-show="activeTab == 'design'">
-                        <umb-control-group label="Fields" description="">
+                      <!-- <umb-control-group label="Fields" description="">
                             Caption: <input ng-model="newFieldName" type="text" ng-change="getSafeAlias(newFieldName)" />
                             Alias: <input ng-model="newFieldAlias" type="text" />
                             Type: <select ng-model="newFieldTypeName">
@@ -82,27 +82,88 @@
                                         </ul>
                                     </div>
                                     <span ng-click="removeField(field)">x</span>
-                                    <!--{{field |json}}-->
+                                    {{field |json}}
 
                                 </li>
                             </ul>
 
-                        </umb-control-group>
+                        </umb-control-group> -->
 
-                        <umb-control-group label="Fields" description="">
-                            <div ui-sortable="{ 'ui-floating': true }" ng-model="form.fields">
+                        
+                            <div ui-sortable="{ 'ui-floating': true }" ng-model="form.fields" class="mcfly-field-editor">
 
-                                <div ng-repeat="field in form.fields">
-                                    <div>{{field.caption}} <span ng-show="field.required">*</span>
-                                   <br/><small>{{field.alias}}</small>
+                                <div ng-repeat="field in form.fields" class="mcfly-field umb-group-builder__property">
+                                    <div class="mcfly-field-label-editor umb-group-builder__property-meta">
+                                       
+                                        <a ng-if="field.$locked" href="" ng-click="unlock(field)" class="umb-locked-field__toggle">
+                                            <i class="umb-locked-field__lock-icon icon-lock"></i>
+                                        </a>
+                                        <a ng-if="!field.$locked" href="" ng-click="lock(field)" class="umb-locked-field__toggle">
+                                            <i class="umb-locked-field__lock-icon icon-unlock"></i>
+                                        </a>
+                                       <input type="text" class="umb-locked-field__input" name="lockedField" ng-model="field.alias" ng-disabled="field.$locked" ng-class="{'-unlocked': !field.$locked}" placeholder="Alias..." val-regex="^[a-zA-Z]\w.*$" umb-auto-resize="" required="" title="content" focus-when="false" umb-select-when="false" on-blur="lock()" disabled="disabled" style="width: 46px;">
+                                       <br />
+                                        <input type="text" ng-model="field.caption" /> <!--<span ng-show="field.required">*</span>-->
+                                        <div ng-show="supportsPlaceholder(field.fieldTypeName)">
+                                            <input type="text" ng-model="field.placeholder" placeholder="Enter a placeholder" />
+                                        </div>
                                     </div>
+                                    <div class="mcfly-field-preview umb-group-builder__property-preview">
+
+                                        <div class="umb-group-builder__property-tags">
+
+                                            <span class="umb-group-builder__property-tag -white">
+                                                <span>{{field.fieldTypeName}}</span>
+                                               
+                                            </span>
+
+                                          
+
+                                        </div>
+
                                     <div ng-include="'/App_Plugins/MCFly/backoffice/views/previews/' + field.fieldTypeName + '.html'"></div>
+                                    </div>
+
+                                    <div class="umb-group-builder__property-actions" style="margin-top:0px">
+
+                                       <div>
+                                         
+
+                                            <div class="umb-group-builder__property-action" ng-click="editFieldSettings(field)">
+                                                <i class="icon icon-settings"></i>
+                                            </div>
+
+                                           <div class="umb-group-builder__property-action">
+                                               <input type="checkbox" ng-model="field.required" title="required" />
+                                           </div>
+
+
+                                            <div class="umb-group-builder__property-action">
+                                                <i class="icon-trash" ng-click="removeField(field)"></i>
+                                              
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
                                 </div>
+
                                 <div>
                                     <span class="btn">{{form.submitButtonCaption}}</span>
                                 </div>
+
+                                <a href="" class="umb-group-builder__group -placeholder ng-scope" hotkey="alt+shift+t" ng-click="addFieldWithDialog()">
+
+                                   
+
+                                    Add a new field
+
+                                </a>
+
+                               
                             </div>
-                        </umb-control-group>
+                       
                     </div>
 
                      <div ng-show="activeTab == 'settings'">

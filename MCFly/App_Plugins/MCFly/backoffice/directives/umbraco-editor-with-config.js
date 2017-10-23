@@ -7,7 +7,7 @@
         },
         link: function (scope, element) {
             var isEmpty = typeof (scope.model) == "undefined" || typeof (scope.model.value) == "undefined";
-            console.log(isEmpty);
+          
 
             if (isEmpty) {
                 scope.model = scope.config;

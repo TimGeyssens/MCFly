@@ -2959,6 +2959,8 @@
     <Content Include="App_Plugins\MCFly\backoffice\assets\css\mcfly.css" />
     <Content Include="App_Plugins\MCFly\backoffice\dashboard\summarydashboard.controller.js" />
     <Content Include="App_Plugins\MCFly\backoffice\dashboard\summarydashboard.html" />
+    <Content Include="App_Plugins\MCFly\backoffice\dialogs\addfield.html" />
+    <Content Include="App_Plugins\MCFly\backoffice\dialogs\addfield.controller.js" />
     <Content Include="App_Plugins\MCFly\backoffice\dialogs\tinymceselectfield.controller.js" />
     <Content Include="App_Plugins\MCFly\backoffice\dialogs\tinymceselectfield.html" />
     <Content Include="App_Plugins\MCFly\backoffice\directives\umbraco-editor-with-config.js" />

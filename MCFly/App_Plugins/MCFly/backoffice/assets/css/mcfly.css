@@ -101,3 +101,11 @@
         .mcfly__type-summary__toolbar a:hover {
             text-decoration: none;
         }
+
+
+/* Form Designer */
+
+.mcfly-field-label-editor input {
+    border:0px;
+    padding:0;
+}

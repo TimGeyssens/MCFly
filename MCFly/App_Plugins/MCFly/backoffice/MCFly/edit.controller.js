@@ -6,7 +6,7 @@ app.requires.push('ui.sortable');
 
 
 app.controller("MCFly.EditController",
-    function ($scope, $routeParams, mcFlyResource, notificationsService, navigationService) {
+    function ($scope, $routeParams, mcFlyResource, notificationsService, navigationService, dialogService) {
 
         $scope.loaded = false;
         $scope.newFieldName = "";
@@ -59,6 +59,11 @@ app.controller("MCFly.EditController",
                         $scope.form.emails = [];
                     }
 
+                    var log = [];
+                    angular.forEach($scope.form.fields, function (value, key) {
+                        value.$locked = true;
+                    }, log);
+
                     $scope.hasmailProperties = _.where($scope.form.fields, { fieldTypeName: "Email" }).length > 0;
                     $scope.loaded = true;
 
@@ -77,6 +82,20 @@ app.controller("MCFly.EditController",
             return false;
         }
 
+        $scope.addFieldWithDialog = function()
+        {
+            dialogService.open({
+                template: '../App_Plugins/MCFly/backoffice/dialogs/addfield.html',
+                scope: $scope,
+                callback: function (data) {
+                    console.log(data);
+                },
+                show: true,
+                dialogData: {
+                    text: 'some text'
+                }
+            });
+        }
         $scope.addField = function (form,name,alias,fieldtype,placeholder,required)
         {
 
@@ -89,10 +108,11 @@ app.controller("MCFly.EditController",
                 'regEx': '',
                 'fieldTypeName': fieldtype
             }
+            newField.$locked = true;
             $scope.form.fields.push(newField);
 
             $scope.hasmailProperties = _.where($scope.form.fields, { fieldTypeName: "Email" }).length > 0;
-            
+            dialogService.closeAll();
         }
         $scope.removeField = function (field)
         {
@@ -129,7 +149,13 @@ app.controller("MCFly.EditController",
 
         }
 
-      
+        $scope.lock = function (field)
+        {
+            field.$locked = true;
+        }
+        $scope.unlock = function (field) {
+            field.$locked = false;
+        }
         $scope.supportsPlaceholder = function (fieldTypeName) {
             if (fieldTypeName == undefined) return false;
 
@@ -165,6 +191,11 @@ app.controller("MCFly.EditController",
 
         $scope.save = function (form) {
             mcFlyResource.save(form).then(function (response) {
+                var log = [];
+                angular.forEach(response.data.fields, function (value, key) {
+                    value.$locked = true;
+                }, log);
+
                 $scope.form = response.data;
                 $scope.formForm.$dirty = false;
                 navigationService.syncTree({ tree: 'mcFly', path: [-1, -1], forceReload: true });
