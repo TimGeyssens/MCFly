@@ -72,6 +72,9 @@ namespace MCFly.Controllers
 
             var form = GetAll().FirstOrDefault(x => x.Alias == alias);
 
+            if (form == null)
+                return null;
+
             form.Fields = DatabaseContext.Database.Fetch<Field>(new Sql().Select("*").From("MCFlyFields").Where<Field>(x => x.FormId == form.Id));
             foreach (var fld in form.Fields)
                 fld.FieldOptions = DatabaseContext.Database.Fetch<FieldOption>(new Sql().Select("*").From("MCFlyFieldOptions").Where<FieldOption>(x => x.FieldId == fld.Id));
