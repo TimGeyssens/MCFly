@@ -147,19 +147,23 @@ namespace MCFly.Controllers
 
             }
 
-            foreach(int id in form.FieldsToDelete)
+            if (form.FieldsToDelete != null)
             {
-                needsFlag = true;
-                DatabaseContext.Database.Execute(new Sql("Delete From [MCFlyFields] Where [Id] = @0", id));
+                foreach (int id in form.FieldsToDelete)
+                {
+                    needsFlag = true;
+                    DatabaseContext.Database.Execute(new Sql("Delete From [MCFlyFields] Where [Id] = @0", id));
 
+                }
             }
-
-            foreach (int id in form.EmailsToDelete)
+            if (form.EmailsToDelete != null)
             {
-                DatabaseContext.Database.Execute(new Sql("Delete From [MCFlyEmails] Where [Id] = @0", id));
+                foreach (int id in form.EmailsToDelete)
+                {
+                    DatabaseContext.Database.Execute(new Sql("Delete From [MCFlyEmails] Where [Id] = @0", id));
 
+                }
             }
-
             if (needsFlag)
             {
                 var ctx = ApplicationContext.DatabaseContext;
