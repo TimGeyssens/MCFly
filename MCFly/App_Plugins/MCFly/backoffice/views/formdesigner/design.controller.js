@@ -25,6 +25,11 @@
 
     $scope.removeField = function (field)
     {
+
+        if (field.id && $scope.model.fieldsToDelete) {
+            $scope.model.fieldsToDelete.push(field.id);
+        }
+
         $scope.model.fields.splice($scope.model.fields.indexOf(field), 1);
 
         

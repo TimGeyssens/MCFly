@@ -9,6 +9,12 @@
  
 
         $scope.removeEmail = function (email) {
+
+            if (email.id && $scope.model.emailsToDelete)
+            {
+                $scope.model.emailsToDelete.push(email.id);
+            }
+
             $scope.model.emails.splice($scope.model.emails.indexOf(email), 1);
 
 

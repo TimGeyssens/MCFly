@@ -66,5 +66,12 @@ namespace MCFly.Core
         [DataMember(Name = "emails")]
         public IList<Core.Email> Emails { get; set; }
 
+        [Ignore]
+        [DataMember(Name = "fieldsToDelete")]
+        public IEnumerable<int> FieldsToDelete { get; set; }
+
+        [Ignore]
+        [DataMember(Name = "emailsToDelete")]
+        public IEnumerable<int> EmailsToDelete { get; set; }
     }
 }

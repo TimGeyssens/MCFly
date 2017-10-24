@@ -62,13 +62,16 @@ namespace MCFly.Controllers
             foreach (var fld in form.Fields)
                 fld.FieldOptions = DatabaseContext.Database.Fetch<FieldOption>(new Sql().Select("*").From("MCFlyFieldOptions").Where<FieldOption>(x => x.FieldId == fld.Id));
             form.Emails = DatabaseContext.Database.Fetch<Core.Email>(new Sql().Select("*").From("MCFlyEMails").Where<Core.Email>(x => x.FormId == id));
+
+            form.FieldsToDelete = new int[0];
+            form.EmailsToDelete = new int[0];
             return form;
 
         }
 
         public Form GetByAlias(string alias)
         {
-
+            
 
             var form = GetAll().FirstOrDefault(x => x.Alias == alias);
 
@@ -141,11 +144,19 @@ namespace MCFly.Controllers
 
             }
 
+            foreach(int id in form.FieldsToDelete)
+            {
+                DatabaseContext.Database.Execute(new Sql("Delete From [MCFlyFields] Where [Id] = @0", id));
 
+            }
 
+            foreach (int id in form.EmailsToDelete)
+            {
+                DatabaseContext.Database.Execute(new Sql("Delete From [MCFlyEmails] Where [Id] = @0", id));
 
+            }
 
-
+            // check if we need to insert flag so the table get's recreated
 
             var ctx = ApplicationContext.DatabaseContext;
             ctx.Database.Insert(new MCFly.Core.Flag
