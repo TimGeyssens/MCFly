@@ -25,7 +25,7 @@
 }
 else
 {
-    using (Html.BeginUmbracoForm<MCFly.EntriesController>("HandleForm", null, new Dictionary<string, object> { { "id", "mcfly-form" } }))
+    using (Html.BeginUmbracoForm<MCFly.MCFlyEntriesController>("HandleForm", null, new Dictionary<string, object> { { "id", "mcfly-form" } }))
     {
         @Html.AntiForgeryToken()
 

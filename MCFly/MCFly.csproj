@@ -3422,7 +3422,7 @@
     <Compile Include="App_Start\RegisterClientValidationExtensions.cs" />
     <Compile Include="Core\Email.cs" />
     <Compile Include="Core\EmailRenderer.cs" />
-    <Compile Include="Controllers\EntriesController.cs" />
+    <Compile Include="Controllers\MCFlyEntriesController.cs" />
     <Compile Include="Controllers\MCFlyApiController.cs" />
     <Compile Include="Core\Events.cs" />
     <Compile Include="Core\Extensions.cs" />

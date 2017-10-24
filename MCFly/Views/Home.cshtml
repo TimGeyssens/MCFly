@@ -8,6 +8,6 @@
 
 @if (Model.Content.HasValue("mCFly"))
 {
-    @Html.Action("RenderForm", "Entries", new { alias = Model.Content.GetPropertyValue<string>("mCFly") })	@*, view= "MCFly/MCFlyAjaxForm" *@
+    @Html.Action("RenderForm", "MCFlyEntries", new { alias = Model.Content.GetPropertyValue<string>("mCFly") })	@*, view= "MCFly/MCFlyAjaxForm" *@
 }
 

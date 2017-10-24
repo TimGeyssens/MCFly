@@ -19,7 +19,7 @@ using MCFly.Core;
 
 namespace MCFly
 {
-    public class EntriesController : SurfaceController
+    public class MCFlyEntriesController : SurfaceController
     {
         public static IEnumerable<dynamic> GetEntries(string alias)
         {

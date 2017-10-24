@@ -7,12 +7,12 @@
 
 @{
     <ul>
-        @foreach(var entry in MCFly.EntriesController.GetEntries("CommentForm").Where(x=>x.UmbracoPage == Model.Content.Id.ToString()))
+        @foreach(var entry in MCFly.MCFlyEntriesController.GetEntries("CommentForm").Where(x=>x.UmbracoPage == Model.Content.Id.ToString()))
         {
             <li>@entry.Name : @entry.Comment</li>
         }
     </ul>
 }
 
-@Html.Action("RenderForm", "Entries", new { alias = "CommentForm" })	
+@Html.Action("RenderForm", "MCFlyEntries", new { alias = "CommentForm" })	
 

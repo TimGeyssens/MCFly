@@ -21,7 +21,7 @@
 </div>
 <div id="mcfly-form-container">
 
-    @using (Ajax.BeginForm("HandleAjaxForm", "Entries", null, new AjaxOptions { HttpMethod = "POST", OnSuccess = "showSuccessMessage", InsertionMode = InsertionMode.Replace, UpdateTargetId = "mcfly-form-container" }, new Dictionary<string, object> { { "id", "mcfly-form" } }))
+    @using (Ajax.BeginForm("HandleAjaxForm", "MCFlyEntries", null, new AjaxOptions { HttpMethod = "POST", OnSuccess = "showSuccessMessage", InsertionMode = InsertionMode.Replace, UpdateTargetId = "mcfly-form-container" }, new Dictionary<string, object> { { "id", "mcfly-form" } }))
     {
         @Html.AntiForgeryToken()
 
