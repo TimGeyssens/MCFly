@@ -11718,6 +11718,17 @@
             <see cref="T:System.DateTimeOffset"/>.
             </returns>
         </member>
+        <member name="P:Umbraco.Core.IO.IOHelper.ForceNotHosted">
+            <summary>
+            Gets or sets a value forcing Umbraco to consider it is non-hosted.
+            </summary>
+            <remarks>This should always be false, unless unit testing.</remarks>
+        </member>
+        <member name="P:Umbraco.Core.IO.IOHelper.IsHosted">
+            <summary>
+            Gets a value indicating whether Umbraco is hosted.
+            </summary>
+        </member>
         <member name="M:Umbraco.Core.IO.IOHelper.VerifyEditPath(System.String,System.String)">
             <summary>
             Verifies that the current filepath matches a directory where the user is allowed to edit a file.
