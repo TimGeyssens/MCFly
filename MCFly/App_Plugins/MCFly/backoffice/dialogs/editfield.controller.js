@@ -3,11 +3,29 @@
     function ($scope, mcFlyResource, dialogService) {
         $scope.field = $scope.dialogData.field;
       
-        $scope.currentSupportsPlaceholder = true;
+      
 
         mcFlyResource.getFormBuilderData().then(function (resp) {
             $scope.fieldtypes = resp.data.FieldTypes;
+
+            $scope.currentSupportsPlaceholder = _.findWhere($scope.fieldtypes, { Name: $scope.field.fieldTypeName }).SupportsPlaceholder;
+            $scope.currentSupportsOptions = _.findWhere($scope.fieldtypes, { Name: $scope.field.fieldTypeName }).SupportsOptions;
         });
+
+
+        $scope.removeOption = function (option) {
+            $scope.field.options.splice($scope.field.options.indexOf(option), 1);
+        }
+        $scope.addOption = function () {
+            if ($scope.fField.$newOptionValue && $scope.field.$newOptionValue != "") {
+
+                var newOption = {
+                    'value': $scope.field.$newOptionValue
+                }
+                $scope.field.options.push(newOption);
+                $scope.field.$newOptionValue = "";
+            }
+        }
 
         $scope.editField = function () {
 
@@ -18,15 +36,12 @@
             $scope.submit();
         }
 
-        $scope.supportsPlaceholder = function (fieldTypeName) {
+        $scope.checkSupports = function (fieldTypeName) {
 
             $scope.currentSupportsPlaceholder = _.findWhere($scope.fieldtypes, { Name: fieldTypeName }).SupportsPlaceholder;
-
+            $scope.currentSupportsOptions = _.findWhere($scope.fieldtypes, { Name: fieldTypeName }).SupportsOptions;
         }
 
-        $scope.supportsOptions = function (fieldTypeName) {
-            return _.findWhere($scope.fieldtypes, { Name: fieldTypeName }).SupportsOptions;
-
-        }
+        
        
     });

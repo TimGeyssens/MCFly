@@ -17,7 +17,7 @@
                         <input type="text" ng-model="field.alias" required />
                     </umb-control-group>
                     <umb-control-group label="Type">
-                        <select ng-model="field.fieldTypeName" required ng-change="supportsPlaceholder(field.fieldTypeName);">
+                        <select ng-model="field.fieldTypeName" required ng-change="checkSupports(field.fieldTypeName);">
                             <option ng-repeat="fldType in fieldtypes" value{{fldType.Name}}>{{fldType.Name}}</option>
 
                         </select>
@@ -25,6 +25,14 @@
                     <umb-control-group label="Placeholder" ng-if="currentSupportsPlaceholder">
                         <input ng-model="field.placeholder" type="text" />
                     </umb-control-group>
+
+                    <umb-control-group ng-if="currentSupportsOptions">
+                        <input type="text" ng-model="field.$newOptionValue" /> <span class="btn" ng-click="addOption(field)">Add</span>
+                        <ul>
+                            <li ng-repeat="option in field.options">{{option.value}} <i class="icon-trash" ng-click="removeOption(option)"></i></li>
+                        </ul>
+                    </umb-control-group>
+
                     <umb-control-group label="Required">
                         <input type="checkbox" ng-model="field.required" />
                     </umb-control-group>
