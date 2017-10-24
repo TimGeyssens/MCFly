@@ -90,6 +90,8 @@ namespace MCFly.Controllers
 
         public Form PostSave(Form form)
         {
+            var needsFlag = false;
+
             if (form.Id > 0)
                 DatabaseContext.Database.Update(form);
             else
@@ -107,6 +109,7 @@ namespace MCFly.Controllers
                 }
                 else
                 {
+                    needsFlag = true;
                     DatabaseContext.Database.Save(fld);
                 }
 
@@ -146,6 +149,7 @@ namespace MCFly.Controllers
 
             foreach(int id in form.FieldsToDelete)
             {
+                needsFlag = true;
                 DatabaseContext.Database.Execute(new Sql("Delete From [MCFlyFields] Where [Id] = @0", id));
 
             }
@@ -156,13 +160,14 @@ namespace MCFly.Controllers
 
             }
 
-            // check if we need to insert flag so the table get's recreated
-
-            var ctx = ApplicationContext.DatabaseContext;
-            ctx.Database.Insert(new MCFly.Core.Flag
+            if (needsFlag)
             {
-                FormId = form.Id
-            });
+                var ctx = ApplicationContext.DatabaseContext;
+                ctx.Database.Insert(new MCFly.Core.Flag
+                {
+                    FormId = form.Id
+                });
+            }
 
             var context = new HttpContextWrapper(HttpContext.Current);
             ApplicationContext.Current.RestartApplicationPool(context);
