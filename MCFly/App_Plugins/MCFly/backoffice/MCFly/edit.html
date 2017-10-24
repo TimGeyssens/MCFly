@@ -5,7 +5,7 @@
       val-form-manager>
 
 
-    <umb-editor-view ng-if="!vm.page.loading">
+    <umb-editor-view ng-if="!loading">
 
         <umb-editor-header name="form.name"
                            alias="form.alias"
@@ -20,7 +20,7 @@
             <div class="editors-document-type-canvas">
                 <umb-editor-sub-views 
                                       sub-views="navigation"
-                                      model="form" fieldtypes="fieldtypes">
+                                      model="form">
                 </umb-editor-sub-views>
             </div>
 

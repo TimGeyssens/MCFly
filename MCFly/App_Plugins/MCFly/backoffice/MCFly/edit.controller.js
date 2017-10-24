@@ -9,14 +9,14 @@ app.controller("MCFly.EditController",
     function ($scope, $routeParams, mcFlyResource, notificationsService, navigationService, dialogService) {
 
         $scope.loaded = false;
-        $scope.newFieldName = "";
-        $scope.hasmailProperties = false;
-
+       
+       
+        $scope.aliasLocked = true;
 
         $scope.navigation = [
             {
                 "name": 'Design',
-                "icon": "icon-document-dashed-line",
+                "icon": "icon-edit",
                 "view": "/App_Plugins/MCFly/backoffice/views/formdesigner/design.html",
                 "active": true
             },
@@ -59,6 +59,7 @@ app.controller("MCFly.EditController",
                 $scope.form.fields = [];
                 $scope.form.emails = [];
                 $scope.loaded = true;
+                $scope.aliasLocked = false;
             }
             else {
 
@@ -70,13 +71,13 @@ app.controller("MCFly.EditController",
                     if (!$scope.form.emails) {
                         $scope.form.emails = [];
                     }
-
+                    
                     var log = [];
                     angular.forEach($scope.form.fields, function (value, key) {
                         value.$locked = true;
                     }, log);
 
-                    $scope.hasmailProperties = _.where($scope.form.fields, { fieldTypeName: "Email" }).length > 0;
+                   
                     $scope.loaded = true;
 
                 });
@@ -107,39 +108,35 @@ app.controller("MCFly.EditController",
 
        
 
-        $scope.supportsOptions = function(fieldTypeName)
-        {
-           return  _.findWhere($scope.fieldtypes, { Name: fieldTypeName }).SupportsOptions;
+        //$scope.supportsOptions = function(fieldTypeName)
+        //{
+        //   return  _.findWhere($scope.fieldtypes, { Name: fieldTypeName }).SupportsOptions;
             
-        }
+        //}
 
         $scope.getSafeFormAlias = function (value) {
 
+            if (value == null || value == undefined)
+                return "";
             mcFlyResource.getSafeAlias(value).then(function (resp) {
                $scope.form.alias = resp.data.value;
 
             });
         }
 
-        $scope.getSafeAlias = function (value)
-        {
-
-            mcFlyResource.getSafeAlias(value).then(function (resp) {
-                $scope.newFieldAlias = resp.data.value;
-
-            });
-        }
-        $scope.toPropertyFilter = function (field) {
-            return field.fieldTypeName == "Email";
-        };
+        //$scope.toPropertyFilter = function (field) {
+        //    return field.fieldTypeName == "Email";
+        //};
 
         $scope.save = function (form) {
+            //console.log(form);
+            //console.log(angular.toJson(form));
             mcFlyResource.save(form).then(function (response) {
                 var log = [];
                 angular.forEach(response.data.fields, function (value, key) {
                     value.$locked = true;
                 }, log);
-
+                $scope.aliasLocked = true;
                 $scope.form = response.data;
                 $scope.formForm.$dirty = false;
                 navigationService.syncTree({ tree: 'mcFly', path: [-1, -1], forceReload: true });
@@ -147,5 +144,10 @@ app.controller("MCFly.EditController",
             });
         };
 
+        $scope.$watch('form.name', function (newValue, oldValue) {
+            if (!$scope.aliasLocked) {
+                $scope.getSafeFormAlias(newValue);
+            }
+        });
 
     });

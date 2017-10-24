@@ -1,4 +1,4 @@
-﻿tinymce.PluginManager.add('pluginName', function (editor) {
+﻿tinymce.PluginManager.add('mcflyFieldSelector', function (editor) {
 
     function populate(imagePath) {
 
@@ -10,7 +10,7 @@
 
 
     };
-    editor.addButton('pluginName', {
+    editor.addButton('mcflyFieldSelector', {
 
         icon: 'custom icon-book-alt',
 

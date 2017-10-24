@@ -3,7 +3,7 @@
     function ($scope, mcFlyResource,dialogService) {
        
     
- mcFlyResource.getFormBuilderData().then(function (resp) {
+    mcFlyResource.getFormBuilderData().then(function (resp) {
                 $scope.fieldtypes = resp.data.FieldTypes;
               
 
@@ -44,6 +44,22 @@
                    
                 }
             });
-        }
+    }
+
+
+     $scope.editFieldWithDialog = function (field) {
+         dialogService.open({
+             template: '../App_Plugins/MCFly/backoffice/dialogs/editfield.html',
+
+             callback: function (data) {
+                 console.log(data);
+             },
+             show: true,
+             dialogData: {
+                 field: field,
+
+             }
+         });
+     }
 
     });

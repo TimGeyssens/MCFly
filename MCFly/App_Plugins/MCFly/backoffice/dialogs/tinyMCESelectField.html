@@ -1,5 +1,16 @@
-﻿<div ng-controller="MCFly.TinyMCESelectFieldController">
-    <ul>
-        <li ng-repeat="field in form.fields" ng-click="submit(field.alias);">{{field.caption}}</li>
-    </ul>
+﻿<div ng-controller="MCFly.TinyMCESelectFieldController" class="umb-overlay umb-overlay-right">
+     <umb-panel>
+            <div class="umb-overlay-header">
+                <h4 class="umb-overlay__title">Select which field you wish to insert</h4>
+                <p class="umb-overlay__subtitle"></p>
+            </div>
+
+            <div class="umb-panel-body  umb-scrollable with-footer">
+    
+            <ul>
+                <li ng-repeat="field in form.fields" ><a ng-click="submit(field.alias);">{{field.caption}}</a></li>
+            </ul>
+                </div>
+
+         </umb-panel>
 </div>

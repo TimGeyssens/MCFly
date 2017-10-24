@@ -1,37 +1,30 @@
 ﻿<div ng-controller="MCFly.FormDesigner.Emails.Controller">
 
-    <umb-control-group label="Emails" description="">
-        Subject: <input ng-model="newEmailSubject" type="text" />
-        From: <input ng-model="newEmailFrom" type="text" />
-        To: <input ng-model="newEmailTo" type="text" />
 
-        <div ng-show="hasmailProperties">
-            To Property: <select ng-model="newEmailToProperty">
-                <option ng-repeat="field in model.fields| filter: toPropertyFilter" value="{{field.caption}}">{{field.caption}}</option>
-
-            </select>
+    <div class="sub-view-columns">
+        <div class="sub-view-column-left">
+            <h5>Emails</h5>
+            <small>Get an email notification when the form is submitted, send a confirmation email, ...</small>
         </div>
-        <div ng-show="emailTemplates.length > 1">
-            Template: <select ng-model="newEmailTemplate">
-                <option ng-repeat="template in emailTemplates" value="{{template}}">{{template}}</option>
+        <div class="sub-view-column-right">
+          
+                <div ng-repeat="email in model.emails" style="padding-bottom:10px;">
 
-            </select>
+                   
+                    <a ng-click="editEmailWithDialog(email)">Send email with subject <strong>'{{email.subject}}'</strong> to: <strong>{{email.to}}{{email.toProperty}}<span ng-if="email.toProperty"> field</span></strong></a>
+                    <i class="icon icon-settings" ng-click="editEmailWithDialog(email)"></i>
+                    <i class="icon-trash" ng-click="removeEmail(email)"></i>
+                   
+                    <!--{{email |json}}-->
+                </div>
+           
+
+            <span class="btn" ng-click="addEmailWithDialog()"><i class="icon-inbox"></i> Add new email</span>
         </div>
-        Contents:
-        <umb-editor-with-config model="newEmailContents" config="defaultRteConfig"></umb-editor-with-config>
-        <span class="btn" ng-click="addEmail(newEmailSubject,newEmailContents,newEmailFrom,newEmailTo,newEmailToProperty,newEmailTemplate)">Add</span>
 
 
-        <ul>
-            <li ng-repeat="email in model.emails">
-                <input type="text" ng-model="email.subject" />
-                <!--<input type="text" ng-model="field.placeholder" />
-                <input type="checkbox" ng-model="field.required" />-->
-                <!--{{email |json}}-->
+    </div>
+          
 
-            </li>
-        </ul>
-
-    </umb-control-group>
 
 </div>

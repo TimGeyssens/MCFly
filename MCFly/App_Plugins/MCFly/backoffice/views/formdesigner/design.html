@@ -3,12 +3,12 @@
 
         <div ng-repeat="field in model.fields" class="mcfly-field umb-group-builder__property">
             <div class="mcfly-field-label-editor umb-group-builder__property-meta">
-
+              
                 <a ng-if="field.$locked" href="" ng-click="unlock(field)" class="umb-locked-field__toggle">
                     <i class="umb-locked-field__lock-icon icon-lock"></i>
                 </a>
                 <a ng-if="!field.$locked" href="" ng-click="lock(field)" class="umb-locked-field__toggle">
-                    <i class="umb-locked-field__lock-icon icon-unlock"></i>
+                    <i class="umb-locked-field__lock-icon icon-lock"></i>
                 </a>
                 <input type="text" class="umb-locked-field__input" name="lockedField" ng-model="field.alias" ng-disabled="field.$locked" ng-class="{'-unlocked': !field.$locked}" placeholder="Alias..." val-regex="^[a-zA-Z]\w.*$" umb-auto-resize="" required="" title="content" focus-when="false" umb-select-when="false" on-blur="lock()" disabled="disabled" style="width: 46px;">
                 <br />
@@ -38,7 +38,7 @@
                 <div>
 
 
-                    <div class="umb-group-builder__property-action" ng-click="editFieldSettings(field)">
+                    <div class="umb-group-builder__property-action" ng-click="editFieldWithDialog(field)" title="edit field">
                         <i class="icon icon-settings"></i>
                     </div>
 
@@ -47,7 +47,7 @@
                     </div>
 
 
-                    <div class="umb-group-builder__property-action">
+                    <div class="umb-group-builder__property-action" title="remove field">
                         <i class="icon-trash" ng-click="removeField(field)"></i>
 
                     </div>
@@ -59,11 +59,31 @@
         </div>
 
     </div>
-    <a href="" class="umb-group-builder__group -placeholder ng-scope" hotkey="alt+shift+t" ng-click="addFieldWithDialog()">
 
 
+    <a href="" class="umb-group-builder__property -placeholder ng-scope" ng-click="addFieldWithDialog()">
 
-        Add a new field
+        <div class="umb-group-builder__property-meta">
+            <div class="umb-group-builder__placeholder-box -input-small"></div>
+            <div class="umb-group-builder__placeholder-box -input"></div>
+            <div class="umb-group-builder__placeholder-box-group">
+                <div class="umb-group-builder__placeholder-box -text-full-width"></div>
+                <div class="umb-group-builder__placeholder-box -text-full-width"></div>
+                <div class="umb-group-builder__placeholder-box -text-short"></div>
+            </div>
+        </div>
+
+        <div class="umb-group-builder__property-preview umb-group-builder__placeholder-box">
+           Add a new field
+        </div>
+
+        <div class="umb-group-builder__property-actions"></div>
 
     </a>
+
+
+   
+
+
+    
 </div>

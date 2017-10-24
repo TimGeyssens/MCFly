@@ -2959,11 +2959,16 @@
     <Content Include="App_Plugins\MCFly\backoffice\assets\css\mcfly.css" />
     <Content Include="App_Plugins\MCFly\backoffice\dashboard\summarydashboard.controller.js" />
     <Content Include="App_Plugins\MCFly\backoffice\dashboard\summarydashboard.html" />
+    <Content Include="App_Plugins\MCFly\backoffice\dialogs\editemail.html" />
+    <Content Include="App_Plugins\MCFly\backoffice\dialogs\editemail.controller.js" />
+    <Content Include="App_Plugins\MCFly\backoffice\dialogs\addemail.html" />
+    <Content Include="App_Plugins\MCFly\backoffice\dialogs\addemail.controller.js" />
     <Content Include="App_Plugins\MCFly\backoffice\dialogs\addfield.html" />
     <Content Include="App_Plugins\MCFly\backoffice\dialogs\addfield.controller.js" />
+    <Content Include="App_Plugins\MCFly\backoffice\dialogs\editfield.controller.js" />
+    <Content Include="App_Plugins\MCFly\backoffice\dialogs\editfield.html" />
     <Content Include="App_Plugins\MCFly\backoffice\dialogs\tinymceselectfield.controller.js" />
     <Content Include="App_Plugins\MCFly\backoffice\dialogs\tinymceselectfield.html" />
-    <Content Include="App_Plugins\MCFly\backoffice\directives\umbraco-editor-with-config.js" />
     <Content Include="App_Plugins\MCFly\backoffice\views\formdesigner\emails.controller.js" />
     <Content Include="App_Plugins\MCFly\backoffice\views\formdesigner\design.controller.js" />
     <Content Include="App_Plugins\MCFly\backoffice\views\formdesigner\design.html" />

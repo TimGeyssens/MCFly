@@ -1,9 +1,9 @@
-﻿<div ng-controller="MCFly.AddFieldController" class="umb-overlay umb-overlay-right">
-    <form name="dialogForm" ng-submit="addField()">
+﻿<div ng-controller="MCFly.EditFieldController" class="umb-overlay umb-overlay-right">
+    <form name="dialogForm" ng-submit="editField()">
 
         <umb-panel>
             <div class="umb-overlay-header">
-                <h4 class="umb-overlay__title">Add Field</h4>
+                <h4 class="umb-overlay__title">Update Field</h4>
                 <p class="umb-overlay__subtitle"></p>
             </div>
 
@@ -11,32 +11,32 @@
 
                 <umb-pane>
                     <umb-control-group label="Caption">
-                        <input type="text" ng-model="newField.caption" ng-change="getSafeAlias(newField.caption)" required />
+                        <input type="text" ng-model="field.caption"  required />
                     </umb-control-group>
                     <umb-control-group label="Alias">
-                        <input type="text" ng-model="newField.alias" required  />
+                        <input type="text" ng-model="field.alias" required />
                     </umb-control-group>
                     <umb-control-group label="Type">
-                        <select ng-model="newField.fieldTypeName" required ng-change="supportsPlaceholder(newField.fieldTypeName);" >
+                        <select ng-model="field.fieldTypeName" required ng-change="supportsPlaceholder(field.fieldTypeName);">
                             <option ng-repeat="fldType in fieldtypes" value{{fldType.Name}}>{{fldType.Name}}</option>
 
                         </select>
                     </umb-control-group>
                     <umb-control-group label="Placeholder" ng-if="currentSupportsPlaceholder">
-                        <input ng-model="newField.placeHolder" type="text" />
+                        <input ng-model="field.placeHolder" type="text" />
                     </umb-control-group>
                     <umb-control-group label="Required">
-                        <input type="checkbox" ng-model="newField.required" />
+                        <input type="checkbox" ng-model="field.required" />
                     </umb-control-group>
                 </umb-pane>
             </div>
             <div class="umb-panel-footer">
                 <div class="btn-toolbar umb-btn-toolbar pull-right">
-                    <a class="btn btn-link" ng-click="close()">
+                    <!--<a class="btn btn-link" ng-click="close()">
                         <localize key="cancel" />
-                    </a>
+                    </a>-->
                     <button type="submit" class="btn btn-primary" ng-disabled="!dialogForm.$valid">
-                        Add
+                        Update
                     </button>
                 </div>
             </div>
@@ -45,12 +45,12 @@
 
 
 
-    
-      
 
 
 
-</form>
+
+
+    </form>
 
 
 </div>

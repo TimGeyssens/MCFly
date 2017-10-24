@@ -1,0 +1,61 @@
+﻿<div ng-controller="MCFly.AddEmailController" class="umb-overlay umb-overlay-right">
+    <form name="dialogForm" ng-submit="addEmail()">
+
+        <umb-panel>
+            <div class="umb-overlay-header">
+                <h4 class="umb-overlay__title">Add Email</h4>
+                <p class="umb-overlay__subtitle"><!--Add an email that can be send to a fixed address or one submitted through the form.--></p>
+            </div>
+
+            <div class="umb-panel-body  umb-scrollable with-footer">
+
+
+                <umb-pane>
+
+                    <umb-control-group label="Subject" > <input ng-model="newEmail.subject" type="text" required class="umb-editor" /></umb-control-group>
+                    <umb-control-group label="From">  <input ng-model="newEmail.from" type="email" required class="umb-editor"/></umb-control-group>
+                    <umb-control-group label="To"><input ng-model="newEmail.to" type="email" class="umb-editor"/></umb-control-group>
+                    <umb-control-group label="To Field" ng-if="hasmailProperties">
+                        <select ng-model="newEmail.toProperty" class="umb-editor">
+                            <option ng-repeat="field in dialogData.form.fields| filter: toPropertyFilter" value="{{field.caption}}">{{field.caption}}</option>
+
+                        </select>
+                    </umb-control-group>
+                    <umb-control-group label="Template" ng-if="emailTemplates.length > 1">
+                        <select ng-model="newEmailTemplate" class="umb-editor">
+                            <option ng-repeat="template in emailTemplates" value="{{template}}">{{template}}</option>
+
+                        </select>
+                    </umb-control-group>
+                        
+                    <umb-control-group label="Contents">
+
+                        <umb-editor model="property"></umb-editor>
+
+                    </umb-control-group>
+</umb-pane>
+            </div>
+            <div class="umb-panel-footer">
+                <div class="btn-toolbar umb-btn-toolbar pull-right">
+                    <a class="btn btn-link" ng-click="close()">
+                        <localize key="cancel" />
+                    </a>
+                    <button type="submit" class="btn btn-primary" ng-disabled="!dialogForm.$valid">
+                        Add
+                    </button>
+                </div>
+            </div>
+        </umb-panel>
+
+
+
+
+
+
+
+
+
+    </form>
+
+
+</div>
