@@ -40,6 +40,7 @@ namespace MCFly
         //}
 
         [ChildActionOnly]
+        [OutputCache(Duration =3600, VaryByParam = "alias")]
         public ActionResult RenderForm(string alias, string view = "MCFly/MCFlyForm")
         {
            
