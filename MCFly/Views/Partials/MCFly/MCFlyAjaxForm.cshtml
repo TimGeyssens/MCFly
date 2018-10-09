@@ -32,7 +32,7 @@
         @Html.HiddenFor(x => Model.FullName)
         @Html.HiddenFor(x => Umbraco.AssignedContentItem.Id)
 
-        foreach (var prop in Model.GetProperties().Where(x => x.Name != "Id" && x.Name != "Created" && x.Name != "UmbracoPage"))
+        foreach (var prop in Model.GetProperties().Where(x => x.Name != "Id" && x.Name != "Created" && x.Name != "UmbracoPage" && x.Name != "UmbracoMember"))
         {
             var dAttri = prop.GetCustomAttributes().FirstOrDefault(x => x.GetType() == typeof(DisplayAttribute));
             var caption = dAttri == null ? prop.Name : ((DisplayAttribute)dAttri).Name;
