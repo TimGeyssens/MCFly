@@ -163,7 +163,7 @@ namespace MCFly.Core
             }
             else
             {
-                if (fld == null || fld.Required)
+                if ((fld == null && propName != "UmbracoMember") || fld.Required)
                 {
                     ConstructorInfo ctor1 = typeof(RequiredAttribute).GetConstructor(new Type[] { });
                     CustomAttributeBuilder attrib1 = new CustomAttributeBuilder(ctor1, new object[] { },
