@@ -16,6 +16,9 @@ using Umbraco.Web.Mvc;
 using System.IO;
 using Umbraco.Core;
 using MCFly.Core;
+using Umbraco.Core.Services;
+using Umbraco.Web.Security;
+using Umbraco.Core.Persistence;
 
 namespace MCFly
 {
@@ -64,7 +67,7 @@ namespace MCFly
             var dict = new Dictionary<string, object>();
             foreach (PropertyInfo prop in type.GetProperties())
             {
-                if (prop.Name != "Id" && prop.Name != "Created" && prop.Name != "UmbracoPage")
+                if (prop.Name != "Id" && prop.Name != "Created" && prop.Name != "UmbracoPage" && prop.Name != "UmbracoMember")
                 {
                     var fld = form.Fields.FirstOrDefault(x => x.Alias == prop.Name);
 
@@ -77,6 +80,23 @@ namespace MCFly
                         dict.Add(prop.Name, val);
                     }
 
+                }
+                if (prop.Name == "Member")
+                {
+                    
+                    var memberShipHelper = new MembershipHelper(Umbraco.UmbracoContext);
+                    var member = Services.MemberService.GetById(memberShipHelper.GetCurrentMemberId());
+                    if (memberShipHelper.IsLoggedIn())
+                    {
+                        prop.SetValue(instance, member.Name);
+                        dict.Add("UmbracoMember", member.Name);
+
+                    }
+                    else
+                    {
+                        prop.SetValue(instance, "");
+                        dict.Add("UmbracoMember", "");
+                    }
                 }
                 if (prop.Name == "Created")
                 {
@@ -119,7 +139,7 @@ namespace MCFly
             ////workaround for nullable string props
             foreach (PropertyInfo prop in type.GetProperties())
             {
-                if (prop.Name != "Id" && prop.Name != "Created" && prop.Name != "UmbracoPage")
+                if (prop.Name != "Id" && prop.Name != "Created" && prop.Name != "UmbracoPage" && prop.Name != "UmbracoMember")
                 {
                     if (string.IsNullOrEmpty(frm[prop.Name]) && prop.PropertyType == typeof(string))
                     {
@@ -199,7 +219,7 @@ namespace MCFly
             var dict = new Dictionary<string, object>();
             foreach (PropertyInfo prop in type.GetProperties())
             {
-                if (prop.Name != "Id" && prop.Name != "Created" && prop.Name != "UmbracoPage")
+                if (prop.Name != "Id" && prop.Name != "Created" && prop.Name != "UmbracoPage" && prop.Name != "UmbracoMember")
                 {
                     var fld = form.Fields.FirstOrDefault(x => x.Alias == prop.Name);
 
@@ -212,6 +232,23 @@ namespace MCFly
                         dict.Add(prop.Name, val);
                     }
                     
+                }
+                if (prop.Name == "Member")
+                {
+
+                    var memberShipHelper = new MembershipHelper(Umbraco.UmbracoContext);
+                    var member = Services.MemberService.GetById(memberShipHelper.GetCurrentMemberId());
+                    if (memberShipHelper.IsLoggedIn())
+                    {
+                        prop.SetValue(instance, member.Name);
+                        dict.Add("UmbracoMember", member.Name);
+
+                    }
+                    else
+                    {
+                        prop.SetValue(instance, "");
+                        dict.Add("UmbracoMember", "");
+                    }
                 }
                 if (prop.Name == "Created")
                 {

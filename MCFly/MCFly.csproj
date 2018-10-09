@@ -3319,6 +3319,7 @@
     <Content Include="Views\TextPage.cshtml" />
     <Content Include="Views\Partials\MCFly\MCFlyAjaxForm.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\DateTime.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Hidden.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -3434,6 +3435,7 @@
     <Compile Include="Core\FieldTypes\Date.cs" />
     <Compile Include="Core\FieldTypes\Dropdown.cs" />
     <Compile Include="Core\FieldTypes\Email.cs" />
+    <Compile Include="Core\FieldTypes\Hidden.cs" />
     <Compile Include="Core\FieldTypes\Image.cs" />
     <Compile Include="Core\FieldTypes\Number.cs" />
     <Compile Include="Core\FieldTypes\RadioButtonList.cs" />
