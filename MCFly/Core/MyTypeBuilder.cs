@@ -191,6 +191,21 @@ namespace MCFly.Core
                 });
                     propertyBuilder.SetCustomAttribute(attrib);
                 }
+                else if (propName == "UmbracoMember")
+                {
+                    ConstructorInfo ctor = typeof(UIOMaticListViewFieldAttribute).GetConstructor(new Type[] { typeof(int) });
+                    CustomAttributeBuilder attrib = new CustomAttributeBuilder(ctor, new object[] { order },
+                          new[] {
+                typeof(UIOMaticListViewFieldAttribute).GetProperty("View"),
+
+                 },
+                 new object[] {
+                 fieldType.BackOfficeListView,
+
+                 });
+                    propertyBuilder.SetCustomAttribute(attrib);
+                }
+            
                 else if (propName == "UmbracoPage")
                 {
                     ConstructorInfo ctorup = typeof(UIOMaticFieldAttribute).GetConstructor(new Type[] { typeof(int) });
