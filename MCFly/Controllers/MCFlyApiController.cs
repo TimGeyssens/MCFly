@@ -4,19 +4,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using UIOMatic;
-using UIOMatic.Attributes;
-using Umbraco.Core;
+using UC = Umbraco.Core;
 using Umbraco.Core.Persistence;
 using Umbraco.Web;
 using Umbraco.Web.Editors;
 using Umbraco.Web.Mvc;
+using NPoco;
+using NPoco.Linq;
+using NPoco.ArrayExtensions;
+using Umbraco.Core;
 
 namespace MCFly.Controllers
 {
     [PluginController("MCFly")]
     public class MCFlyApiController : UmbracoAuthorizedJsonController
     {
-
+        private Database db;
+        public MCFlyApiController()
+        {
+            db = new Database(UC.Constants.System.UmbracoConnectionName);
+        }
         public object GetSummaryDashboardTypes()
         {
             return GetAll()
@@ -49,19 +56,19 @@ namespace MCFly.Controllers
         public IEnumerable<Form> GetAll()
         {
             var query = new Sql().Select("*").From("MCFlyForms");
-            return DatabaseContext.Database.Fetch<Form>(query);
+            return db.Fetch<Form>(query);
         }
 
         public Form GetById(int id)
         {
 
-            var query = new Sql().Select("*").From("MCFlyForms").Where<Form>(x => x.Id == id);
-            var form = DatabaseContext.Database.Fetch<Form>(query).FirstOrDefault();
+           
+            var form = db.SingleById<Form>(id);
 
-            form.Fields = DatabaseContext.Database.Fetch<Field>(new Sql().Select("*").From("MCFlyFields").Where<Field>(x => x.FormId == id)).OrderBy(x => x.SortOrder).ToList();
+            form.Fields = db.Fetch<Field>().Where(x => x.FormId == id).OrderBy(x => x.SortOrder).ToList();
             foreach (var fld in form.Fields)
-                fld.FieldOptions = DatabaseContext.Database.Fetch<FieldOption>(new Sql().Select("*").From("MCFlyFieldOptions").Where<FieldOption>(x => x.FieldId == fld.Id));
-            form.Emails = DatabaseContext.Database.Fetch<Core.Email>(new Sql().Select("*").From("MCFlyEMails").Where<Core.Email>(x => x.FormId == id));
+                fld.FieldOptions = db.Fetch<FieldOption>().Where(x => x.FieldId == fld.Id);
+            form.Emails = db.Fetch<Core.Email>().Where(x => x.FormId == id).ToList();
 
             form.FieldsToDelete = new int[0];
             form.EmailsToDelete = new int[0];
@@ -78,11 +85,11 @@ namespace MCFly.Controllers
             if (form == null)
                 return null;
 
-            form.Fields = DatabaseContext.Database.Fetch<Field>(new Sql().Select("*").From("MCFlyFields").Where<Field>(x => x.FormId == form.Id));
+            form.Fields = db.Fetch<Field>().Where(x => x.FormId == form.Id).ToList();
             foreach (var fld in form.Fields)
-                fld.FieldOptions = DatabaseContext.Database.Fetch<FieldOption>(new Sql().Select("*").From("MCFlyFieldOptions").Where<FieldOption>(x => x.FieldId == fld.Id));
+                fld.FieldOptions = db.Fetch<FieldOption>().Where(x => x.FieldId == fld.Id).ToList();
 
-            form.Emails = DatabaseContext.Database.Fetch<Core.Email>(new Sql().Select("*").From("MCFlyEMails").Where<Core.Email>(x => x.FormId == form.Id));
+            form.Emails = db.Fetch<Core.Email>().Where<Core.Email>(x => x.FormId == form.Id).ToList();
 
             return form;
 
@@ -93,9 +100,9 @@ namespace MCFly.Controllers
             var needsFlag = false;
 
             if (form.Id > 0)
-                DatabaseContext.Database.Update(form);
+                db.Update(form);
             else
-                DatabaseContext.Database.Save(form);
+                db.Save(form);
 
             int sortOrder = 0;
             foreach (var fld in form.Fields)
@@ -105,12 +112,12 @@ namespace MCFly.Controllers
 
                 if (fld.Id > 0)
                 {
-                    DatabaseContext.Database.Update(fld);
+                    db.Update(fld);
                 }
                 else
                 {
                     needsFlag = true;
-                    DatabaseContext.Database.Save(fld);
+                    db.Save(fld);
                 }
 
                 if (fld.FieldOptions != null)
@@ -120,9 +127,9 @@ namespace MCFly.Controllers
                         option.FieldId = fld.Id;
 
                         if (option.Id > 0)
-                            DatabaseContext.Database.Update(option);
+                            db.Update(option);
                         else
-                            DatabaseContext.Database.Save(option);
+                            db.Save(option);
                     }
                 }
                 sortOrder++;
@@ -141,9 +148,9 @@ namespace MCFly.Controllers
                     email.ToProperty = string.Empty;
 
                 if (email.Id > 0)
-                    DatabaseContext.Database.Update(email);
+                    db.Update(email);
                 else
-                    DatabaseContext.Database.Save(email);
+                    db.Save(email);
 
             }
 
@@ -152,7 +159,7 @@ namespace MCFly.Controllers
                 foreach (int id in form.FieldsToDelete)
                 {
                     needsFlag = true;
-                    DatabaseContext.Database.Execute(new Sql("Delete From [MCFlyFields] Where [Id] = @0", id));
+                    db.Execute(new Sql("Delete From [MCFlyFields] Where [Id] = @0", id));
 
                 }
             }
@@ -160,32 +167,31 @@ namespace MCFly.Controllers
             {
                 foreach (int id in form.EmailsToDelete)
                 {
-                    DatabaseContext.Database.Execute(new Sql("Delete From [MCFlyEmails] Where [Id] = @0", id));
+                    db.Execute(new Sql("Delete From [MCFlyEmails] Where [Id] = @0", id));
 
                 }
             }
             if (needsFlag)
             {
-                var ctx = ApplicationContext.DatabaseContext;
-                ctx.Database.Insert(new MCFly.Core.Flag
+                db.Insert(new MCFly.Core.Flag
                 {
                     FormId = form.Id
                 });
             }
 
             var context = new HttpContextWrapper(HttpContext.Current);
-            ApplicationContext.Current.RestartApplicationPool(context);
 
-
+            UmbracoApplication.Restart(context);
 
             return form;
         }
 
         public int DeleteById(int id)
         {
-            DatabaseContext.Database.Execute(new Sql("Delete From [MCFlyEMails] Where [FormId] = @0", id));
-            DatabaseContext.Database.Execute(new Sql("Delete From [MCFlyFields] Where [FormId] = @0", id));
-            return DatabaseContext.Database.Delete<Form>(id);
+            
+            db.Execute(new Sql("Delete From [MCFlyEMails] Where [FormId] = @0", id));
+            db.Execute(new Sql("Delete From [MCFlyFields] Where [FormId] = @0", id));
+            return db.Delete<Form>(id);
         }
 
         public object GetSafeAlias(string value)
@@ -193,6 +199,8 @@ namespace MCFly.Controllers
             return new { value = value.ToSafeAlias() };
             
         }
+
+      
 
     }
 }

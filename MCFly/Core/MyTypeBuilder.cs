@@ -47,8 +47,8 @@ namespace MCFly.Core
             CreateProperty(tb, form.Alias, form,null, MCFly.Core.Helper.GetFieldType("DateTime"),  cnt ,"Created");
             cnt++;
             CreateProperty(tb, form.Alias, form, null, MCFly.Core.Helper.GetFieldType("TextBox"), cnt, "UmbracoPage");
-            cnt++;
-            CreateProperty(tb, form.Alias, form, null, MCFly.Core.Helper.GetFieldType("TextBox"), cnt, "UmbracoMember");
+            //cnt++;
+            //CreateProperty(tb, form.Alias, form, null, MCFly.Core.Helper.GetFieldType("TextBox"), cnt, "UmbracoMember");
             return tb.CreateType();
            
         }

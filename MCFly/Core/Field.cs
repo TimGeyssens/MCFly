@@ -1,5 +1,6 @@
 ﻿
 using MCFly.Core;
+using NPoco;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ using Umbraco.Core.Persistence.DatabaseAnnotations;
 namespace MCFly.Core
 {
     [TableName("MCFlyFields")]
-    [PrimaryKey("Id", autoIncrement = true)]
+    [PrimaryKey("Id", AutoIncrement = true)]
     [ExplicitColumns]
     [DataContract(Name = "field", Namespace = "")]
     public class Field

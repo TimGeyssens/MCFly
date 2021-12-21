@@ -1,18 +1,27 @@
-﻿using MCFly.Controllers;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Linq;
-using System.Web;
-using umbraco;
-using umbraco.BusinessLogic.Actions;
+using UIOMatic.Extensions;
+using UIOMatic.Services;
+using UIOMatic.Attributes;
+using UIOMatic.Enums;
+using UIOMatic.Interfaces;
 using Umbraco.Core;
+using Umbraco.Core.Services;
 using Umbraco.Web.Models.Trees;
 using Umbraco.Web.Mvc;
 using Umbraco.Web.Trees;
+using Umbraco.Web.WebApi.Filters;
+using System.Net.Http.Formatting;
+using Umbraco.Web.Models.ContentEditing;
+using System.Collections.Generic;
+using CoreConstants = Umbraco.Core.Constants;
+using Umbraco.Web.Actions;
+using MCFly.Controllers;
 
 namespace MCFly
 {
-    [Tree("MCFly", "mcfly", "MCFly")]
+    [UmbracoTreeAuthorize("mcfly")]
+    [Tree("MCFly", "mcfly", TreeTitle = "MCFly", SortOrder = 1)]
     [PluginController("MCFly")]
     public class MCFlyTreeController : TreeController
     {
@@ -23,14 +32,12 @@ namespace MCFly
             if (id == Constants.System.Root.ToInvariantString())
             {
                 // root actions              
-                menu.Items.Add<CreateChildEntity, ActionNew>(ui.Text("actions", ActionNew.Instance.Alias));
-                menu.Items.Add<RefreshNode, ActionRefresh>(ui.Text("actions", ActionRefresh.Instance.Alias), true);
-                return menu;
+                menu.Items.Add(new RefreshNode("Refresh", true));
+                menu.Items.Add<ActionNew>("Create");
             }
             else
             {
-                //menu.DefaultMenuAlias = ActionDelete.Instance.Alias;
-                menu.Items.Add<ActionDelete>(ui.Text("actions", ActionDelete.Instance.Alias));
+                menu.Items.Add<ActionDelete>("Delete");
 
             }
             return menu;

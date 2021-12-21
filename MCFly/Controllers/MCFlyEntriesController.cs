@@ -81,23 +81,23 @@ namespace MCFly
                     }
 
                 }
-                if (prop.Name == "Member")
-                {
+                //if (prop.Name == "UmbracoMember")
+                //{
                     
-                    var memberShipHelper = new MembershipHelper(Umbraco.UmbracoContext);
-                    var member = Services.MemberService.GetById(memberShipHelper.GetCurrentMemberId());
-                    if (memberShipHelper.IsLoggedIn())
-                    {
-                        prop.SetValue(instance, member.Name);
-                        dict.Add("UmbracoMember", member.Name);
+                //    var memberShipHelper = new MembershipHelper(Umbraco.UmbracoContext);
+                //    var member = Services.MemberService.GetById(memberShipHelper.GetCurrentMemberId());
+                //    if (memberShipHelper.IsLoggedIn())
+                //    {
+                //        prop.SetValue(instance, member.Name);
+                //        dict.Add("UmbracoMember", member.Name);
 
-                    }
-                    else
-                    {
-                        prop.SetValue(instance, "");
-                        dict.Add("UmbracoMember", "");
-                    }
-                }
+                //    }
+                //    else
+                //    {
+                //        prop.SetValue(instance, "");
+                //        dict.Add("UmbracoMember", "");
+                //    }
+                //}
                 if (prop.Name == "Created")
                 {
                     prop.SetValue(instance, DateTime.Now);
@@ -164,7 +164,7 @@ namespace MCFly
 
                 var mm = new MailMessage
                 {
-                    Body = EmailRenderer.Render(email.Template, instance,form,email, Umbraco.TypedContent(frm["Umbraco.AssignedContentItem.Id"])),
+                    Body = EmailRenderer.Render(email.Template, instance,form,email, Umbraco.Content(frm["Umbraco.AssignedContentItem.Id"])),
                     IsBodyHtml = true,
                     Subject = email.Subject ?? "New " + form.Name + " entry",
                     From = new MailAddress(email.From)
@@ -203,7 +203,7 @@ namespace MCFly
         }
 
         [HttpPost, ValidateInput(false)]
-        [ValidateRecaptcha]
+        //[ValidateRecaptcha]
         [ValidateAntiForgeryToken]
         public ActionResult HandleForm(FormCollection frm)
         {
@@ -219,7 +219,7 @@ namespace MCFly
             var dict = new Dictionary<string, object>();
             foreach (PropertyInfo prop in type.GetProperties())
             {
-                if (prop.Name != "Id" && prop.Name != "Created" && prop.Name != "UmbracoPage" && prop.Name != "UmbracoMember")
+                if (prop.Name != "Id" && prop.Name != "Created" && prop.Name != "UmbracoPage")
                 {
                     var fld = form.Fields.FirstOrDefault(x => x.Alias == prop.Name);
 
@@ -233,23 +233,23 @@ namespace MCFly
                     }
                     
                 }
-                if (prop.Name == "Member")
-                {
+                //if (prop.Name == "UmbracoMember")
+                //{
 
-                    var memberShipHelper = new MembershipHelper(Umbraco.UmbracoContext);
-                    var member = Services.MemberService.GetById(memberShipHelper.GetCurrentMemberId());
-                    if (memberShipHelper.IsLoggedIn())
-                    {
-                        prop.SetValue(instance, member.Name);
-                        dict.Add("UmbracoMember", member.Name);
+                //    var memberShipHelper = new MembershipHelper(Umbraco.UmbracoContext);
+                //    var member = Services.MemberService.GetById(memberShipHelper.GetCurrentMemberId());
+                //    if (memberShipHelper.IsLoggedIn())
+                //    {
+                //        prop.SetValue(instance, member.Name);
+                //        dict.Add("UmbracoMember", member.Name);
 
-                    }
-                    else
-                    {
-                        prop.SetValue(instance, "");
-                        dict.Add("UmbracoMember", "");
-                    }
-                }
+                //    }
+                //    else
+                //    {
+                //        prop.SetValue(instance, "");
+                //        dict.Add("UmbracoMember", "");
+                //    }
+                //}
                 if (prop.Name == "Created")
                 {
                     prop.SetValue(instance, DateTime.Now);
@@ -262,10 +262,10 @@ namespace MCFly
                     prop.SetValue(instance, CurrentPage.Id.ToString());
                     dict.Add("UmbracoPage", CurrentPage.Id.ToString());
                     //}
-                //else
-                //{ //use form collection value
-                //}
-            }
+                    //else
+                    //{ //use form collection value
+                    //}
+                }
             }
 
             //Server Side Validation
@@ -284,13 +284,20 @@ namespace MCFly
 
             }
 
+
+
+           
+
+
             if (!ModelState.IsValid)
                 return CurrentUmbracoPage();
+
+          
 
             ////workaround for nullable string props
             foreach (PropertyInfo prop in type.GetProperties())
             {
-                if (prop.Name != "Id" && prop.Name != "Created" && prop.Name != "UmbracoPage")
+                if (prop.Name != "Id" && prop.Name != "Created")
                 {
                     if (string.IsNullOrEmpty(frm[prop.Name]) && prop.PropertyType == typeof(string))
                     {
@@ -305,26 +312,34 @@ namespace MCFly
                 }
             }
 
+         
+
+            
+
+         
             //Store Record to DB
             if(form.StoresData)
                 UIOMaticObjectService.Instance.Create(type, dict);
 
             //Send Emails
-            foreach (var email in form.Emails)
+            if (form.Emails != null && form.Emails.Any())
             {
-               
-                var mm = new MailMessage
+                foreach (var email in form.Emails)
                 {
-                    Body = EmailRenderer.Render(email.Template, instance,form,email, CurrentPage),
-                    IsBodyHtml = true,
-                    Subject = email.Subject??"New " + form.Name + " entry",
-                    From = new MailAddress(email.From)
 
-                };
+                    var mm = new MailMessage
+                    {
+                        Body = EmailRenderer.Render(email.Template, instance, form, email, CurrentPage),
+                        IsBodyHtml = true,
+                        Subject = email.Subject ?? "New " + form.Name + " entry",
+                        From = new MailAddress(email.From)
 
-                mm.To.Add(email.ToProperty != string.Empty ? new MailAddress(type.GetProperty(email.ToProperty).GetValue(instance).ToString()) : new MailAddress(email.To));
+                    };
 
-                new SmtpClient().Send(mm);
+                    mm.To.Add(email.ToProperty != string.Empty ? new MailAddress(type.GetProperty(email.ToProperty).GetValue(instance).ToString()) : new MailAddress(email.To));
+
+                    new SmtpClient().Send(mm);
+                }
             }
 
             //Do more stuff
@@ -346,6 +361,9 @@ namespace MCFly
                     //log
                 }
             }
+
+
+            return new RedirectToUmbracoPageResult(CurrentPage.Children.First().Id);
 
             //redir
             TempData["success"] = true;

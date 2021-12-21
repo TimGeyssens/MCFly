@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NPoco;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -10,7 +11,7 @@ using Umbraco.Core.Persistence.DatabaseAnnotations;
 namespace MCFly.Core
 {
     [TableName("MCFlyEmails")]
-    [PrimaryKey("Id", autoIncrement = true)]
+    [PrimaryKey("Id", AutoIncrement = true)]
     [ExplicitColumns]
     [DataContract(Name = "email", Namespace = "")]
     public class Email

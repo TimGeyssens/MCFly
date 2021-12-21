@@ -11,6 +11,15 @@
        
     ]
     ,
+	
+	dashboards:  [
+        {
+            alias: "MCFlySummaryDashboard",
+            view:  "~/App_Plugins/MCFly/backoffice/dashboard/summarydashboard.html",
+            sections:  [ "mcfly" ],
+            weight: -10
+        }
+    ],
 	javascript: [
 		'~/App_Plugins/MCFly/imports.js',
 		'~/App_Plugins/MCFly/resource.js',
