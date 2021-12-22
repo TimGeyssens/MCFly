@@ -6,10 +6,11 @@ image: Visual Studio 2017
 # Do not build on tags
 skip_tags: true
 
-
+before_build:
+  - ps: nuget restore MCFly.sln
+  
 build_script:
-  - cd Build
-  - Package.build.cmd
+  - msbuild build/Package.build.xml
 
 artifacts:
   - path: artifacts\*.nupkg
@@ -18,5 +19,5 @@ deploy:
   provider: NuGet
   server:
   api_key:
-    secure: cRKDqHqagUzMgXLZ971fBXwpacf44O7jsIk7hfeLNo75kShTMknWjQfWLGxgKIPt
+    secure: pSnnMzX7vNehQs7wWAPaZWMYmNv+D0UYrwwp5+ncdhYVifcAkNfY4fIHR/GDeEBi
   artifact: /.*\.nupkg/
