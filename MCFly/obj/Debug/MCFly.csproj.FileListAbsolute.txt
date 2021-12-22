@@ -330,9 +330,7 @@ C:\Users\tim_g\Documents\Projects\MCFly\MCFly\bin\MCFly.pdb
 C:\Users\tim_g\Documents\Projects\MCFly\MCFly\bin\AutoMapper.dll
 C:\Users\tim_g\Documents\Projects\MCFly\MCFly\bin\ClientDependency.Core.dll
 C:\Users\tim_g\Documents\Projects\MCFly\MCFly\bin\ClientDependency.Core.Mvc.dll
-C:\Users\tim_g\Documents\Projects\MCFly\MCFly\bin\CookComputing.XmlRpcV2.dll
 C:\Users\tim_g\Documents\Projects\MCFly\MCFly\bin\CsvHelper.dll
-C:\Users\tim_g\Documents\Projects\MCFly\MCFly\bin\DataAnnotationsExtensions.ClientValidation.dll
 C:\Users\tim_g\Documents\Projects\MCFly\MCFly\bin\DataAnnotationsExtensions.dll
 C:\Users\tim_g\Documents\Projects\MCFly\MCFly\bin\Examine.dll
 C:\Users\tim_g\Documents\Projects\MCFly\MCFly\bin\Forloop.HtmlHelpers.dll
@@ -383,8 +381,6 @@ C:\Users\tim_g\Documents\Projects\MCFly\MCFly\bin\UIOMaticAddons.Export.dll
 C:\Users\tim_g\Documents\Projects\MCFly\MCFly\bin\Umbraco.Core.dll
 C:\Users\tim_g\Documents\Projects\MCFly\MCFly\bin\Umbraco.ModelsBuilder.dll
 C:\Users\tim_g\Documents\Projects\MCFly\MCFly\bin\Umbraco.Web.UI.dll
-C:\Users\tim_g\Documents\Projects\MCFly\MCFly\bin\UrlRewritingNet.UrlRewriter.dll
-C:\Users\tim_g\Documents\Projects\MCFly\MCFly\bin\WebActivatorEx.dll
 C:\Users\tim_g\Documents\Projects\MCFly\MCFly\bin\WebMatrix.Data.dll
 C:\Users\tim_g\Documents\Projects\MCFly\MCFly\bin\WebMatrix.WebData.dll
 C:\Users\tim_g\Documents\Projects\MCFly\MCFly\bin\AutoMapper.pdb
@@ -435,7 +431,6 @@ C:\Users\tim_g\Documents\Projects\MCFly\MCFly\obj\Debug\MCFly.csproj.App.config
 C:\Users\tim_g\Documents\Projects\MCFly\MCFly\obj\Debug\MCFly.csproj.CopyComplete
 C:\Users\tim_g\Documents\Projects\MCFly\MCFly\obj\Debug\MCFly.dll
 C:\Users\tim_g\Documents\Projects\MCFly\MCFly\obj\Debug\MCFly.pdb
-C:\Users\tim_g\Documents\Projects\MCFly\MCFly\bin\WebActivator.dll
 C:\Users\tim_g\Documents\Projects\MCFly\MCFly\obj\Debug\MCFly.csprojAssemblyReference.cache
 C:\Users\tim_g\Documents\Projects\MCFly\MCFly\bin\amd64\Microsoft.VC90.CRT\Microsoft.VC90.CRT.manifest
 C:\Users\tim_g\Documents\Projects\MCFly\MCFly\bin\amd64\Microsoft.VC90.CRT\msvcr90.dll
