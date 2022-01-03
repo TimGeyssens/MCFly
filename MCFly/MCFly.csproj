@@ -3603,6 +3603,7 @@
     <Compile Include="Migrations\2.0.0\AddAllowedSectionToAdmins.cs" />
     <Compile Include="Migrations\Components.cs" />
     <Compile Include="Migrations\ContinuousReflection.cs" />
+    <Compile Include="Migrations\StubMigration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Core\FieldTypes\TextBox.cs" />
     <Compile Include="SectionComposer.cs" />

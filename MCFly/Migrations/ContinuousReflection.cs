@@ -62,18 +62,30 @@ namespace MCFly.Migrations
                     {
                         foreach (var form in forms)
                         {
+                         
                             Type type = MyTypeBuilder.CreateNewObject(form);
 
-                            var flagExist = db.Fetch<MCFly.Core.Flag>().Where(x => x.FormId == form.Id).Any();
+                            var flagExist = false;
+
+                            if (TableExists("MCFlyFlags"))
+                            {
+                                flagExist = db.Fetch<MCFly.Core.Flag>().Where(x => x.FormId == form.Id).Any();
+                            }
 
                             if (!this.TableExists(form.Alias) || flagExist)
                             {
-                                MethodInfo method = typeof(MigrationBase).GetMethod("Table");
+                              
+                                MethodInfo method = typeof(StubMigration).GetMethod("Table");
                                 MethodInfo generic = method.MakeGenericMethod(type);
-                                generic.Invoke(this, null);
+                                var obj = generic.Invoke(this, null);
 
-                                db.Execute(new Sql("Delete From [MCFlyFlags] Where [FormId] = @0", form.Id));
+                                MethodInfo doMethod = typeof(StubMigration).GetMethod("Do");
+                                doMethod.Invoke(obj, null);
 
+                                if (TableExists("MCFlyFlags"))
+                                {
+                                    db.Execute(new Sql("Delete From [MCFlyFlags] Where [FormId] = @0", form.Id));
+                                }
                             }
 
                         }
