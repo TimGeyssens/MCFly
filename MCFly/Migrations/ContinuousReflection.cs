@@ -54,28 +54,37 @@ namespace MCFly.Migrations
             {
 
                 var db = scope.Database;
-               
+
+
+                var query = new Sql().Select("*").From("MCFlyForms");
+              
 
                 var ctrl = new MCFlyApiController();
+                var forms = db.Fetch<Form>(query);
 
-                foreach (var form in ctrl.GetAll())
+                if (forms != null && forms.Any())
                 {
-                    var completeForm = ctrl.GetById(form.Id);
-                    Type type = MyTypeBuilder.CreateNewObject(completeForm);
-
-
-                    var flagExist = db.Fetch<MCFly.Core.Flag>().Where(x => x.FormId == form.Id).Any();
-
-                    if (!this.TableExists(completeForm.Alias) || flagExist)
+                    foreach (var form in forms)
                     {
-                        MethodInfo method = typeof(MigrationBase).GetMethod("Table");
-                        MethodInfo generic = method.MakeGenericMethod(type);
-                        generic.Invoke(this, null);
+                        var completeForm = ctrl.GetById(form.Id);
+                        Type type = MyTypeBuilder.CreateNewObject(completeForm);
 
-                        db.Execute(new Sql("Delete From [MCFlyFlags] Where [FormId] = @0", form.Id));
+
+                        var flagExist = db.Fetch<MCFly.Core.Flag>().Where(x => x.FormId == form.Id).Any();
+
+                        if (!this.TableExists(completeForm.Alias) || flagExist)
+                        {
+                            MethodInfo method = typeof(MigrationBase).GetMethod("Table");
+                            MethodInfo generic = method.MakeGenericMethod(type);
+                            generic.Invoke(this, null);
+
+                            db.Execute(new Sql("Delete From [MCFlyFlags] Where [FormId] = @0", form.Id));
+                        }
+
                     }
-
                 }
+
+                scope.Complete();
 
             }
             
