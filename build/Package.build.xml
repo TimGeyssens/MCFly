@@ -16,7 +16,7 @@
 	<!-- SHARED PROPERTIES -->
 	<PropertyGroup>
 		<PackageName>MCFly</PackageName>
-		<MinUmbracoVersion>7.7.0</MinUmbracoVersion>
+		<MinUmbracoVersion>8.0.0</MinUmbracoVersion>
 		<Readme>Addon for UI-O-Matic that allows you to build types from a UI and generate frontend forms</Readme>
 		<AuthorName>Tim Geyssens</AuthorName>
 		<AuthorUrl>https://github.com/TimGeyssens/UIOMatic</AuthorUrl>
@@ -41,7 +41,7 @@
 	</PropertyGroup>
 
 	<PropertyGroup>
-		<Version>2.0.1</Version>
+		<Version>2.0.4</Version>
 		<ProjectName>MCFly</ProjectName>
 	</PropertyGroup>
 

@@ -1,5 +1,5 @@
 # version format
-version: 2.0.1.{build}
+version: 2.0.4.{build}
 
 image: Visual Studio 2017
 
@@ -21,3 +21,4 @@ deploy:
   api_key:
     secure: pSnnMzX7vNehQs7wWAPaZWMYmNv+D0UYrwwp5+ncdhYVifcAkNfY4fIHR/GDeEBi
   artifact: /.*\.nupkg/
+  
