@@ -1,11 +1,11 @@
 ﻿angular.module("umbraco").controller("UIOMatic.FieldEditors.Pickers.ObjectController",
-    function ($scope, $routeParams, $interpolate, $http, dialogService, uioMaticObjectResource) {
+    function ($scope, $routeParams, $interpolate, $http, editorService, uioMaticObjectResource) {
 
         $scope.maxItems = $scope.property.config.maxItems || 0;
 
         $scope.openDialog = function () {
-            dialogService.open({
-                template: '/App_Plugins/UIOMatic/backoffice/views/dialogs/objectsearcher.html',
+            editorService.open({
+                view: '/App_Plugins/UIOMatic/backoffice/views/dialogs/objectsearcher.html',
                 show: true,
                 callback: function (selectedIds) {
                     $scope.selectedIds = selectedIds;

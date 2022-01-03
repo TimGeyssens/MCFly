@@ -412,11 +412,11 @@
       <Private>True</Private>
       <Private>True</Private>
     </Reference>
-    <Reference Include="UIOMatic, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Nibble.Umbraco.UIOMatic.Core.2.0.4\lib\net45\UIOMatic.dll</HintPath>
+    <Reference Include="UIOMatic, Version=3.1.1.633, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Nibble.Umbraco.UIOMatic.Core.3.1.1\lib\net45\UIOMatic.dll</HintPath>
     </Reference>
     <Reference Include="UIOMaticAddons.Export, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Nibble.Umbraco.UIOMatic.Addons.Export.1.0.1\lib\UIOMaticAddons.Export.dll</HintPath>
+      <HintPath>..\packages\Nibble.Umbraco.UIOMatic.Addons.Export.2.0.0\lib\UIOMaticAddons.Export.dll</HintPath>
     </Reference>
     <Reference Include="Umbraco.Core, Version=8.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\UmbracoCms.Core.8.1.5\lib\net472\Umbraco.Core.dll</HintPath>
@@ -3136,8 +3136,17 @@
     <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.controller.js" />
     <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.html" />
     <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.resource.js" />
+    <Content Include="App_Plugins\UIOMaticAddons\export.controller.js" />
+    <Content Include="App_Plugins\UIOMaticAddons\export.html" />
+    <Content Include="App_Plugins\UIOMaticAddons\export.resource.js" />
+    <Content Include="App_Plugins\UIOMaticAddons\Exports\temp.txt" />
+    <Content Include="App_Plugins\UIOMatic\backoffice\apps\uiomaticContent.controller.js" />
+    <Content Include="App_Plugins\UIOMatic\backoffice\apps\uiomaticContent.html" />
+    <Content Include="App_Plugins\UIOMatic\backoffice\assets\css\bootstrap-datetimepicker.min.css" />
     <Content Include="App_Plugins\UIOMatic\backoffice\assets\css\uiomatic.css" />
     <Content Include="App_Plugins\UIOMatic\backoffice\assets\js\angular-relative-date.js" />
+    <Content Include="App_Plugins\UIOMatic\backoffice\assets\js\bootstrap-datetimepicker.js" />
+    <Content Include="App_Plugins\UIOMatic\backoffice\assets\js\moment-with-locales.js" />
     <Content Include="App_Plugins\UIOMatic\backoffice\directives\pagination.directive.js" />
     <Content Include="App_Plugins\UIOMatic\backoffice\directives\pagination.html" />
     <Content Include="App_Plugins\UIOMatic\backoffice\imports.js" />
@@ -3169,6 +3178,8 @@
     <Content Include="App_Plugins\UIOMatic\backoffice\views\fieldeditors\file.html" />
     <Content Include="App_Plugins\UIOMatic\backoffice\views\fieldeditors\label.controller.js" />
     <Content Include="App_Plugins\UIOMatic\backoffice\views\fieldeditors\label.html" />
+    <Content Include="App_Plugins\UIOMatic\backoffice\views\fieldeditors\link.controller.js" />
+    <Content Include="App_Plugins\UIOMatic\backoffice\views\fieldeditors\link.html" />
     <Content Include="App_Plugins\UIOMatic\backoffice\views\fieldeditors\list.controller.js" />
     <Content Include="App_Plugins\UIOMatic\backoffice\views\fieldeditors\list.html" />
     <Content Include="App_Plugins\UIOMatic\backoffice\views\fieldeditors\map.controller.js" />
@@ -3199,6 +3210,10 @@
     <Content Include="App_Plugins\UIOMatic\backoffice\views\fieldviews\label.html" />
     <Content Include="App_Plugins\UIOMatic\backoffice\views\propertyeditors\dropdown.controller.js" />
     <Content Include="App_Plugins\UIOMatic\backoffice\views\propertyeditors\dropdown.html" />
+    <Content Include="App_Plugins\UIOMatic\backoffice\views\propertyeditors\listview.controller.js" />
+    <Content Include="App_Plugins\UIOMatic\backoffice\views\propertyeditors\listview.dialog.controller.js" />
+    <Content Include="App_Plugins\UIOMatic\backoffice\views\propertyeditors\listview.dialog.html" />
+    <Content Include="App_Plugins\UIOMatic\backoffice\views\propertyeditors\listview.html" />
     <Content Include="App_Plugins\UIOMatic\backoffice\views\propertyeditors\multipicker.controller.js" />
     <Content Include="App_Plugins\UIOMatic\backoffice\views\propertyeditors\multipicker.html" />
     <Content Include="App_Plugins\UIOMatic\backoffice\views\propertyeditors\picker.tablesortorder.html" />
@@ -3268,8 +3283,6 @@
     <Content Include="Config\imageprocessor\processing.config" />
     <Content Include="Config\imageprocessor\cache.config" />
     <Content Include="Config\umbracoSettings.config" />
-    <Content Include="App_Plugins\UIOMatic\UIOMatic.config" />
-    <Content Include="App_Plugins\UIOMatic\package.manifest" />
     <Content Include="App_Plugins\ModelsBuilder\package.manifest" />
     <Content Include="Views\Partials\Grid\Editors\Textstring.cshtml" />
     <Content Include="Views\Partials\Grid\Editors\Rte.cshtml" />
@@ -3286,6 +3299,9 @@
     <Content Include="Config\HealthChecks.config" />
     <Content Include="Config\ClientDependency.config" />
     <Content Include="Config\BackOfficeTours\getting-started.json" />
+    <Content Include="App_Plugins\UIOMatic\UIOMatic.config" />
+    <Content Include="App_Plugins\UIOMatic\package.manifest" />
+    <Content Include="App_Plugins\UIOMaticAddons\package.manifest" />
     <None Include="Views\Shared\DisplayTemplates\Text.cshtml" />
     <Content Include="Views\Web.config" />
     <Content Include="Config\trees.config" />
@@ -3297,7 +3313,6 @@
     <Content Include="App_Plugins\Grid\Editors\Render\media_wide.cshtml" />
     <Content Include="App_Plugins\Grid\Editors\Render\quote_with_description.cshtml" />
     <Content Include="Views\Home.cshtml" />
-    <Content Include="App_Plugins\UIOMaticAddons\package.manifest" />
     <Content Include="Views\Shared\EditorTemplates\CheckBox.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\TextArea.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Number.cshtml" />
@@ -3546,10 +3561,6 @@
     <Content Include="App_Plugins\MCFly\backoffice\MCFly\edit.controller.js" />
     <Content Include="App_Plugins\MCFly\backoffice\MCFly\edit.html" />
     <Content Include="App_Plugins\MCFly\resource.js" />
-    <Content Include="App_Plugins\UIOMaticAddons\export.controller.js" />
-    <Content Include="App_Plugins\UIOMaticAddons\export.html" />
-    <Content Include="App_Plugins\UIOMaticAddons\export.resource.js" />
-    <Content Include="App_Plugins\UIOMaticAddons\Exports\temp.txt" />
     <Content Include="App_Plugins\UIOMatic\backoffice\views\propertyeditors\objectsearcher.controller.js" />
     <Content Include="App_Plugins\UIOMatic\backoffice\views\propertyeditors\objectsearcher.html" />
     <Content Include="JS\bootstrap.min.js" />

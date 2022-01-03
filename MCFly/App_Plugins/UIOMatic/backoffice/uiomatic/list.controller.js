@@ -1,11 +1,16 @@
 ﻿angular.module("umbraco").controller("uioMatic.ObjectListController",
-    function ($scope, $routeParams, $location, $timeout, uioMaticUtilityService, uioMaticObjectResource, navigationService, dialogService) {
+    function ($scope, $routeParams, $location, $timeout, uioMaticUtilityService, uioMaticObjectResource, navigationService, editorService) {
 
         var searchTimeout;
+
+        $scope.dropdown = {};
+        $scope.currentSection = $routeParams.section || 'uiomatic';
+        $scope.dropdown.isOpen = false;
 
         $scope.typeAlias = $routeParams.id;
         $scope.selectedIds = [];
         $scope.actionInProgress = false;
+        $scope.loading = false;
 
         $scope.currentPage = 1;
         $scope.itemsPerPage = JSON.parse(Umbraco.Sys.ServerVariables.uioMatic.settings.defaultListViewPageSize);
@@ -42,7 +47,19 @@
             }).join("|");
         }
 
-        function fetchData() {
+        function fetchData(firstLoad) {
+            
+            $scope.loading = true;
+            $scope.rows = 0;
+            $scope.totalPages = 0;
+
+            if (firstLoad) {
+                saveState();
+
+            } else {
+                loadState();
+            }
+
             uioMaticObjectResource.getPaged($scope.typeAlias, $scope.itemsPerPage, $scope.currentPage,
                 $scope.initialFetch ? "" : $scope.predicate,
                 $scope.initialFetch ? "" : ($scope.reverse ? "desc" : "asc"),
@@ -52,7 +69,58 @@
                     $scope.rows = resp.items;
                     $scope.totalPages = resp.totalPages;
                     $scope.totalItems = resp.totalItems;
+                    $scope.loading = false;
                 });
+
+          
+        }
+
+        function saveState() {
+            localStorage.setItem('uioMatic.ObjectListController.' + $scope.typeAlias, JSON.stringify({
+                itemsPerPage: $scope.itemsPerPage,
+                currentPage: $scope.currentPage,
+                searchTerm: $scope.searchTerm,
+                predicate: $scope.predicate,
+                reverse: $scope.reverse,
+                filtersStr: $scope.filtersStr,
+                initialFetch: $scope.initialFetch,
+                filterProperties: $scope.filterProperties.map((fp) => {
+                    return {
+                        key: fp.key,
+                        value: fp.value
+                    };
+                })
+            }));
+        }
+
+        function loadState() {
+            try {
+                var state = JSON.parse(localStorage.getItem('uioMatic.ObjectListController.' + $scope.typeAlias));
+                $scope.itemsPerPage = state.itemsPerPage;
+                $scope.currentPage = state.currentPage;
+                $scope.searchTerm = state.searchTerm;
+                $scope.searchFilter = state.searchTerm;
+                $scope.predicate = state.predicate;
+                $scope.reverse = state.reverse;
+                $scope.filtersStr = state.filtersStr;
+                $scope.initialFetch = state.initialFetch;
+
+                if (state.filterProperties) {
+                    state.filterProperties.forEach(function (savedFp) {
+
+                        var filter = $scope.filterProperties.find((fp) => {
+                            return fp.key === savedFp.key
+                        });
+
+                        if (filter) {
+                            filter.value = savedFp.value;
+                        }
+                    });
+                }
+            } catch (e) {
+                console.warn("ui-o-matic list state restore failed => " + e);
+              
+            }
         }
 
         uioMaticObjectResource.getTypeInfo($scope.typeAlias, true).then(function (response) {
@@ -66,12 +134,14 @@
             $scope.predicate = response.sortColumn;
             $scope.reverse = response.sortOrder == "desc";
 
+
             // Pass extra meta data into filter properties
             $scope.filterProperties = response.listViewFilterProperties.map(function (itm) {
                 itm.typeAlias = $scope.typeAlias;
                 if (itm.config && itm.config.defaultValue) {
                     itm.value = itm.config.defaultValue;
                 }
+
                 return itm;
             });
 
@@ -81,7 +151,7 @@
             // Sync the tree
             navigationService.syncTree({ tree: 'uiomatic', path: response.path, forceReload: false, activate: true });
 
-            fetchData();
+            fetchData(true);
 
             startFilterWatch();
         });
@@ -125,8 +195,8 @@
                 var rowSelected = $scope.isRowSelected(row);
                 if ((doSelect && !rowSelected) || (!doSelect && rowSelected)) {
                     $scope.toggleSelection($scope.getObjectKey(row));
-                } 
-            });            
+                }
+            });
         }
 
         $scope.isRowSelected = function (row) {
@@ -197,12 +267,17 @@
         }
 
         $scope.openAction = function (action) {
-            dialogService.open({
-                template: action.view,
-                show: true,
+            editorService.open({
+                view: action.view,
                 dialogData: {
                     typeAlias: $scope.typeAlias,
                     config: action.config
+                },
+                submit: function () {
+                    editorService.close();
+                },
+                close: function () {
+                    editorService.close();
                 }
             });
         }

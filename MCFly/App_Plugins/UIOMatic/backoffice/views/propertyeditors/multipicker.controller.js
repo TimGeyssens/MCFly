@@ -1,22 +1,30 @@
 ﻿angular.module("umbraco").controller("UIOMatic.PropertyEditors.MultiPicker",
-    function ($scope, $routeParams, $interpolate, $http, dialogService, uioMaticObjectResource) {
+    function ($scope, $interpolate, editorService, uioMaticObjectResource) {
 
         $scope.maxItems = $scope.model.config.maxItems || 0;
 
         $scope.openDialog = function () {
-            dialogService.open({
-                template: '/App_Plugins/UIOMatic/backoffice/views/dialogs/objectsearcher.html',
+
+            editorService.open({
+                view: '/App_Plugins/UIOMatic/backoffice/views/dialogs/objectsearcher.html',
                 show: true,
-                callback: function (selectedIds) {
+                size: 'small',
+
+                submit: function (selectedIds) {
                     $scope.selectedIds = selectedIds;
+                    editorService.close();
                     getFullDetails();
+                },
+                close: function () {
+                    editorService.close();
                 },
                 dialogData: {
                     maxItems: $scope.maxItems > 0 ? $scope.maxItems - $scope.selectedIds.length : 0,
                     typeAlias: $scope.model.config.typeAlias,
                     textTemplate: $scope.model.config.textTemplate,
-                    selectedIds: $scope.selectedIds
-                }
+                    selectedIds: $scope.selectedIds,
+                    label: $scope.model.label
+                },
             });
         }
 
@@ -61,4 +69,5 @@
         }
 
         init();
-    });
+    }
+);
