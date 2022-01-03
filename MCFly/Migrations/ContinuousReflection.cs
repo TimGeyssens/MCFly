@@ -24,67 +24,65 @@ namespace MCFly.Migrations
         {
             MCFly.Core.Helper.EnsureMCFlyFieldTypes();
 
-            
-            if (!this.TableExists("MCFlyForms"))
+            if (!TableExists("MCFlyForms"))
             {
                 Create.Table<Form>().Do();
             }
 
-            if (!this.TableExists("MCFlyFields"))
+            if (!TableExists("MCFlyFields"))
             {
                 Create.Table<Field>().Do();
             }
 
-            if (!this.TableExists("MCFlyFieldOptions"))
+            if (!TableExists("MCFlyFieldOptions"))
             {
                 Create.Table<FieldOption>().Do();
             }
 
-            if (!this.TableExists("MCFlyEmails"))
+            if (!TableExists("MCFlyEmails"))
             {
                 Create.Table<Email>().Do();
             }
 
-            if (!this.TableExists("MCFlyFlags"))
+            if (!TableExists("MCFlyFlags"))
             {
                 Create.Table<Flag>().Do();
             }
 
-            using (var scope = this.scopeProvider.CreateScope(autoComplete: true))
-            {
-
-                var db = scope.Database;
-
-
-                var query = new Sql().Select("*").From("MCFlyForms");
-              
-
-                var ctrl = new MCFlyApiController();
-                var forms = db.Fetch<Form>(query);
-
-                if (forms != null && forms.Any())
+            if (TableExists("MCFlyForms")) {
+                using (var scope = this.scopeProvider.CreateScope(autoComplete: true))
                 {
-                    foreach (var form in forms)
+                    var db = scope.Database;
+
+                    var query = new Sql().Select("*").From("MCFlyForms");
+
+                    var forms = db.Fetch<Form>(query);
+
+                    if (forms != null && forms.Any())
                     {
-                        var completeForm = ctrl.GetById(form.Id);
-                        Type type = MyTypeBuilder.CreateNewObject(completeForm);
-
-
-                        var flagExist = db.Fetch<MCFly.Core.Flag>().Where(x => x.FormId == form.Id).Any();
-
-                        if (!this.TableExists(completeForm.Alias) || flagExist)
+                        foreach (var form in forms)
                         {
-                            MethodInfo method = typeof(MigrationBase).GetMethod("Table");
-                            MethodInfo generic = method.MakeGenericMethod(type);
-                            generic.Invoke(this, null);
+                            Type type = MyTypeBuilder.CreateNewObject(form);
 
-                            db.Execute(new Sql("Delete From [MCFlyFlags] Where [FormId] = @0", form.Id));
+                            var flagExist = db.Fetch<MCFly.Core.Flag>().Where(x => x.FormId == form.Id).Any();
+
+                            if (!this.TableExists(form.Alias) || flagExist)
+                            {
+                                MethodInfo method = typeof(MigrationBase).GetMethod("Table");
+                                MethodInfo generic = method.MakeGenericMethod(type);
+                                generic.Invoke(this, null);
+
+                                db.Execute(new Sql("Delete From [MCFlyFlags] Where [FormId] = @0", form.Id));
+
+                            }
+
                         }
-
                     }
+
+                    scope.Complete();
                 }
 
-                scope.Complete();
+                
 
             }
             

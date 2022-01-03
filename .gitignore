@@ -19,3 +19,5 @@
 **/App_Data/cache/
 packages/
 MCFly/bin/
+
+.vs/MCFly/v15/Server/sqlite3/
