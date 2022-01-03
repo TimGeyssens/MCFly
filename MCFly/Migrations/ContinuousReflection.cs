@@ -62,7 +62,24 @@ namespace MCFly.Migrations
                     {
                         foreach (var form in forms)
                         {
-                         
+                            if (TableExists("MCFlyFields"))
+                            {
+                                form.Fields = db.Fetch<Field>().Where(x => x.FormId == form.Id).OrderBy(x => x.SortOrder).ToList();
+
+                                if (TableExists("MCFlyFieldOptions"))
+                                {
+                                    foreach (var fld in form.Fields)
+                                        fld.FieldOptions = db.Fetch<FieldOption>().Where(x => x.FieldId == fld.Id);
+                                }
+                            }
+                            if (TableExists("MCFlyEmails"))
+                            {
+                                form.Emails = db.Fetch<Core.Email>().Where(x => x.FormId == form.Id).ToList();
+                            }
+
+                            form.FieldsToDelete = new int[0];
+                            form.EmailsToDelete = new int[0];
+
                             Type type = MyTypeBuilder.CreateNewObject(form);
 
                             var flagExist = false;
