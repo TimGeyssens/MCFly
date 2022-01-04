@@ -92,11 +92,11 @@ namespace MCFly.Migrations
                             if (!this.TableExists(form.Alias) || flagExist)
                             {
                               
-                                MethodInfo method = typeof(StubMigration).GetMethod("Table");
+                                MethodInfo method = typeof(ContinuousReflection).GetMethod("Table");
                                 MethodInfo generic = method.MakeGenericMethod(type);
                                 var obj = generic.Invoke(this, null);
 
-                                MethodInfo doMethod = typeof(StubMigration).GetMethod("Do");
+                                MethodInfo doMethod = typeof(ContinuousReflection).GetMethod("Do");
                                 doMethod.Invoke(obj, null);
 
                                 if (TableExists("MCFlyFlags"))
